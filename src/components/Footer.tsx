@@ -31,7 +31,7 @@ export default function Footer() {
       </div>
 
       
-      <footer className="bg-[#1B6392] text-gray-400 px-6 py-10">
+      <footer className="bg-[#191C1F] text-gray-400 px-6 py-10">
         <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-10">
 
          
@@ -76,11 +76,11 @@ export default function Footer() {
           <div>
             <h5 className="text-white font-semibold mb-2">Download App</h5>
             <div className="space-y-2 text-sm">
-              <button className="bg-black text-white px-4 py-2 rounded w-full text-left">
+              <button className="bg-gray-800 text-white px-4 py-2 rounded w-full text-left">
                 <span className="block text-xs">GET IT ON</span>
                 <span className="block font-semibold">Google Play</span>
               </button>
-              <button className="bg-black text-white px-4 py-2 rounded w-full text-left">
+              <button className="bg-gray-800 text-white px-4 py-2 rounded w-full text-left">
                 <span className="block text-xs">Download on the</span>
                 <span className="block font-semibold">App Store</span>
               </button>
@@ -91,16 +91,16 @@ export default function Footer() {
           <div>
             <h5 className="text-white font-semibold mb-2">Popular Tag</h5>
             <div className="flex flex-wrap gap-2 text-sm">
-              <span className="bg-gray-800 px-2 py-1 rounded">Game</span>
-              <span className="bg-gray-800 px-2 py-1 rounded">iPhone</span>
-              <span className="bg-gray-800 px-2 py-1 rounded">TV</span>
-              <span className="bg-gray-800 px-2 py-1 rounded">Asus Laptop</span>
-              <span className="bg-gray-800 px-2 py-1 rounded">Macbook</span>
-              <span className="bg-gray-800 px-2 py-1 rounded">SSD</span>
-              <span className="bg-gray-800 px-2 py-1 rounded">Graphics Card</span>
-              <span className="bg-gray-800 px-2 py-1 rounded">Power Bank</span>
-              <span className="bg-gray-800 px-2 py-1 rounded">Smart TV</span>
-              <span className="bg-gray-800 px-2 py-1 rounded">Samsung</span>
+              <span className=" px-2 py-1 rounded border-gray-800">Game</span>
+              <span className=" px-2 py-1 rounded border-gray-800">iPhone</span>
+              <span className=" px-2 py-1 rounded border-gray-800">TV</span>
+              <span className=" px-2 py-1 rounded border-gray-800">Asus Laptop</span>
+              <span className=" px-2 py-1 rounded border-gray-800">Macbook</span>
+              <span className=" px-2 py-1 rounded border-gray-800">SSD</span>
+              <span className=" px-2 py-1 rounded border-gray-800">Graphics Card</span>
+              <span className=" px-2 py-1 rounded border-gray-800">Power Bank</span>
+              <span className=" px-2 py-1 rounded border-gray-800">Smart TV</span>
+              <span className=" px-2 py-1 rounded border-gray-800">Samsung</span>
             </div>
           </div>
         </div>
