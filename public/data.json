@@ -2,10 +2,17 @@
   "heroBanner": {
     "title": "Xbox Consoles",
     "price": "$299",
-    "description": "Save up to 50% on select Xbox games...",
+    "description": "Save up to 50% on select Xbox games, consoles, and accessories this summer.",
     "image": "/images/xbox.png"
   },
-  "categories": ["Computer & Laptop", "SmartPhone", "Headphones", "Accessories", "Cameras & Photo", "TV & Homes"],
+  "categories": [
+    { "id": 1, "name": "Computer & Laptop" },
+    { "id": 2, "name": "SmartPhone" },
+    { "id": 3, "name": "Headphones" },
+    { "id": 4, "name": "Accessories" },
+    { "id": 5, "name": "Cameras & Photo" },
+    { "id": 6, "name": "TV & Homes" }
+  ],
   "bestDeals": [
     {
       "id": 1,
@@ -31,6 +38,46 @@
       "price": "$999",
       "image": "/images/iphone14.png",
       "rating": 5
+    },
+    {
+      "id": 11,
+      "title": "Samsung QLED TV",
+      "price": "$799",
+      "image": "/images/samsung-tv.png",
+      "rating": 4
+    },
+    {
+      "id": 12,
+      "title": "Dell XPS 13",
+      "price": "$1,099",
+      "image": "/images/dell-xps.png",
+      "rating": 5
+    }
+  ],
+  "allProducts": [
+    {
+      "id": 100,
+      "title": "Logitech Headset",
+      "price": "$79",
+      "image": "/images/logitech-headset.png",
+      "rating": 4,
+      "categoryId": 3
+    },
+    {
+      "id": 101,
+      "title": "Canon EOS Camera",
+      "price": "$599",
+      "image": "/images/canon-eos.png",
+      "rating": 5,
+      "categoryId": 5
+    },
+    {
+      "id": 102,
+      "title": "MacBook Air M2",
+      "price": "$1,199",
+      "image": "/images/macbook-air.png",
+      "rating": 5,
+      "categoryId": 1
     }
   ]
 }

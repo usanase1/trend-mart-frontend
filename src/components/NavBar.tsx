@@ -9,13 +9,31 @@ import {
   Twitter,
   Instagram,
   Youtube,
+  MapPin,
+  RefreshCw,
+  Headset,
+  HelpCircle
 } from "lucide-react";
 import Link from "next/link";
+import { useState, useEffect } from "react";
+
+type Category = {
+  id: number;
+  name: string;
+};
 
 export default function Navbar() {
+  const [categories, setCategories] = useState<Category[]>([]);
+
+  useEffect(() => {
+    fetch("/data.json")
+      .then((res) => res.json())
+      .then((data) => setCategories(data.categories || []));
+  }, []);
+
   return (
     <>
-    
+      {/* Top Black Friday Banner */}
       <div className="bg-black text-white text-sm flex justify-between items-center px-6 py-2">
         <div>
           <span className="bg-yellow-400 text-black px-2 py-0.5 font-semibold rounded">Black</span> Friday
@@ -26,34 +44,35 @@ export default function Navbar() {
         </Link>
       </div>
 
-     
-      <div className="bg-[#1B6392] text-white text-xs flex justify-between px-6 py-2">
-        <span>Welcome to TrendMart online eCommerce store.</span>
-        <div className="flex items-center gap-4">
-          <span>Follow us:</span>
-         <Link href={"/"}> <Facebook className="w-4 h-4" /></Link>
-          <Link href={"/"}><Twitter className="w-4 h-4" /></Link>
-          <Link href={"/"}><Instagram className="w-4 h-4" /></Link>
-          <Link href={"/"}><Youtube className="w-4 h-4" /></Link>
-          <select className="bg-[#1B6392] text-white text-xs">
-            <option>Eng</option>
-            <option>Fr</option>
-          </select>
-          <select className="bg[#1B6392] text-white text-xs">
-            <option>USD</option>
-            <option>EUR</option>
-          </select>
+      {/* Welcome / Socials */}
+      <div className="bg-[#1B6392] text-white text-xs px-6 py-2">
+        <div className="flex justify-between items-center">
+          <span>Welcome to TrendMart online eCommerce store.</span>
+          <div className="flex items-center gap-4">
+            <span>Follow us:</span>
+            <Link href="/"><Facebook className="w-4 h-4" /></Link>
+            <Link href="/"><Twitter className="w-4 h-4" /></Link>
+            <Link href="/"><Instagram className="w-4 h-4" /></Link>
+            <Link href="/"><Youtube className="w-4 h-4" /></Link>
+            <select className="bg-[#1B6392] text-white text-xs border-none outline-none">
+              <option>Eng</option>
+              <option>Fr</option>
+            </select>
+            <select className="bg-[#1B6392] text-white text-xs border-none outline-none">
+              <option>USD</option>
+              <option>EUR</option>
+            </select>
+          </div>
         </div>
+        <hr className="border-t border-white mt-2" />
       </div>
 
-      
+      {/* Main Logo + Search + Icons */}
       <div className="bg-[#1B6392] text-white py-4 px-6 flex flex-col md:flex-row items-center justify-between gap-4">
-       
         <Link href="/" className="text-2xl font-bold tracking-wide flex-shrink-0">
           TrendMart
         </Link>
 
-        
         <div className="flex w-full md:max-w-md rounded overflow-hidden bg-white">
           <input
             type="text"
@@ -65,7 +84,6 @@ export default function Navbar() {
           </button>
         </div>
 
-       
         <div className="flex items-center gap-6">
           <Link href="/cart">
             <ShoppingCart className="w-6 h-6 hover:text-yellow-400" />
@@ -78,6 +96,35 @@ export default function Navbar() {
           </Link>
         </div>
       </div>
+
+      {/* Bottom Category + Links */}
+     {/* Bottom Category + Links */}
+<div className="bg-white text-black px-6 py-3 border-b">
+  <div className="flex flex-wrap items-center gap-6 text-sm">
+    <select className="border px-4 py-2 rounded">
+      <option value="">All categories</option>
+      {categories.map((cat) => (
+        <option key={cat.id} value={cat.id}>
+          {cat.name}
+        </option>
+      ))}
+    </select>
+
+    <button className="flex items-center gap-1 hover:text-[#1B6392]">
+      <MapPin className="w-4 h-4" /> Track Order
+    </button>
+    <button className="flex items-center gap-1 hover:text-[#1B6392]">
+      <RefreshCw className="w-4 h-4" /> Compare
+    </button>
+    <button className="flex items-center gap-1 hover:text-[#1B6392]">
+      <Headset className="w-4 h-4" /> Customer Support
+    </button>
+    <button className="flex items-center gap-1 hover:text-[#1B6392]">
+      <HelpCircle className="w-4 h-4" /> Need Help
+    </button>
+  </div>
+</div>
+
     </>
   );
 }
