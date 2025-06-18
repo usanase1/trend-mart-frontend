@@ -1,0 +1,36 @@
+{
+  "heroBanner": {
+    "title": "Xbox Consoles",
+    "price": "$299",
+    "description": "Save up to 50% on select Xbox games...",
+    "image": "/images/xbox.png"
+  },
+  "categories": ["Computer & Laptop", "SmartPhone", "Headphones", "Accessories", "Cameras & Photo", "TV & Homes"],
+  "bestDeals": [
+    {
+      "id": 1,
+      "title": "Sony PlayStation 5",
+      "price": "$449.42",
+      "image": "/images/ps5.png",
+      "rating": 5,
+      "tag": "HOT"
+    },
+    {
+      "id": 2,
+      "title": "DJI Drone",
+      "price": "$499",
+      "image": "/images/drone.png",
+      "rating": 4,
+      "tag": "NEW"
+    }
+  ],
+  "featuredProducts": [
+    {
+      "id": 10,
+      "title": "iPhone 14 Pro Max",
+      "price": "$999",
+      "image": "/images/iphone14.png",
+      "rating": 5
+    }
+  ]
+}
