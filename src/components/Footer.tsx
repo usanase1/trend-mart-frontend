@@ -1,115 +1,231 @@
+"use client"
 
-
-import { Mail } from "lucide-react";
+import type React from "react"
+import { useState } from "react"
 
 export default function Footer() {
+  const [email, setEmail] = useState("")
+  const [isSubscribed, setIsSubscribed] = useState(false)
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (email) {
+      setTimeout(() => {
+        setIsSubscribed(true)
+        setEmail("")
+      }, 1000)
+    }
+  }
+
   return (
     <>
-      
-      <div className="bg-[#1B6392] text-white px-6 py-10 text-center">
-        <h3 className="text-xl font-semibold mb-2">Subscribe to our newsletter</h3>
-        <p className="text-sm mb-4">
-          Get weekly updates on your favorite products and offers.
+      {/* Newsletter Section */}
+      <div className="bg-[#1B6392] text-white px-6 py-12 text-center">
+        <h3 className="text-2xl font-bold mb-3">Subscribe to our newsletter</h3>
+        <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
+          Praesent fringilla erat a lacinia egestas. Donec vehicula tempor libero et cursus. Donec non quam urna.
+          Quisque vitae porta ipsum.
         </p>
-        <div className="max-w-md mx-auto flex items-center gap-2 bg-white rounded overflow-hidden p-1">
-          <input
-            type="email"
-            placeholder="Email address"
-            className="flex-1 px-3 py-2 text-black outline-none"
-          />
-          <button className="bg-orange-500 text-white px-4 py-2 hover:bg-orange-600">
-            Subscribe
-          </button>
-        </div>
-        <div className="flex justify-center gap-6 mt-6 text-gray-300 text-sm">
-          <span>Google</span>
-          <span>Amazon</span>
-          <span>PHILIPS</span>
-          <span>TOSHIBA</span>
-          <span>SAMSUNG</span>
+
+        {!isSubscribed ? (
+          <form
+            onSubmit={handleSubmit}
+            className="max-w-md mx-auto flex items-center gap-0 bg-white rounded overflow-hidden mb-8"
+          >
+            <input
+              type="email"
+              placeholder="Email address"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="flex-1 px-4 py-3 text-black outline-none"
+              required
+            />
+            <button
+              type="submit"
+              className="bg-orange-500 text-white px-6 py-3 hover:bg-orange-600 transition font-medium"
+            >
+              SUBSCRIBE →
+            </button>
+          </form>
+        ) : (
+          <div className="mb-8">
+            <p className="text-green-200 font-semibold">✓ Successfully subscribed!</p>
+          </div>
+        )}
+
+        <div className="flex justify-center items-center gap-8 text-white opacity-80">
+          <span className="text-lg font-medium">Google</span>
+          <span className="text-lg font-medium">amazon</span>
+          <span className="text-lg font-medium">PHILIPS</span>
+          <span className="text-lg font-medium">TOSHIBA</span>
+          <span className="text-lg font-medium">SAMSUNG</span>
         </div>
       </div>
 
-      
-      <footer className="bg-[#191C1F] text-gray-400 px-6 py-10">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-10">
-
-         
+      {/* Main Footer */}
+      <footer className="bg-[#191C1F] text-gray-400 px-6 py-12">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8">
+          {/* Company Info */}
           <div>
-            <h4 className="text-white font-bold text-lg mb-2">TrendMart</h4>
-            <p>Customer Support</p>
-            <p className="mt-1">+859 5055 0123</p>
-            <p>4517 Washington Ave. Manchester</p>
-            <p>Kentucky 39495</p>
-            <p className="mt-1">info@trendmart.com</p>
+            <div className="flex items-center gap-2 mb-4">
+              <div className="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center">
+                <span className="text-white font-bold text-sm">C</span>
+              </div>
+              <span className="text-xl font-bold text-white">CLICON</span>
+            </div>
+            <div className="space-y-1 text-sm">
+              <p className="text-gray-300">Customer Supports:</p>
+              <p className="text-white font-semibold">(629) 555-0129</p>
+              <p className="mt-3">4517 Washington Ave.</p>
+              <p>Manchester, Kentucky 39495</p>
+              <p className="mt-2">info@kinbo.com</p>
+            </div>
           </div>
 
-          
+          {/* Top Category */}
           <div>
-            <h5 className="text-white font-semibold mb-2">Top Category</h5>
-            <ul className="space-y-1 text-sm">
-              <li>Computers & Laptops</li>
-              <li>Smartphones</li>
-              <li>Headphones</li>
-              <li>Accessories</li>
-              <li>Camera & Photo</li>
-              <li>TV & Home</li>
-              <li className="text-orange-400">Browse All Product →</li>
+            <h5 className="text-white font-semibold mb-4 uppercase">Top Category</h5>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <a href="#" className="hover:text-white transition">
+                  Computer & Laptop
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-white transition">
+                  SmartPhone
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-white transition">
+                  Headphone
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-white transition">
+                  Accessories
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-white transition">
+                  Camera & Photo
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-white transition">
+                  TV & Homes
+                </a>
+              </li>
+              <li className="pt-1">
+                <a href="#" className="text-orange-400 hover:text-orange-300 transition">
+                  Browse All Product →
+                </a>
+              </li>
             </ul>
           </div>
 
-         
+          {/* Quick Links */}
           <div>
-            <h5 className="text-white font-semibold mb-2">Quick Links</h5>
-            <ul className="space-y-1 text-sm">
-              <li>Shop Product</li>
-              <li>Shopping Cart</li>
-              <li>Checkout</li>
-              <li>Wishlist</li>
-              <li>Compare</li>
-              <li>Track Order</li>
-              <li>About Us</li>
+            <h5 className="text-white font-semibold mb-4 uppercase">Quick Links</h5>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <a href="#" className="hover:text-white transition">
+                  Shop Product
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-white transition">
+                  Shopping Cart
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-white transition">
+                  Wishlist
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-white transition">
+                  Compare
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-white transition">
+                  Track Order
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-white transition">
+                  Customer Help
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-white transition">
+                  About Us
+                </a>
+              </li>
             </ul>
           </div>
 
-          
+          {/* Download App */}
           <div>
-            <h5 className="text-white font-semibold mb-2">Download App</h5>
-            <div className="space-y-2 text-sm">
-              <button className="bg-gray-800 text-white px-4 py-2 rounded w-full text-left">
-                <span className="block text-xs">GET IT ON</span>
-                <span className="block font-semibold">Google Play</span>
+            <h5 className="text-white font-semibold mb-4 uppercase">Download App</h5>
+            <div className="space-y-3">
+              <button className="w-full bg-gray-800 hover:bg-gray-700 transition rounded p-3 flex items-center gap-3 text-left">
+                <div className="w-8 h-8 bg-white rounded flex items-center justify-center">
+                  <i className="fab fa-google-play text-black text-sm"></i>
+                </div>
+                <div>
+                  <div className="text-xs text-gray-400">Get it on</div>
+                  <div className="text-white font-semibold">Google Play</div>
+                </div>
               </button>
-              <button className="bg-gray-800 text-white px-4 py-2 rounded w-full text-left">
-                <span className="block text-xs">Download on the</span>
-                <span className="block font-semibold">App Store</span>
+              <button className="w-full bg-gray-800 hover:bg-gray-700 transition rounded p-3 flex items-center gap-3 text-left">
+                <div className="w-8 h-8 bg-white rounded flex items-center gap-1 justify-center">
+                  <i className="fab fa-apple text-black text-sm"></i>
+                </div>
+                <div>
+                  <div className="text-xs text-gray-400">Get it on</div>
+                  <div className="text-white font-semibold">App Store</div>
+                </div>
               </button>
             </div>
           </div>
 
-          
+          {/* Popular Tags */}
           <div>
-            <h5 className="text-white font-semibold mb-2">Popular Tag</h5>
-            <div className="flex flex-wrap gap-2 text-sm">
-              <span className=" px-2 py-1 rounded border-gray-800">Game</span>
-              <span className=" px-2 py-1 rounded border-gray-800">iPhone</span>
-              <span className=" px-2 py-1 rounded border-gray-800">TV</span>
-              <span className=" px-2 py-1 rounded border-gray-800">Asus Laptop</span>
-              <span className=" px-2 py-1 rounded border-gray-800">Macbook</span>
-              <span className=" px-2 py-1 rounded border-gray-800">SSD</span>
-              <span className=" px-2 py-1 rounded border-gray-800">Graphics Card</span>
-              <span className=" px-2 py-1 rounded border-gray-800">Power Bank</span>
-              <span className=" px-2 py-1 rounded border-gray-800">Smart TV</span>
-              <span className=" px-2 py-1 rounded border-gray-800">Samsung</span>
+            <h5 className="text-white font-semibold mb-4 uppercase">Popular Tag</h5>
+            <div className="flex flex-wrap gap-2">
+              {[
+                "Game",
+                "iPhone",
+                "TV",
+                "Asus Laptops",
+                "Macbook",
+                "SSD",
+                "Graphics Card",
+                "Power Bank",
+                "Smart TV",
+                "Speaker",
+                "Tablet",
+                "Microwave",
+                "Samsung",
+              ].map((tag) => (
+                <span
+                  key={tag}
+                  className="px-3 py-1 bg-transparent border border-gray-600 text-xs rounded hover:bg-gray-700 cursor-pointer transition text-gray-300 hover:text-white"
+                >
+                  {tag}
+                </span>
+              ))}
             </div>
           </div>
         </div>
 
-        
-        <p className="text-center text-xs text-gray-500 mt-10">
-          © TrendMart eCommerce Template 2025. Design by Templatecookie
-        </p>
+        {/* Copyright */}
+        <div className="max-w-7xl mx-auto border-t border-gray-700 mt-8 pt-6 text-center">
+          <p className="text-xs text-gray-500">Kinbo - eCommerce Template © 2021. Design by Templatecookie</p>
+        </div>
       </footer>
     </>
-  );
+  )
 }
