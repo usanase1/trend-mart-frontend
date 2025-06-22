@@ -43,14 +43,24 @@ export default function SignUpPage() {
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full">
-        <div className="bg-white rounded-2xl shadow-lg p-8">
-          {/* Header */}
-          <div className="text-center mb-8">
-            <h1 className="text-2xl font-bold text-gray-900 mb-2">Create Account</h1>
-            <p className="text-gray-600">Join us today and get started</p>
+        <div className="bg-white rounded-2xl shadow-lg p-8 border border-gray-200">
+          {/* Tabbed Header */}
+          <div className="flex border-b border-gray-200 mb-8">
+            <Link
+              href="/signin"
+              className="flex-1 text-center py-2 font-semibold text-gray-400 hover:text-[#FA8232] border-b-2 border-transparent"
+            >
+              Sign In
+            </Link>
+            <button
+              className="flex-1 text-center py-2 font-semibold text-[#222] border-b-2 border-[#FA8232]"
+              disabled
+            >
+              Sign Up
+            </button>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-4">
             {/* Name Field */}
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
@@ -80,7 +90,7 @@ export default function SignUpPage() {
                 required
                 value={formData.email}
                 onChange={handleInputChange}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#FA8232] focus:border-[#FA8232] outline-none transition-colors"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#FA8232] focus:border-[#FA8232] outline-none transition-colors text-gray-900"
                 placeholder="Enter your email"
               />
             </div>
@@ -138,23 +148,38 @@ export default function SignUpPage() {
             </div>
 
             {/* Terms Agreement */}
-            <div className="flex items-start gap-3">
-              <input
-                id="terms"
-                type="checkbox"
-                checked={agreedToTerms}
-                onChange={(e) => setAgreedToTerms(e.target.checked)}
-                className="mt-1 w-4 h-4 text-white accent-[#FA8232] border-gray-300 rounded focus:ring-[#FA8232] focus:ring-2"
-              />
-              <label htmlFor="terms" className="text-sm text-gray-600 leading-5">
-                Are you agree to Trend Mart{" "}
-                <Link href="/terms" className="text-[#2DA5F3] hover:text-[#2DA5F3]/80">
+            <div className="flex items-start gap-3 pt-2">
+              <div className="relative flex items-center">
+                <input
+                  id="terms"
+                  type="checkbox"
+                  checked={agreedToTerms}
+                  onChange={(e) => setAgreedToTerms(e.target.checked)}
+                  className="peer h-4 w-4 shrink-0 appearance-none rounded border border-gray-300 checked:bg-[#FA8232] checked:border-0 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#FA8232]"
+                />
+                <svg
+                  className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-3 w-3 hidden peer-checked:block pointer-events-none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="white"
+                  strokeWidth="4"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+              </div>
+              <label htmlFor="terms" className="text-sm text-gray-600">
+                I agree to the Trend Mart{" "}
+                <Link href="/terms" className="text-blue-500 hover:underline">
                   Terms of Conditions
                 </Link>{" "}
-                and{" "}
-                <Link href="/privacy" className="text-[#2DA5F3] hover:text-[#2DA5F3]/80">
+                &{" "}
+                <Link href="/privacy" className="text-blue-500 hover:underline">
                   Privacy Policy
                 </Link>
+                .
               </label>
             </div>
 
@@ -220,7 +245,7 @@ export default function SignUpPage() {
           <div className="mt-8 text-center">
             <span className="text-sm text-gray-600">
               Already have an account?{" "}
-              <Link href="/signin" className="text-[#FA8232] hover:text-[#FA8232]/80 font-medium">
+              <Link href="/signin" className="font-medium text-[#FA8232] hover:text-[#FA8232]/80">
                 Sign In
               </Link>
             </span>
