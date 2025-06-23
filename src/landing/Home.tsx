@@ -157,9 +157,10 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Best Deals Section (Updated) */}
+
+        {/* Best Deals Section */}
      <section className="best-deals-section mt-8">
-  {/* Section Header */}
+  
   <div className="flex justify-between items-center mb-4">
     <h2 className="text-xl font-bold">Best Deals</h2>
     <div className="text-sm bg-yellow-100 px-3 py-1 rounded text-black font-semibold">
@@ -167,9 +168,9 @@ export default function Home() {
     </div>
   </div>
 
-  {/* Main Content */}
+  
   <div className="flex flex-col lg:flex-row gap-6 mb-12">
-    {/* Left Column - Xbox Product */}
+    
     <div className="w-full lg:w-1/3">
       {products
         .filter(
@@ -181,7 +182,7 @@ export default function Home() {
             key={product.id}
             className="relative rounded-lg p-4 bg-white shadow group transition hover:shadow-md h-full"
           >
-            {/* Discount Tag */}
+           
             <div className="absolute top-2 left-2 z-10">
               <span className="bg-yellow-400 text-black text-xs font-bold px-2 py-0.5 rounded">
                 {product.discount}% OFF
@@ -191,7 +192,7 @@ export default function Home() {
               </span>
             </div>
 
-            {/* Product Image */}
+            
             <Link href={`/product/${product.slug}`} className="block">
               <div className="relative h-64 mb-3">
                 <Image
@@ -203,7 +204,7 @@ export default function Home() {
               </div>
             </Link>
 
-            {/* Product Info */}
+           
             <div>
               <h2 className="text-lg font-semibold mb-1">{product.name}</h2>
               <div className="flex items-center gap-2 mb-1">
@@ -222,7 +223,7 @@ export default function Home() {
               </div>
               <p className="text-sm text-gray-600 mb-4">{product.description}</p>
 
-              {/* Icons + Add to Cart */}
+             
               <div className="flex items-center gap-3">
                 <Heart className="text-gray-600 hover:text-red-500 cursor-pointer" />
                 <button className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded font-semibold text-sm">
@@ -235,7 +236,7 @@ export default function Home() {
         ))}
     </div>
 
-    {/* Right Column - Other Products in 3 Columns */}
+    
     <div className="w-full lg:w-2/3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
       {products
         .filter(
@@ -247,7 +248,7 @@ export default function Home() {
             key={product.id}
             className="relative rounded-lg p-4 bg-white shadow group transition hover:shadow-md"
           >
-            {/* Discount Tag */}
+            
             <div className="absolute top-2 left-2 z-10">
               <span className="bg-yellow-400 text-black text-xs font-bold px-2 py-0.5 rounded">
                 {product.discount}% OFF
@@ -257,7 +258,7 @@ export default function Home() {
               </span>
             </div>
 
-            {/* Product Image */}
+           
             <Link href={`/product/${product.slug}`} className="block">
               <div className="relative h-48 mb-3">
                 <Image
@@ -269,7 +270,7 @@ export default function Home() {
               </div>
             </Link>
 
-            {/* Product Info */}
+           
             <div>
               <h2 className="text-sm font-semibold line-clamp-2 h-10">{product.name}</h2>
               <div className="flex items-center gap-2 mt-1 mb-1">
@@ -300,7 +301,7 @@ export default function Home() {
   <h2 className="text-2xl font-bold text-center mb-6">Shop with Categorys</h2>
 
   <div className="relative">
-    {/* Scrollable Category Container */}
+    
     <div
       id="category-scroll"
       className="flex gap-6 overflow-x-auto px-6 scrollbar-hide scroll-smooth"
@@ -322,7 +323,7 @@ export default function Home() {
       ))}
     </div>
 
-    {/* Left Arrow */}
+   
     <button
       onClick={() => document.getElementById('category-scroll')?.scrollBy({ left: -200, behavior: 'smooth' })}
       className="absolute left-2 top-1/2 -translate-y-1/2 bg-orange-500 hover:bg-orange-600 text-white rounded-full p-2 z-10"
@@ -330,7 +331,7 @@ export default function Home() {
       ←
     </button>
 
-    {/* Right Arrow */}
+    
     <button
       onClick={() => document.getElementById('category-scroll')?.scrollBy({ left: 200, behavior: 'smooth' })}
       className="absolute right-2 top-1/2 -translate-y-1/2 bg-orange-500 hover:bg-orange-600 text-white rounded-full p-2 z-10"
@@ -344,7 +345,7 @@ export default function Home() {
 {/* Featured Products with Promo Side Banner */}
 <section className="my-16">
   <div className="flex flex-col md:flex-row gap-6">
-    {/* Promo Banner */}
+   
     <div className="w-full md:w-[300px] bg-yellow-100 p-6 rounded-lg flex flex-col items-start justify-between">
       <div>
         <p className="text-sm font-semibold text-orange-600 mb-2">COMPUTER & ACCESSORIES</p>
@@ -368,7 +369,7 @@ export default function Home() {
       </div>
     </div>
 
-    {/* Featured Products */}
+    
     <div className="flex-1">
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-xl font-bold">Featured Products</h2>
@@ -385,7 +386,7 @@ export default function Home() {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {products.slice(0, 8).map((product) => (
           <div key={product.id} className="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition relative">
-            {/* Status Badges */}
+           
             {product.discount >= 20 && (
               <div className="absolute top-2 left-2 bg-yellow-400 text-black text-xs font-bold px-2 py-0.5 rounded">
                 {product.discount}% OFF
@@ -444,7 +445,7 @@ export default function Home() {
 <section className="my-16">
   <h2 className="text-2xl font-bold mb-6">Computer Accessories</h2>
 
-  {/* Top Filter Buttons */}
+ 
   <div className="flex gap-4 text-sm text-gray-600 mb-6 flex-wrap">
     <span className="text-black font-medium border-b-2 border-orange-500 pb-1 cursor-pointer">All Product</span>
     <span className="hover:text-orange-500 cursor-pointer">Keyboard & Mouse</span>
@@ -455,13 +456,13 @@ export default function Home() {
   </div>
 
   <div className="flex flex-col lg:flex-row gap-6">
-    {/* Left: Product Grid */}
+    
     <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 flex-1">
       {products
         .filter((product) => product.subcategory === 'Computer Accessories')
         .map((product) => (
           <div key={product.id} className="relative rounded-lg p-4 bg-white shadow group transition hover:shadow-md">
-            {/* Discount Tag */}
+           
             {product.discount >= 25 && (
               <div className="absolute top-2 left-2 z-10">
                 <span className="bg-yellow-400 text-black text-xs font-bold px-2 py-0.5 rounded">
@@ -479,7 +480,7 @@ export default function Home() {
               <div className="absolute top-2 left-2 bg-blue-500 text-white text-xs font-bold px-2 py-0.5 rounded w-fit">BEST DEALS</div>
             )}
 
-            {/* Product Image */}
+            
             <Link href={`/product/${product.slug}`} className="block relative h-40 mb-3">
               <Image
                 src={product.image}
@@ -489,7 +490,7 @@ export default function Home() {
               />
             </Link>
 
-            {/* Product Info */}
+            
             <h3 className="text-sm font-semibold line-clamp-2 h-10 mb-1">{product.name}</h3>
             <div className="flex items-center gap-2 mb-1">
               <span className="text-blue-800 font-bold">${product.price}</span>
@@ -506,9 +507,9 @@ export default function Home() {
         ))}
     </div>
 
-    {/* Right: Promo Section */}
+    
     <div className="w-full lg:w-[280px] flex flex-col gap-6">
-      {/* Xiaomi Promo Box */}
+    
       <div className="bg-yellow-100 p-6 rounded-lg text-black">
         <Image
           src="/images/xiaomi-earbuds.png"
@@ -527,7 +528,7 @@ export default function Home() {
         </button>
       </div>
 
-      {/* Summer Sale Box */}
+      
       <div className="bg-[#191C1F] text-white p-6 rounded-lg">
         <h3 className="text-2xl font-bold mb-2">SUMMER SALES</h3>
         <p className="text-sm mb-3">37% DISCOUNT only for <span className="text-blue-400 font-semibold">SmartPhone</span> product.</p>
@@ -573,7 +574,7 @@ export default function Home() {
       </div>
     </div>
 
-    {/* BEST SELLERS */}
+   
     <div>
       <h3 className="text-sm font-bold uppercase mb-4">Best Sellers</h3>
       <div className="space-y-4">
