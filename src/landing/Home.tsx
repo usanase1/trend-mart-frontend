@@ -159,8 +159,7 @@ export default function Home() {
 
 
         {/* Best Deals Section */}
-     <section className="best-deals-section mt-8">
-  
+         <section className="best-deals-section mt-8">
   <div className="flex justify-between items-center mb-4">
     <h2 className="text-xl font-bold">Best Deals</h2>
     <div className="text-sm bg-yellow-100 px-3 py-1 rounded text-black font-semibold">
@@ -168,9 +167,8 @@ export default function Home() {
     </div>
   </div>
 
-  
   <div className="flex flex-col lg:flex-row gap-6 mb-12">
-    
+    {/* Left: Highlighted Product */}
     <div className="w-full lg:w-1/3">
       {products
         .filter(
@@ -182,7 +180,6 @@ export default function Home() {
             key={product.id}
             className="relative rounded-lg p-4 bg-white shadow group transition hover:shadow-md h-full"
           >
-           
             <div className="absolute top-2 left-2 z-10">
               <span className="bg-yellow-400 text-black text-xs font-bold px-2 py-0.5 rounded">
                 {product.discount}% OFF
@@ -192,7 +189,6 @@ export default function Home() {
               </span>
             </div>
 
-            
             <Link href={`/product/${product.slug}`} className="block">
               <div className="relative h-64 mb-3">
                 <Image
@@ -204,7 +200,6 @@ export default function Home() {
               </div>
             </Link>
 
-           
             <div>
               <h2 className="text-lg font-semibold mb-1">{product.name}</h2>
               <div className="flex items-center gap-2 mb-1">
@@ -223,7 +218,6 @@ export default function Home() {
               </div>
               <p className="text-sm text-gray-600 mb-4">{product.description}</p>
 
-             
               <div className="flex items-center gap-3">
                 <Heart className="text-gray-600 hover:text-red-500 cursor-pointer" />
                 <button className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded font-semibold text-sm">
@@ -236,7 +230,7 @@ export default function Home() {
         ))}
     </div>
 
-    
+    {/* Right: Compact Product Grid */}
     <div className="w-full lg:w-2/3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
       {products
         .filter(
@@ -246,9 +240,8 @@ export default function Home() {
         .map((product) => (
           <div
             key={product.id}
-            className="relative rounded-lg p-4 bg-white shadow group transition hover:shadow-md"
+            className="relative rounded-lg p-3 bg-white shadow group transition hover:shadow-md"
           >
-            
             <div className="absolute top-2 left-2 z-10">
               <span className="bg-yellow-400 text-black text-xs font-bold px-2 py-0.5 rounded">
                 {product.discount}% OFF
@@ -258,36 +251,37 @@ export default function Home() {
               </span>
             </div>
 
-           
-            <Link href={`/product/${product.slug}`} className="block">
-              <div className="relative h-48 mb-3">
-                <Image
-                  src={product.image}
-                  alt={product.name}
-                  fill
-                  className="object-contain"
-                />
-              </div>
-            </Link>
+            {/* Smaller image container */}
+            <div className="relative h-36 mb-2 overflow-hidden rounded">
+              <Image
+                src={product.image}
+                alt={product.name}
+                fill
+                className="object-contain"
+              />
 
-           
+              {/* Floating icons on hover */}
+              <div className="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center gap-3 opacity-0 group-hover:opacity-100 transition duration-300">
+                <button className="w-9 h-9 rounded-full bg-white text-gray-600 hover:text-red-500 shadow-md flex items-center justify-center">
+                  <Heart size={16} />
+                </button>
+                <button className="w-9 h-9 rounded-full bg-orange-500 text-white hover:bg-orange-600 shadow-md flex items-center justify-center">
+                  <ShoppingCart size={16} />
+                </button>
+              </div>
+            </div>
+
+            {/* Compact price and feature */}
             <div>
-              <h2 className="text-sm font-semibold line-clamp-2 h-10">{product.name}</h2>
-              <div className="flex items-center gap-2 mt-1 mb-1">
-                <span className="text-orange-600 font-bold">${product.price}</span>
+              <div className="flex items-center gap-2 mb-1">
+                <span className="text-orange-600 font-bold text-sm">${product.price}</span>
                 {product.originalPrice && (
-                  <span className="text-gray-400 line-through text-sm">
+                  <span className="text-gray-400 line-through text-xs">
                     ${product.originalPrice}
                   </span>
                 )}
               </div>
-              <div className="text-yellow-500 text-xs mb-1">
-                {'★'.repeat(Math.floor(product.rating))}
-                <span className="text-gray-500 ml-1">
-                  ({product.reviews.toLocaleString()})
-                </span>
-              </div>
-              <p className="text-xs text-gray-500 line-clamp-2 mb-2">
+              <p className="text-[11px] text-gray-500 line-clamp-2">
                 {product.features?.[0] ?? 'High quality product'}
               </p>
             </div>
@@ -296,6 +290,7 @@ export default function Home() {
     </div>
   </div>
 </section>
+
         {/* Shop with Categorys Section */}
 <section className="my-16">
   <h2 className="text-2xl font-bold text-center mb-6">Shop with Categorys</h2>
@@ -440,6 +435,58 @@ export default function Home() {
 </section>
 
 
+<section className="my-12">
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+    {/* Apple Homepod Mini Banner */}
+    <div className="flex items-center justify-between bg-white p-6 rounded-md shadow relative">
+      <div className="max-w-[50%]">
+        <span className="text-xs bg-blue-100 text-blue-600 font-semibold px-2 py-1 rounded uppercase">
+          Introducing
+        </span>
+        <h3 className="text-2xl font-bold mt-2 mb-2">New Apple Homepod Mini</h3>
+        <p className="text-sm text-gray-600 mb-4">
+          Jam-packed with innovation, HomePod mini delivers unexpectedly.
+        </p>
+        <button className="inline-flex items-center bg-orange-500 hover:bg-orange-600 text-white text-sm font-semibold px-4 py-2 rounded">
+          SHOP NOW
+          <span className="ml-2">→</span>
+        </button>
+      </div>
+      <img
+        src="/images/homepod.png"
+        alt="Apple Homepod Mini"
+        className="w-40 h-40 object-contain"
+      />
+    </div>
+
+    {/* Xiaomi Mi 11 Ultra Banner */}
+    <div className="flex items-center justify-between bg-gray-900 text-white p-6 rounded-md shadow relative">
+      <div className="max-w-[50%]">
+        <span className="text-xs bg-yellow-300 text-black font-semibold px-2 py-1 rounded uppercase">
+          Introducing New
+        </span>
+        <h3 className="text-2xl font-bold mt-2 mb-2">Xiaomi Mi 11 Ultra 12GB+256GB</h3>
+        <p className="text-sm text-gray-300 mb-4">
+          *Data provided by internal laboratories. Industry measurement.
+        </p>
+        <button className="inline-flex items-center bg-orange-500 hover:bg-orange-600 text-white text-sm font-semibold px-4 py-2 rounded">
+          SHOP NOW
+          <span className="ml-2">→</span>
+        </button>
+      </div>
+      <img
+        src="/images/xiaomi-mi11.png"
+        alt="Xiaomi Mi 11 Ultra"
+        className="w-40 h-40 object-contain"
+      />
+      {/* Price Tag */}
+      <div className="absolute top-4 right-4 bg-blue-500 text-white text-sm font-bold px-3 py-1 rounded-full">
+        $590
+      </div>
+    </div>
+  </div>
+</section>
+
 
 {/* Computer Accessories Section */}
 <section className="my-16">
@@ -542,6 +589,33 @@ export default function Home() {
 
 
 
+<section className="bg-[#FFE7D6] py-10 px-6 md:px-16 rounded-lg mt-12">
+  <div className="flex flex-col md:flex-row items-center justify-between gap-10">
+    {/* Text Content */}
+    <div className="flex-1 max-w-xl">
+      <div className="bg-[#2DA5F3] text-white text-xs font-bold px-3 py-1 rounded inline-block mb-3">
+        SAVE UP TO $200.00
+      </div>
+      <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-2">$1999</h2>
+      <h3 className="text-xl font-semibold text-gray-900 mb-2">Macbook Pro</h3>
+      <p className="text-gray-600 text-sm mb-6">
+        Apple M1 Max Chip. 32GB Unified Memory, 1TB SSD Storage
+      </p>
+      <button className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-2 rounded text-sm">
+        Shop Now
+      </button>
+    </div>
+
+    {/* Image */}
+    <div className="flex-1 max-w-md">
+      <img
+        src="/images/macbook-pro.png"
+        alt="Macbook Pro"
+        className="w-full h-auto object-contain"
+      />
+    </div>
+  </div>
+</section>
 
 
 {/* Deal Categories Section */}

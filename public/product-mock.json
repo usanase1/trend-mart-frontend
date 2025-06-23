@@ -1189,8 +1189,127 @@
     "estimatedDays": "3-5",
     "express": true
   }
-}
+},
+ {
+      "id": "21",
+      "name": "Base Sport Earbuds - Wireless Earphones - Bluetooth in Ear",
+      "slug": "base-sport-earbuds",
+      "price": 2300,
+      "originalPrice": 2300,
+      "discount": 3,
+      "rating": 4.0,
+      "reviews": 75,
+      "image": "/images/image-21.png",
+      "images": [
+        "/images/base-sport-earbuds-1.png",
+        "/images/base-sport-earbuds-2.png"
+      ],
+      "category": "Electronics",
+      "subcategory": "Headphones",
+      "brand": "Base",
+      "inStock": true,
+      "stockCount": 30,
+      "sku": "BASE-SPORT-BT",
+      "description": "Wireless Bluetooth earbuds designed for sports activities with secure fit and long battery life.",
+      "shortDescription": "Wireless sport earbuds with Bluetooth",
+      "features": [
+        "Bluetooth 5.0",
+        "IPX5 water resistance",
+        "10hr battery life",
+        "Secure fit for sports"
+      ],
+      "specifications": {
+        "battery": "10 hours",
+        "waterproof": "IPX5",
+        "bluetooth": "5.0",
+        "weight": "6g per earbud"
+      },
+      "tags": [
+        "earbuds",
+        "wireless",
+        "sports"
+      ],
+      "weight": "60g",
+      "dimensions": "65 × 45 × 30 mm",
+      "colors": [
+        "Black",
+        "Red"
+      ],
+      "warranty": "1 year",
+      "seller": {
+        "id": "seller19",
+        "name": "AudioDeals",
+        "rating": 4.2,
+        "totalSales": 350,
+        "verified": true
+      },
+      "shipping": {
+        "free": true,
+        "estimatedDays": "3-5",
+        "express": false
+      }
+    },
+    {
+      "id": "22",
+      "name": "5GPP PACK NOW MENU TOWN Point & Shop",
+      "slug": "5gpp-pack-menu-town",
+      "price": 1200,
+      "originalPrice": 1200,
+      "discount": 0,
+      "rating": 3.9,
+      "reviews": 42,
+      "image": "/images/5gpp-pack.png",
+      "images": [
+        "/images/5gpp-pack-1.png",
+        "/images/5gpp-pack-2.png"
+      ],
+      "category": "Electronics",
+      "subcategory": "Networking",
+      "brand": "5GPP",
+      "inStock": true,
+      "stockCount": 15,
+      "sku": "5GPP-PACK-MENU",
+      "description": "5G networking pack with advanced connectivity options for town points and shops.",
+      "shortDescription": "5G networking pack for commercial use",
+      "features": [
+        "5G connectivity",
+        "Commercial grade",
+        "Easy installation",
+        "High-speed networking"
+      ],
+      "specifications": {
+        "connectivity": "5G",
+        "range": "Up to 500m",
+        "ports": "4 Ethernet",
+        "power": "PoE"
+      },
+      "tags": [
+        "5g",
+        "networking",
+        "commercial"
+      ],
+      "weight": "1.2kg",
+      "dimensions": "216 × 188 × 50 mm",
+      "colors": [
+        "White"
+      ],
+      "warranty": "2 years",
+      "seller": {
+        "id": "seller20",
+        "name": "NetworkingPro",
+        "rating": 4.0,
+        "totalSales": 280,
+        "verified": true
+      },
+      "shipping": {
+        "free": false,
+        "estimatedDays": "5-7",
+        "express": true
+      }
+    }
   ]
 }
+  
+
 
  
