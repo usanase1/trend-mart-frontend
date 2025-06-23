@@ -39,7 +39,7 @@ export default function Navbar() {
           <span className="bg-yellow-400 text-black px-2 py-0.5 font-semibold rounded">Black</span> Friday
           <span className="ml-2">Up to <span className="text-yellow-400 font-bold">59%</span> OFF</span>
         </div>
-        <Link href="#" className="bg-yellow-400 text-black px-4 py-1 rounded font-medium text-sm hover:bg-yellow-300 transition">
+        <Link href="#" className="bg-yellow-400 text-black px-4 py-1 rounded font-medium text-sm hover:bg-yellow-300 transition bg-[#1B6392]">
           SHOP NOW →
         </Link>
       </div>
