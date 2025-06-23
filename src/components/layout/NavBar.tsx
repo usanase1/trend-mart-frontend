@@ -61,7 +61,7 @@ export default function Navbar() {
         </div>
         <Link
           href="#"
-          className="bg-yellow-400 text-black px-4 py-1 rounded font-medium text-sm hover:bg-yellow-300 transition flex items-center gap-1 bg-[#1B6392]"
+          className="bg-yellow-400 text-black px-4 py-1 rounded font-medium text-sm hover:bg-yellow-300 transition flex items-center gap-1"
         >
           SHOP NOW →
         </Link>
