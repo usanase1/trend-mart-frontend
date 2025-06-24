@@ -22,6 +22,7 @@ type Product = {
   brand: string;
   subcategory:string;
   description:string;
+  shortDescription:string;
 };
 
 export default function Home() {
@@ -55,78 +56,104 @@ export default function Home() {
       <Navbar />
       <main className="px-4 py-4 max-w-6xl mx-auto bg-white">
         {/* Xbox Banner */}
-        <div className='flex row bg-white text-black'>
-          <div className="bg-white text-black p-6 rounded-lg mb-6 w-[30vw]">
-            <h3 className='text-[#2484C2]'>--The best place to play</h3>
-            <h1 className="text-2xl font-bold mb-2">Xbox Consoles</h1>
-            <p className="mb-4">Save up to 50% on select Xbox games. Get 3 months of PC Game Pass for $2 USD.</p>
-            <button className="rounded-3 px-8 py-2 bg-[#FA8232] text-white ">
-              Shop now →
+        <section className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-12">
+  
+  <div className="col-span-1 lg:col-span-2 bg-[#F5F7FA] p-6 rounded-lg flex flex-col md:flex-row items-center justify-between relative overflow-hidden">
+    {products
+      .filter((product) => product.name === "Xbox Series S Console")
+      .map((product) => (
+        <div key={product.id} className="flex flex-col md:flex-row items-center justify-between w-full">
+          <div className="max-w-lg">
+            <p className="text-xs text-blue-600 font-semibold uppercase mb-2">
+              THE BEST PLACE TO PLAY
+            </p>
+            <h2 className="text-2xl font-bold mb-2 text-gray-900">Xbox Consoles</h2>
+            <p className="text-gray-600 text-sm mb-4">
+              {product.shortDescription}
+            </p>
+            <button className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-5 py-2 rounded text-sm">
+              SHOP NOW →
             </button>
           </div>
 
-          <div>
-            {products
-              .filter((product) => product.name === "Xbox Series S Console")
-              .map((product) => (
-                <div key={product.id}>
-                  <Image
-                    src={product.image}
-                    alt={product.name}
-                    height={368}
-                    width={408}
-                  />
-                </div>
-              ))}
+         
+          <div className="absolute top-6 right-6 md:static md:mt-0">
+            <div className="bg-blue-400 text-white text-sm font-bold px-4 py-2 rounded-full shadow-lg md:ml-4">
+              ${product.price}
+            </div>
           </div>
 
-          <div className='flex flex-col'>
-            <div className='bg-[#191C1F] flex flex-row text-white p-8'>
-              {products
-                .filter((product) => product.name === 'Google Pixel 6 Pro')
-                .map((product) => (
-                  <div key={product.id} className='flex flex-row'>
-                    <div>
-                      <h3 className='text-[#EBC80C]'>Summer sales</h3>
-                      <h1 className='text-white'>new {product.name}</h1>
-                      <button className='bg-[#FA8232] text-white px-4 py-2 rounded-md mt-2'>Shop now</button>
-                    </div>
-                    <div>
-                      <Image
-                        src={product.image}
-                        alt={product.name}
-                        width={200}
-                        height={200}
-                      />
-                    </div>
-                  </div>
-                ))}
-            </div>
-
-            <div className='bg-white flex row text-black'>
-              {products
-                .filter((product) => product.name === "AirPods Pro 2nd Generation")
-                .map((product) => (
-                  <div key={product.id}>
-                    <Image
-                      src={product.image}
-                      alt={product.name}
-                      width={160}
-                      height={160}
-                    />
-                    <h1>{product.name}</h1>
-                    <h3>{product.price}</h3>
-                    <button>Shop now</button>
-                  </div>
-                ))}
-            </div>
+          <div className="w-full md:w-auto max-w-xs mt-6 md:mt-0">
+            <Image
+              src={product.image}
+              alt={product.name}
+              width={408}
+              height={368}
+              className="object-contain w-full h-auto"
+            />
           </div>
         </div>
+      ))}
+  </div>
+
+  
+  <div className="flex flex-col gap-6">
+    
+    {products
+      .filter((product) => product.name === "Google Pixel 6 Pro")
+      .map((product) => (
+        <div key={product.id} className="bg-[#191C1F] p-5 rounded-lg text-white relative flex items-center justify-between">
+          <span className="absolute top-3 right-3 bg-yellow-400 text-black text-xs font-bold px-2 py-0.5 rounded">
+            {product.discount}% OFF
+          </span>
+          <div>
+            <h3 className="text-[#EBC80C] text-xs font-semibold uppercase mb-1">Summer sales</h3>
+            <h2 className="text-lg font-semibold mb-2">{product.name}</h2>
+            <button className="bg-[#FA8232] hover:bg-orange-600 text-white font-semibold px-4 py-2 rounded text-sm">
+              SHOP NOW →
+            </button>
+          </div>
+          <div>
+            <Image
+              src={product.image}
+              alt={product.name}
+              width={140}
+              height={140}
+              className="object-contain"
+            />
+          </div>
+        </div>
+      ))}
+
+    
+    {products
+      .filter((product) => product.name === "Xiaomi FlipBuds Pro")
+      .map((product) => (
+        <div key={product.id} className="bg-[#F5F7FA] p-5 rounded-lg text-gray-800 flex items-center justify-between">
+          <div>
+            <Image
+              src={product.image}
+              alt={product.name}
+              width={100}
+              height={100}
+              className="object-contain mb-3"
+            />
+            <h2 className="text-sm font-semibold">{product.name}</h2>
+            <p className="text-sm text-blue-500 font-bold mb-2">${product.price} USD</p>
+            <button className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-4 py-2 rounded text-sm">
+              SHOP NOW →
+            </button>
+          </div>
+        </div>
+      ))}
+  </div>
+  </section>
+
 
         <div className='text-black'>End of first banner</div>
 
-        {/* Features Bar */}
-        <div className='flex flex-wrap gap-6 my-8 justify-between text-sm text-black'>
+        
+        <div className='flex flex-wrap gap-6 my-8 justify-between text-sm text-black py-24'>
           <div className="flex items-center gap-2">
             <Package className="text-orange-500" />
             <div>
@@ -158,7 +185,7 @@ export default function Home() {
         </div>
 
 
-        {/* Best Deals Section */}
+        
          <section className="best-deals-section mt-8">
   <div className="flex justify-between items-center mb-4">
     <h2 className="text-xl font-bold">Best Deals</h2>
@@ -168,7 +195,7 @@ export default function Home() {
   </div>
 
   <div className="flex flex-col lg:flex-row gap-6 mb-12">
-    {/* Left: Highlighted Product */}
+    
     <div className="w-full lg:w-1/3">
       {products
         .filter(
@@ -230,7 +257,7 @@ export default function Home() {
         ))}
     </div>
 
-    {/* Right: Compact Product Grid */}
+    
     <div className="w-full lg:w-2/3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
       {products
         .filter(
@@ -251,7 +278,7 @@ export default function Home() {
               </span>
             </div>
 
-            {/* Smaller image container */}
+            
             <div className="relative h-36 mb-2 overflow-hidden rounded">
               <Image
                 src={product.image}
@@ -260,7 +287,7 @@ export default function Home() {
                 className="object-contain"
               />
 
-              {/* Floating icons on hover */}
+              
               <div className="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center gap-3 opacity-0 group-hover:opacity-100 transition duration-300">
                 <button className="w-9 h-9 rounded-full bg-white text-gray-600 hover:text-red-500 shadow-md flex items-center justify-center">
                   <Heart size={16} />
@@ -271,7 +298,7 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Compact price and feature */}
+            
             <div>
               <div className="flex items-center gap-2 mb-1">
                 <span className="text-orange-600 font-bold text-sm">${product.price}</span>
@@ -292,7 +319,7 @@ export default function Home() {
 </section>
 
         {/* Shop with Categorys Section */}
-<section className="my-16">
+<section className="my-24">
   <h2 className="text-2xl font-bold text-center mb-6">Shop with Categorys</h2>
 
   <div className="relative">
@@ -338,7 +365,7 @@ export default function Home() {
 
 
 {/* Featured Products with Promo Side Banner */}
-<section className="my-16">
+<section className="my-24">
   <div className="flex flex-col md:flex-row gap-6">
    
     <div className="w-full md:w-[300px] bg-yellow-100 p-6 rounded-lg flex flex-col items-start justify-between">
@@ -437,7 +464,7 @@ export default function Home() {
 
 <section className="my-12">
   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-    {/* Apple Homepod Mini Banner */}
+    
     <div className="flex items-center justify-between bg-white p-6 rounded-md shadow relative">
       <div className="max-w-[50%]">
         <span className="text-xs bg-blue-100 text-blue-600 font-semibold px-2 py-1 rounded uppercase">
@@ -459,7 +486,7 @@ export default function Home() {
       />
     </div>
 
-    {/* Xiaomi Mi 11 Ultra Banner */}
+    
     <div className="flex items-center justify-between bg-gray-900 text-white p-6 rounded-md shadow relative">
       <div className="max-w-[50%]">
         <span className="text-xs bg-yellow-300 text-black font-semibold px-2 py-1 rounded uppercase">
@@ -479,7 +506,7 @@ export default function Home() {
         alt="Xiaomi Mi 11 Ultra"
         className="w-40 h-40 object-contain"
       />
-      {/* Price Tag */}
+      
       <div className="absolute top-4 right-4 bg-blue-500 text-white text-sm font-bold px-3 py-1 rounded-full">
         $590
       </div>

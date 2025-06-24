@@ -1306,7 +1306,73 @@
         "estimatedDays": "5-7",
         "express": true
       }
-    }
+    },
+    {
+  "id": "23",
+  "name": "Xiaomi FlipBuds Pro",
+  "slug": "xiaomi-flipbuds-pro",
+  "price": 299,
+  "originalPrice": 349,
+  "discount": 14,
+  "rating": 4.6,
+  "reviews": 428,
+  "image": "/images/image-23.png",
+  "images": [
+    "/images/xiaomi-flipbuds-pro-1.png",
+    "/images/xiaomi-flipbuds-pro-2.png",
+    "/images/xiaomi-flipbuds-pro-3.png"
+  ],
+  "category": "Electronics",
+  "subcategory": "Headphones",
+  "brand": "Xiaomi",
+  "inStock": true,
+  "stockCount": 28,
+  "sku": "XM-FLPBDS-PRO",
+  "description": "Xiaomi FlipBuds Pro feature active noise cancellation, high-quality audio, and a sleek flip-open design with wireless charging case.",
+  "shortDescription": "Premium TWS earbuds with ANC and wireless charging",
+  "features": [
+    "Active Noise Cancellation (40dB)",
+    "Wireless charging case",
+    "11mm dynamic drivers",
+    "28hr total battery life",
+    "Bluetooth 5.2",
+    "IPX4 water resistance"
+  ],
+  "specifications": {
+    "battery": "7hr (earbuds), +21hr (case)",
+    "anc": "40dB reduction",
+    "bluetooth": "5.2",
+    "waterproof": "IPX4",
+    "driver": "11mm dynamic",
+    "charging": "Wireless/Qi compatible"
+  },
+  "tags": [
+    "earbuds",
+    "wireless",
+    "xiaomi",
+    "anc",
+    "premium"
+  ],
+  "weight": "60g (with case)",
+  "dimensions": "65 × 45 × 25 mm (case)",
+  "colors": [
+    "Black",
+    "White"
+  ],
+  "warranty": "1 year",
+  "seller": {
+    "id": "seller16",
+    "name": "Xiaomi Official",
+    "rating": 4.8,
+    "totalSales": 3200,
+    "verified": true
+  },
+  "shipping": {
+    "free": true,
+    "estimatedDays": "2-3",
+    "express": true
+  }
+}
   ]
 }
   
