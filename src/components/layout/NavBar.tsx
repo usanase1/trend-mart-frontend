@@ -17,7 +17,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import DropdownMenu from "./DropdownMenu";
+import DropdownMenu from "../DropdownMenu";
 
 type Category = {
   id: number;
