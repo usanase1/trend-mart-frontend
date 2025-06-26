@@ -179,18 +179,18 @@ export default function CategoryDropdown() {
 
   return (
     <div className="relative inline-block text-left" ref={dropdownRef}>
-      {/* Initial Button (click-to-open) */}
+      
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="bg-white text-black border px-4 py-2 rounded hover:border-gray-400"
+        className="bg-white text-black border px-4 py-2 rounded hover:border-gray-400 visited:color-orange"
       >
         All Categories
       </button>
 
-      {/* Full Mega Dropdown */}
+     
       {isOpen && (
         <div className="absolute z-50 mt-2 flex bg-white shadow-lg border text-sm">
-          {/* Category List (left column) */}
+          
           <div className="min-w-[200px] border-r bg-white">
             {categories.map(category => (
               <div
