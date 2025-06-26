@@ -73,7 +73,7 @@ export default function SignUpPage() {
                 required
                 value={formData.name}
                 onChange={handleInputChange}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#FA8232] focus:border-[#FA8232] outline-none transition-colors"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#FA8232] focus:border-[#FA8232] outline-none transition-colors placeholder-gray-500 text-gray-900"
                 placeholder="Enter your name"
               />
             </div>
@@ -108,7 +108,7 @@ export default function SignUpPage() {
                   required
                   value={formData.password}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 pr-12 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#FA8232] focus:border-[#FA8232] outline-none transition-colors"
+                  className="w-full px-4 py-3 pr-12 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#FA8232] focus:border-[#FA8232] outline-none transition-colors placeholder-gray-500 text-gray-900"
                   placeholder="8+ characters"
                 />
                 <button
@@ -134,7 +134,7 @@ export default function SignUpPage() {
                   required
                   value={formData.confirmPassword}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 pr-12 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#FA8232] focus:border-[#FA8232] outline-none transition-colors"
+                  className="w-full px-4 py-3 pr-12 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#FA8232] focus:border-[#FA8232] outline-none transition-colors placeholder-gray-500 text-gray-900"
                   placeholder="Confirm your password"
                 />
                 <button
