@@ -3,8 +3,8 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import Navbar from '@/components/NavBar';
-import Footer from '@/components/Footer';
+import Navbar from '@/components/layout/NavBar';
+import Footer from '@/components/layout/Footer';
 import { Package, Trophy, ShieldCheck, Headphones,Heart, ShoppingCart } from 'lucide-react';
 
 type Product = {
