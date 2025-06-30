@@ -42,7 +42,7 @@ export default function Navbar() {
 
   return (
     <>
-      {/* Black Friday Banner */}
+     
       <div className="bg-black text-white text-sm flex justify-between items-center px-6 py-2">
         <div>
           <span className="bg-yellow-400 text-black px-2 py-0.5 font-semibold rounded">Black</span> Friday
@@ -53,7 +53,7 @@ export default function Navbar() {
         </Link>
       </div>
 
-      {/* Welcome / Socials */}
+     
       <div className="bg-[#1B6392] text-white text-xs px-6 py-2">
         <div className="flex justify-between items-center">
           <span>Welcome to TrendMart online eCommerce store.</span>
@@ -76,7 +76,7 @@ export default function Navbar() {
         <hr className="border-t border-white mt-2" />
       </div>
 
-      {/* Main Bar */}
+     
       <div className="bg-[#1B6392] text-white py-4 px-6 flex flex-col md:flex-row items-center justify-between gap-4">
         <Link href="/" className="text-2xl font-bold tracking-wide flex-shrink-0">TrendMart</Link>
 
@@ -92,7 +92,7 @@ export default function Navbar() {
         </div>
 
         <div className="flex items-center gap-6">
-          {/* Cart Icon */}
+         
           <button onClick={cartModal.open} className="relative cursor-pointer">
             <ShoppingCart className="w-6 h-6 hover:text-yellow-400" />
             {itemCount > 0 && (
@@ -102,19 +102,19 @@ export default function Navbar() {
             )}
           </button>
 
-          {/* Wishlist */}
+         
           <Link href="/wishlist">
             <Heart className="w-6 h-6 hover:text-yellow-400" />
           </Link>
 
-          {/* Login Icon */}
+         
           <button onClick={loginModal.open}>
             <User className="w-6 h-6 hover:text-yellow-400 cursor-pointer" />
           </button>
         </div>
       </div>
 
-      {/* Extra Actions */}
+     
       <div className="bg-white text-black px-6 py-3 border-b">
         <div className="flex flex-wrap items-center gap-6 text-sm">
           <DropdownMenu />
@@ -125,7 +125,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Login Modal */}
+     
       {loginModal.isOpen && (
         <div className="fixed top-24 right-6 z-50">
           <div className="relative bg-white w-[350px] p-6 rounded-xl shadow-lg border border-gray-200">
@@ -137,7 +137,7 @@ export default function Navbar() {
         </div>
       )}
 
-      {/* Cart Modal */}
+     
       {cartModal.isOpen && (
         <CartModal isOpen={true} onClose={cartModal.close} />
       )}
