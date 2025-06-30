@@ -5,12 +5,33 @@ import { useState } from "react"
 import { Eye, EyeOff } from "lucide-react"
 import Link from "next/link"
 
+function validateEmail(email: string) {
+  // Simple email regex
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+}
+
+function validateSignIn(formData: { email: string; password: string }) {
+  const errors: string[] = []
+  if (!formData.email) {
+    errors.push("Email is required.")
+  } else if (!validateEmail(formData.email)) {
+    errors.push("Please enter a valid email address.")
+  }
+  if (!formData.password) {
+    errors.push("Password is required.")
+  } else if (formData.password.length < 8) {
+    errors.push("Password must be at least 8 characters.")
+  }
+  return errors
+}
+
 export default function SignInPage() {
   const [showPassword, setShowPassword] = useState(false)
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   })
+  const [errors, setErrors] = useState<string[]>([])
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target
@@ -18,10 +39,17 @@ export default function SignInPage() {
       ...prev,
       [name]: value,
     }))
+    setErrors([])
   }
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
+    const validationErrors = validateSignIn(formData)
+    if (validationErrors.length > 0) {
+      setErrors(validationErrors)
+      return
+    }
+    setErrors([])
     console.log("Sign in data:", formData)
     // Handle sign in logic here
   }
@@ -57,6 +85,17 @@ export default function SignInPage() {
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-4">
+            {/* Error Messages */}
+            {errors.length > 0 && (
+              <div className="bg-red-100 text-red-700 px-4 py-2 rounded mb-2 text-sm">
+                <ul className="list-disc pl-5">
+                  {errors.map((err, idx) => (
+                    <li key={idx}>{err}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
             {/* Email Field */}
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
