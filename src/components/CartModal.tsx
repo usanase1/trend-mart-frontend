@@ -1,34 +1,42 @@
-'use client';
+"use client";
 
-import { ShoppingCart, X } from 'lucide-react';
-import { useCart } from '@/context/CartContext';
-import Image from 'next/image';
-import Link from 'next/link';
+import { ShoppingCart, X } from "lucide-react";
+import { useCart } from "@/context/CartContext";
+import Image from "next/image";
+import Link from "next/link";
 
-export default function CartModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
+export default function CartModal({
+  isOpen,
+  onClose,
+}: {
+  isOpen: boolean;
+  onClose: () => void;
+}) {
   const { cartItems, removeFromCart, updateQuantity, cartTotal } = useCart();
 
   if (!isOpen) return null;
 
   return (
     <div className="fixed inset-0 z-50 overflow-y-auto">
-      {/* Backdrop */}
       <div className="fixed inset-0 bg-black/50" onClick={onClose}></div>
 
-      {/* Modal */}
       <div className="fixed top-4 right-4 w-full max-w-sm bg-white rounded-lg shadow-xl z-50">
-        {/* Header */}
         <div className="flex items-center justify-between p-4 border-b">
           <div className="flex items-center gap-2">
             <ShoppingCart className="text-blue-600" />
-            <h3 className="font-bold text-lg">Shopping Cart ({cartItems.reduce((acc, item) => acc + item.quantity, 0)})</h3>
+            <h3 className="font-bold text-lg">
+              Shopping Cart (
+              {cartItems.reduce((acc, item) => acc + item.quantity, 0)})
+            </h3>
           </div>
-          <button onClick={onClose} className="text-gray-500 hover:text-gray-700">
+          <button
+            onClick={onClose}
+            className="text-gray-500 hover:text-gray-700"
+          >
             <X size={20} />
           </button>
         </div>
 
-        {/* Cart Items */}
         <div className="max-h-[60vh] overflow-y-auto p-4">
           {cartItems.length === 0 ? (
             <div className="text-center py-8 text-gray-500">
@@ -50,23 +58,29 @@ export default function CartModal({ isOpen, onClose }: { isOpen: boolean; onClos
                     <h4 className="font-medium">{item.name}</h4>
                     <div className="flex items-center justify-between mt-2">
                       <div className="flex items-center gap-2">
-                        <button 
-                          onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                        <button
+                          onClick={() =>
+                            updateQuantity(item.id, item.quantity - 1)
+                          }
                           className="w-6 h-6 border rounded flex items-center justify-center"
                         >
                           -
                         </button>
                         <span>{item.quantity}</span>
-                        <button 
-                          onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                        <button
+                          onClick={() =>
+                            updateQuantity(item.id, item.quantity + 1)
+                          }
                           className="w-6 h-6 border rounded flex items-center justify-center"
                         >
                           +
                         </button>
                       </div>
-                      <span className="font-bold">${(item.price * item.quantity).toFixed(2)}</span>
+                      <span className="font-bold">
+                        ${(item.price * item.quantity).toFixed(2)}
+                      </span>
                     </div>
-                    <button 
+                    <button
                       onClick={() => removeFromCart(item.id)}
                       className="text-red-500 text-xs mt-1"
                     >
@@ -79,7 +93,6 @@ export default function CartModal({ isOpen, onClose }: { isOpen: boolean; onClos
           )}
         </div>
 
-        {/* Footer */}
         <div className="p-4 border-t">
           <div className="flex justify-between font-bold text-lg mb-4">
             <span>Sub-Total:</span>
