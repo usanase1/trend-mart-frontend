@@ -150,6 +150,12 @@ export default function Navbar() {
       {cartModal.isOpen && (
         <CartModal isOpen={true} onClose={cartModal.close} />
       )}
+
+      <div className="hidden">
+  {categories.map((category) => (
+    <span key={category.id}>{category.name}</span>
+  ))}
+</div>
     </>
   );
 }

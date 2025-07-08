@@ -72,7 +72,7 @@ export default function ProductDisplay() {
   }, []);
 
   useEffect(() => {
-    let result = products.filter(
+    const result = products.filter(
       (p) =>
         (selectedCategories.length === 0 ||
           selectedCategories.includes(p.category)) &&

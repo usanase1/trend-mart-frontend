@@ -3,9 +3,21 @@
 import ProductImages from "./ProductImages";
 import ProductInfo from "./ProductInfo";
 import ProductDescription from "./ProductDescription";
+import { Product } from "@/landing/Home";
+
+type ExtendedProduct = Product & {
+  features: string[];
+  shipping: {
+    estimatedDays: number;
+    free: boolean;
+  };
+  images?: string[];
+  sku: string;
+};
+
 
 type Props = {
-  product: any; // You can replace 'any' with a Product type later
+  product: ExtendedProduct;
 };
 
 export default function ProductDetails({ product }: Props) {
