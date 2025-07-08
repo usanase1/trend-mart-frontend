@@ -6,9 +6,9 @@ const faqs = [
     question: "How do I reset my password?",
     answer: (
       <>
-        If you forgot your password, click on "Forgot Password?" on the sign-in page. Enter your registered email address and follow the instructions sent to your email to reset your password.
+        If you forgot your password, click on &quot;Forgot Password?&quot; on the sign-in page. Enter your registered email address and follow the instructions sent to your email to reset your password.
         <ul className="list-disc ml-6 mt-2 text-sm text-gray-700">
-          <li>Go to the Sign In page and click on "Forgot Password?"</li>
+          <li>Go to the Sign In page and click on &quot;Forgot Password?&quot;</li>
           <li>Enter your registered email address.</li>
           <li>Check your email for a password reset link and follow the instructions.</li>
         </ul>
@@ -18,12 +18,12 @@ const faqs = [
   {
     question: "How can I change my account email?",
     answer:
-      "To change your account email, go to your account settings, click on 'Edit Email', enter your new email address, and confirm the change via the verification email sent to you.",
+      "To change your account email, go to your account settings, click on &apos;Edit Email&apos;, enter your new email address, and confirm the change via the verification email sent to you.",
   },
   {
     question: "Where can I view my order history?",
     answer:
-      "You can view your order history by navigating to the 'My Orders' section in your account dashboard.",
+      "You can view your order history by navigating to the &apos;My Orders&apos; section in your account dashboard.",
   },
   {
     question: "How do I contact customer support?",
@@ -45,7 +45,7 @@ export default function FAQPage() {
             {faqs.map((faq, idx) => (
               <div key={idx} className="rounded-lg overflow-hidden">
                 <button
-                  className={`w-full flex justify-between items-center px-6 py-5 text-left text-lg font-semibold transition-all duration-200 focus:outline-none border ${openIndex === idx ? 'bg-orange-500 text-white border-orange-500' : 'bg-white text-black border-gray-200 hover:bg-gray-50'} `}
+                  className={`w-full flex justify-between items-center px-6 py-5 text-left text-lg font-semibold transition-all duration-200 focus:outline-none border ${openIndex === idx ? 'bg-orange-500 text-white border-orange-500' : 'bg-white text-black border-gray-200 hover:bg-gray-50'}`}
                   onClick={() => setOpenIndex(openIndex === idx ? -1 : idx)}
                   style={{ boxShadow: openIndex === idx ? '0 2px 8px rgba(255, 152, 0, 0.15)' : undefined }}
                 >
@@ -61,11 +61,12 @@ export default function FAQPage() {
             ))}
           </div>
         </div>
+
         {/* Contact Form */}
         <div className="w-full md:w-96 bg-yellow-100 rounded-lg shadow p-8 flex flex-col justify-start">
-          <h2 className="text-lg font-bold mb-2 text-black">Don't find your answer? Ask for support.</h2>
+          <h2 className="text-lg font-bold mb-2 text-black">Don&apos;t find your answer? Ask for support.</h2>
           <p className="text-gray-700 text-sm mb-6">
-            If you can't find your answer in our FAQ, please contact us using the form below. Our support team will respond as soon as possible.
+            If you can&apos;t find your answer in our FAQ, please contact us using the form below. Our support team will respond as soon as possible.
           </p>
           <form className="space-y-4">
             <input
