@@ -1,0 +1,1381 @@
+ 
+
+
+
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "Xbox Series S - 512GB SSD Console with Wireless Controller - EU Version",
+      "slug": "xbox-series-s-512gb-ssd-console",
+      "price": 442.12,
+      "originalPrice": 965.99,
+      "discount": 25,
+      "rating": 4.5,
+      "reviews": 128,
+      "image": "/images/image-1.png",
+      "images": [
+        "/images/image-1-2.png",
+        "/images/image-1-3.png"
+      ],
+      "category": "Electronics",
+      "subcategory": "Gaming Consoles",
+      "brand": "Microsoft",
+      "inStock": true,
+      "stockCount": 15,
+      "sku": "MS-XBSS-EU-512",
+      "description": "Games built using the Xbox Series XIS development kit showcase unparalleled load times, visuals.",
+      "shortDescription": "Xbox Series S console with 512GB SSD",
+      "features": [
+        "512GB SSD storage",
+        "Wireless controller included",
+        "EU version",
+        "4K streaming"
+      ],
+      "specifications": {
+        "storage": "512GB SSD",
+        "resolution": "1440p",
+        "frameRate": "Up to 120FPS",
+        "connectivity": "HDMI 2.1, USB 3.1"
+      },
+      "tags": [
+        "gaming",
+        "console",
+        "xbox"
+      ],
+      "weight": "1.9kg",
+      "dimensions": "275 × 151 × 63.5 mm",
+      "colors": [
+        "White"
+      ],
+      "warranty": "1 year",
+      "seller": {
+        "id": "seller1",
+        "name": "GameWorld",
+        "rating": 4.7,
+        "totalSales": 1250,
+        "verified": true
+      },
+      "shipping": {
+        "free": true,
+        "estimatedDays": "3-5",
+        "express": true
+      }
+    },
+    {
+      "id": "2",
+      "name": "Bore Sport Earbuds - Wireless Earphones - Bluetooth in Ear",
+      "slug": "bore-sport-earbuds",
+      "price": 2300,
+      "originalPrice": 2300,
+      "discount": 0,
+      "rating": 4.2,
+      "reviews": 86,
+      "image": "/images/image-2.png",
+      "images": [
+        "/images/image-2-1.png",
+        "/images/image-2-2.png"
+      ],
+      "category": "Electronics",
+      "subcategory": "Headphones",
+      "brand": "Bore",
+      "inStock": false,
+      "stockCount": 0,
+      "sku": "BR-SPORT-BT",
+      "description": "Wireless Bluetooth earbuds designed for sports activities with secure fit.",
+      "shortDescription": "Wireless Bluetooth earbuds for sports",
+      "features": [
+        "Bluetooth 5.0",
+        "IPX5 water resistance",
+        "8hr battery life",
+        "Secure fit"
+      ],
+      "specifications": {
+        "battery": "8 hours",
+        "waterproof": "IPX5",
+        "bluetooth": "5.0",
+        "weight": "5g per earbud"
+      },
+      "tags": [
+        "earbuds",
+        "wireless",
+        "sports"
+      ],
+      "weight": "50g",
+      "dimensions": "60 × 40 × 25 mm",
+      "colors": [
+        "Black",
+        "Blue"
+      ],
+      "warranty": "1 year",
+      "seller": {
+        "id": "seller2",
+        "name": "AudioGadgets",
+        "rating": 4.3,
+        "totalSales": 420,
+        "verified": true
+      },
+      "shipping": {
+        "free": false,
+        "estimatedDays": "5-7",
+        "express": true
+      }
+    },
+    {
+      "id": "3",
+      "name": "Simple Mobile 4Q LTE Prepaid Smartphone",
+      "slug": "simple-mobile-4q-lte-smartphone",
+      "price": 220,
+      "originalPrice": 220,
+      "discount": 0,
+      "rating": 3.8,
+      "reviews": 45,
+      "image": "/images/simple-mobile-phone.png",
+      "images": [
+        "/images/simple-mobile-phone-1.png",
+        "/images/simple-mobile-phone-2.png"
+      ],
+      "category": "Electronics",
+      "subcategory": "SmartPhone",
+      "brand": "Simple Mobile",
+      "inStock": true,
+      "stockCount": 22,
+      "sku": "SM-4QLTE-BLK",
+      "description": "Basic prepaid smartphone with 4Q LTE connectivity.",
+      "shortDescription": "4Q LTE Prepaid Smartphone",
+      "features": [
+        "4Q LTE connectivity",
+        "Prepaid service",
+        "5.5\" display",
+        "8MP camera"
+      ],
+      "specifications": {
+        "display": "5.5\" HD",
+        "camera": "8MP rear",
+        "storage": "32GB",
+        "battery": "3000mAh"
+      },
+      "tags": [
+        "smartphone",
+        "prepaid",
+        "budget"
+      ],
+      "weight": "150g",
+      "dimensions": "148 × 72 × 8 mm",
+      "colors": [
+        "Black"
+      ],
+      "warranty": "1 year",
+      "seller": {
+        "id": "seller3",
+        "name": "MobileHut",
+        "rating": 4.1,
+        "totalSales": 310,
+        "verified": true
+      },
+      "shipping": {
+        "free": true,
+        "estimatedDays": "2-4",
+        "express": false
+      }
+    },
+    {
+      "id": "4",
+      "name": "4K UHD LED Smart TV with Chromecast Built-in",
+      "slug": "4k-uhd-led-smart-tv",
+      "price": 1.50,
+      "originalPrice": 885,
+      "discount": 19,
+      "rating": 4.6,
+      "reviews": 215,
+      "image": "/images/image-4.png",
+      "images": [
+        "/images/image-3-1.png",
+        "/images/image-3-2.png"
+      ],
+      "category": "Electronics",
+      "subcategory": "Computer Accessories",
+      "brand": null,
+      "inStock": true,
+      "stockCount": 8,
+      "sku": "TV-4K-55CHROM",
+      "description": "4K UHD LED Smart TV with built-in Chromecast for streaming content.",
+      "shortDescription": "4K UHD LED Smart TV with Chromecast",
+      "features": [
+        "4K UHD resolution",
+        "Built-in Chromecast",
+        "Smart TV platform",
+        "HDR support"
+      ],
+      "specifications": {
+        "size": "55\"",
+        "resolution": "3840 × 2160",
+        "hdr": "HDR10",
+        "ports": "4 HDMI, 2 USB"
+      },
+      "tags": [
+        "tv",
+        "4k",
+        "smart",
+        "chromecast"
+      ],
+      "weight": "15.5kg",
+      "dimensions": "1230 × 710 × 85 mm",
+      "colors": [
+        "Black"
+      ],
+      "warranty": "2 years",
+      "seller": {
+        "id": "seller4",
+        "name": "TVWorld",
+        "rating": 4.5,
+        "totalSales": 890,
+        "verified": true
+      },
+      "shipping": {
+        "free": false,
+        "estimatedDays": "5-7",
+        "express": true
+      }
+    },
+    {
+      "id": "5",
+      "name": "Sony DSCHX8 High Zoom Point & Shoot Camera",
+      "slug": "sony-dschx8-camera",
+      "price": 1200,
+      "originalPrice": 1200,
+      "discount": 0,
+      "rating": 4.7,
+      "reviews": 178,
+      "image": "/images/image-5.png",
+      "images": [
+        "/images/sony-dschx8-1.png",
+        "/images/sony-dschx8-2.png"
+      ],
+      "category": "Electronics",
+      "subcategory": "Camera & Photo",
+      "brand": "Sony",
+      "inStock": true,
+      "stockCount": 12,
+      "sku": "SNY-DSCHX8-BLK",
+      "description": "High zoom point and shoot camera with advanced features.",
+      "shortDescription": "High Zoom Point & Shoot Camera",
+      "features": [
+        "High zoom lens",
+        "Point and shoot",
+        "20.1MP sensor",
+        "4K video"
+      ],
+      "specifications": {
+        "sensor": "20.1MP",
+        "zoom": "50x optical",
+        "video": "4K 30fps",
+        "display": "3\" LCD"
+      },
+      "tags": [
+        "camera",
+        "point-shoot",
+        "sony"
+      ],
+      "weight": "550g",
+      "dimensions": "110 × 65 × 45 mm",
+      "colors": [
+        "Black"
+      ],
+      "warranty": "1 year",
+      "seller": {
+        "id": "seller5",
+        "name": "CameraWorld",
+        "rating": 4.8,
+        "totalSales": 670,
+        "verified": true
+      },
+      "shipping": {
+        "free": true,
+        "estimatedDays": "2-3",
+        "express": true
+      }
+    },
+    {
+      "id": "6",
+      "name": "Dell Optiplex 7000x7480 All-in-One Computer Monitor",
+      "slug": "dell-optiplex-all-in-one",
+      "price": 299,
+      "originalPrice": 299,
+      "discount": 0,
+      "rating": 4.4,
+      "reviews": 92,
+      "image": "/images/image-6.png",
+      "images": [
+        "/images/dell-optiplex-1.png",
+        "/images/dell-optiplex-2.png"
+      ],
+      "category": "Electronics",
+      "subcategory": "Computer Accessories",
+      "brand": "Dell",
+      "inStock": true,
+      "stockCount": 7,
+      "sku": "DL-OPT7000-AIO",
+      "description": "All-in-one computer monitor with integrated system.",
+      "shortDescription": "All-in-One Computer Monitor",
+      "features": [
+        "All-in-one design",
+        "Full HD display",
+        "Integrated computer",
+        "Space saving"
+      ],
+      "specifications": {
+        "display": "23.8\" FHD",
+        "processor": "Intel Core i5",
+        "ram": "8GB",
+        "storage": "256GB SSD"
+      },
+      "tags": [
+        "computer",
+        "all-in-one",
+        "monitor"
+      ],
+      "weight": "6.5kg",
+      "dimensions": "540 × 390 × 50 mm",
+      "colors": [
+        "Black"
+      ],
+      "warranty": "3 years",
+      "seller": {
+        "id": "seller6",
+        "name": "CompTech",
+        "rating": 4.6,
+        "totalSales": 530,
+        "verified": true
+      },
+      "shipping": {
+        "free": true,
+        "estimatedDays": "3-5",
+        "express": false
+      }
+    },
+    {
+      "id": "7",
+      "name": "Portable Washing Machine, TIIBs capacity Model 18NMFIAM",
+      "slug": "portable-washing-machine",
+      "price": 70,
+      "originalPrice": 865.99,
+      "discount": 32,
+      "rating": 3.9,
+      "reviews": 56,
+      "image": "/images/image-7.png",
+      "images": [
+        "/images/portable-washer-1.png",
+        "/images/portable-washer-2.png"
+      ],
+      "category": "Appliances",
+      "subcategory": "Computer Accessories",
+      "brand": null,
+      "inStock": true,
+      "stockCount": 14,
+      "sku": "WM-PORT-TIIB",
+      "description": "Compact portable washing machine for small spaces.",
+      "shortDescription": "Portable washing machine",
+      "features": [
+        "Portable design",
+        "Compact size",
+        "Energy efficient",
+        "Easy to use"
+      ],
+      "specifications": {
+        "capacity": "1.8 cu.ft",
+        "cycles": "5 wash programs",
+        "power": "110V",
+        "weight": "25kg"
+      },
+      "tags": [
+        "washer",
+        "portable",
+        "appliance"
+      ],
+      "weight": "25kg",
+      "dimensions": "700 × 400 × 700 mm",
+      "colors": [
+        "White"
+      ],
+      "warranty": "1 year",
+      "seller": {
+        "id": "seller7",
+        "name": "HomeAppliance",
+        "rating": 4.0,
+        "totalSales": 210,
+        "verified": true
+      },
+      "shipping": {
+        "free": false,
+        "estimatedDays": "5-7",
+        "express": true
+      }
+    },
+    {
+      "id": "8",
+      "name": "2 Barrel Carburetor Carb 2100 Engine Increase Horsepower",
+      "slug": "carburetor-carb-2100",
+      "price": 160,
+      "originalPrice": 160,
+      "discount": 0,
+      "rating": 4.1,
+      "reviews": 34,
+      "image": "/images/carburetor.png",
+      "images": [
+        "/images/image-8.png",
+        "/images/carburetor-2.png"
+      ],
+      "category": "Automotive",
+      "subcategory": "Engine Parts",
+      "brand": null,
+      "inStock": true,
+      "stockCount": 19,
+      "sku": "AUTO-CARB2100",
+      "description": "2 barrel carburetor designed to increase engine horsepower.",
+      "shortDescription": "2 Barrel Carburetor for engine",
+      "features": [
+        "Increased horsepower",
+        "2 barrel design",
+        "Easy installation",
+        "Durable construction"
+      ],
+      "specifications": {
+        "type": "2 barrel",
+        "material": "Aluminum",
+        "compatibility": "Universal"
+      },
+      "tags": [
+        "carburetor",
+        "engine",
+        "automotive"
+      ],
+      "weight": "1.5kg",
+      "dimensions": "150 × 100 × 100 mm",
+      "colors": [
+        "Silver"
+      ],
+      "warranty": "6 months",
+      "seller": {
+        "id": "seller8",
+        "name": "AutoPartsPro",
+        "rating": 4.2,
+        "totalSales": 180,
+        "verified": true
+      },
+      "shipping": {
+        "free": true,
+        "estimatedDays": "4-6",
+        "express": false
+      }
+    },
+    {
+      "id": "9",
+      "name": "JBL FLIP 4 - Waterproof Portable Bluetooth Speaker - Black",
+      "slug": "jbl-flip-4-speaker",
+      "price": 250,
+      "originalPrice": 360,
+      "discount": 31,
+      "rating": 4.8,
+      "reviews": 342,
+      "image": "/images/image-9.png",
+      "images": [
+        "/images/jbl-flip4-1.png",
+        "/images/jbl-flip4-2.png"
+      ],
+      "category": "Electronics",
+      "subcategory": "Audio",
+      "brand": "JBL",
+      "inStock": true,
+      "stockCount": 25,
+      "sku": "JBL-FLIP4-BLK",
+      "description": "Waterproof portable Bluetooth speaker with powerful sound.",
+      "shortDescription": "Waterproof portable Bluetooth speaker",
+      "features": [
+        "Waterproof IPX7",
+        "12 hours playtime",
+        "Bluetooth 4.2",
+        "JBL bass radiator"
+      ],
+      "specifications": {
+        "battery": "3000mAh",
+        "waterproof": "IPX7",
+        "bluetooth": "4.2",
+        "weight": "515g"
+      },
+      "tags": [
+        "speaker",
+        "bluetooth",
+        "portable"
+      ],
+      "weight": "515g",
+      "dimensions": "175 × 68 × 70 mm",
+      "colors": [
+        "Black",
+        "Blue",
+        "Red"
+      ],
+      "warranty": "1 year",
+      "seller": {
+        "id": "seller9",
+        "name": "AudioWorld",
+        "rating": 4.7,
+        "totalSales": 780,
+        "verified": true
+      },
+      "shipping": {
+        "free": true,
+        "estimatedDays": "2-3",
+        "express": true
+      }
+    },
+    {
+      "id": "10",
+      "name": "TOZO T6 True Wireless Earbuds Bluetooth Headphone",
+      "slug": "tozo-t6-earbuds",
+      "price": 70,
+      "originalPrice": 70,
+      "discount": 0,
+      "rating": 4.5,
+      "reviews": 738,
+      "image": "/images/image-10.png",
+      "images": [
+        "/images/tozo-t6-1.png",
+        "/images/tozo-t6-2.png"
+      ],
+      "category": "Electronics",
+      "subcategory": "Computer Accessories",
+      "brand": "TOZO",
+      "inStock": true,
+      "stockCount": 42,
+      "sku": "TZO-T6-BLK",
+      "description": "True wireless earbuds with Bluetooth connectivity and premium sound.",
+      "shortDescription": "True wireless Bluetooth earbuds",
+      "features": [
+        "Bluetooth 5.0",
+        "IPX8 waterproof",
+        "6hr battery life",
+        "Touch controls"
+      ],
+      "specifications": {
+        "battery": "6 hours (30 with case)",
+        "waterproof": "IPX8",
+        "bluetooth": "5.0",
+        "weight": "4g per earbud"
+      },
+      "tags": [
+        "earbuds",
+        "wireless",
+        "bluetooth"
+      ],
+      "weight": "50g",
+      "dimensions": "60 × 40 × 25 mm",
+      "colors": [
+        "Black",
+        "White"
+      ],
+      "warranty": "1 year",
+      "seller": {
+        "id": "seller10",
+        "name": "GadgetWorld",
+        "rating": 4.6,
+        "totalSales": 920,
+        "verified": true
+      },
+      "shipping": {
+        "free": true,
+        "estimatedDays": "1-3",
+        "express": true
+      }
+    },
+    {
+      "id": "11",
+      "name": "Wired Over-Ear Gaming Headphones with USB",
+      "slug": "gaming-headphones-usb",
+      "price": 1500,
+      "originalPrice": 1500,
+      "discount": 0,
+      "rating": 4.3,
+      "reviews": 647,
+      "image": "/images/image-11.png",
+      "images": [
+        "/images/gaming-headphones-1.png",
+        "/images/gaming-headphones-2.png"
+      ],
+      "category": "Electronics",
+      "subcategory": "Computer Accessories",
+      "brand": null,
+      "inStock": true,
+      "stockCount": 18,
+      "sku": "HP-GAME-USB",
+      "description": "Wired over-ear gaming headphones with USB connectivity and immersive sound.",
+      "shortDescription": "Wired over-ear gaming headphones",
+      "features": [
+        "50mm drivers",
+        "Noise isolation",
+        "USB connectivity",
+        "Adjustable headband"
+      ],
+      "specifications": {
+        "driver": "50mm",
+        "frequency": "20Hz-20kHz",
+        "cable": "2.2m USB",
+        "weight": "320g"
+      },
+      "tags": [
+        "headphones",
+        "gaming",
+        "wired"
+      ],
+      "weight": "320g",
+      "dimensions": "190 × 170 × 80 mm",
+      "colors": [
+        "Black",
+        "Red"
+      ],
+      "warranty": "2 years",
+      "seller": {
+        "id": "seller11",
+        "name": "GameGear",
+        "rating": 4.4,
+        "totalSales": 580,
+        "verified": true
+      },
+      "shipping": {
+        "free": true,
+        "estimatedDays": "3-5",
+        "express": false
+      }
+    },
+    {
+      "id": "12",
+      "name": "Samsung Electronics Samsung Galaxy S21 5G",
+      "slug": "samsung-galaxy-s21-5g",
+      "price": 2300,
+      "originalPrice": 2300,
+      "discount": 0,
+      "rating": 4.7,
+      "reviews": 536,
+      "image": "/images/image-12.png",
+      "images": [
+        "/images/galaxy-s21-1.png",
+        "/images/galaxy-s21-2.png"
+      ],
+      "category": "Electronics",
+      "subcategory": "Computer Accessories",
+      "brand": "Samsung",
+      "inStock": true,
+      "stockCount": 27,
+      "sku": "SM-S21-5G-256",
+      "description": "Flagship Samsung Galaxy S21 5G smartphone with advanced features.",
+      "shortDescription": "Samsung Galaxy S21 5G smartphone",
+      "features": [
+        "5G connectivity",
+        "Triple camera system",
+        "120Hz AMOLED display",
+        "Exynos 2100"
+      ],
+      "specifications": {
+        "display": "6.2\" Dynamic AMOLED",
+        "processor": "Exynos 2100",
+        "storage": "256GB",
+        "camera": "12MP+64MP+12MP"
+      },
+      "tags": [
+        "smartphone",
+        "5g",
+        "samsung"
+      ],
+      "weight": "171g",
+      "dimensions": "151.7 × 71.2 × 7.9 mm",
+      "colors": [
+        "Phantom Gray",
+        "Phantom White"
+      ],
+      "warranty": "2 years",
+      "seller": {
+        "id": "seller12",
+        "name": "MobileWorld",
+        "rating": 4.8,
+        "totalSales": 1250,
+        "verified": true
+      },
+      "shipping": {
+        "free": true,
+        "estimatedDays": "1-2",
+        "express": true
+      }
+    },
+    {
+      "id": "13",
+      "name": "Polaroid 57-inch Photo/Video Tripod with Deluxe Tripod Car",
+      "slug": "polaroid-tripod",
+      "price": 1200,
+      "originalPrice": 1600,
+      "discount": 25,
+      "rating": 4.2,
+      "reviews": 423,
+      "image": "/images/image-13.png",
+      "images": [
+        "/images/polaroid-tripod-1.png",
+        "/images/polaroid-tripod-2.png"
+      ],
+      "category": "Electronics",
+      "subcategory": "Computer Accessories",
+      "brand": "Polaroid",
+      "inStock": true,
+      "stockCount": 9,
+      "sku": "PLD-TRP57-DLX",
+      "description": "Professional 57-inch photo/video tripod with deluxe carrying case.",
+      "shortDescription": "57-inch photo/video tripod",
+      "features": [
+        "57\" maximum height",
+        "3-way pan head",
+        "Aluminum construction",
+        "Deluxe carrying case"
+      ],
+      "specifications": {
+        "height": "57\" max",
+        "weight": "2.2kg",
+        "load": "5kg",
+        "material": "Aluminum"
+      },
+      "tags": [
+        "tripod",
+        "camera",
+        "photo"
+      ],
+      "weight": "2.2kg",
+      "dimensions": "57 × 20 × 20 cm (folded)",
+      "colors": [
+        "Black"
+      ],
+      "warranty": "1 year",
+      "seller": {
+        "id": "seller13",
+        "name": "PhotoGear",
+        "rating": 4.3,
+        "totalSales": 380,
+        "verified": true
+      },
+      "shipping": {
+        "free": false,
+        "estimatedDays": "4-6",
+        "express": true
+      }
+    },
+    {
+      "id": "14",
+      "name": "Amazon Basics High-Speed HDMI Cable (18 Gbps, 4K/R...)",
+      "slug": "amazon-hdmi-cable",
+      "price": 360,
+      "originalPrice": 360,
+      "discount": 0,
+      "rating": 4.6,
+      "reviews": 849,
+      "image": "/images/image-14.png",
+      "images": [
+        "/images/hdmi-cable-1.png",
+        "/images/hdmi-cable-2.png"
+      ],
+      "category": "Electronics",
+      "subcategory": "Computer Accessories",
+      "brand": "Amazon Basics",
+      "inStock": true,
+      "stockCount": 150,
+      "sku": "AMZ-HDMI-18G-6F",
+      "description": "High-speed HDMI cable supporting 18Gbps bandwidth for 4K resolution.",
+      "shortDescription": "High-speed HDMI cable",
+      "features": [
+        "18Gbps bandwidth",
+        "4K resolution support",
+        "Gold-plated connectors",
+        "Durable construction"
+      ],
+      "specifications": {
+        "length": "6 feet",
+        "bandwidth": "18Gbps",
+        "resolution": "4K@60Hz",
+        "connectors": "Gold-plated"
+      },
+      "tags": [
+        "hdmi",
+        "cable",
+        "4k"
+      ],
+      "weight": "100g",
+      "dimensions": "183 cm length",
+      "colors": [
+        "Black"
+      ],
+      "warranty": "Lifetime",
+      "seller": {
+        "id": "seller14",
+        "name": "Amazon",
+        "rating": 4.9,
+        "totalSales": 10000,
+        "verified": true
+      },
+      "shipping": {
+        "free": true,
+        "estimatedDays": "1-2",
+        "express": true
+      }
+    },
+    {
+      "id": "15",
+      "name": "New Apple Homepod Mini",
+      "slug": "apple-homepod-mini",
+      "price": 590,
+      "originalPrice": 590,
+      "discount": 0,
+      "rating": 4.8,
+      "reviews": 925,
+      "image": "/images/image-15.png",
+      "images": [
+        "/images/homepod-mini-1.png",
+        "/images/homepod-mini-2.png"
+      ],
+      "category": "Electronics",
+      "subcategory": "Smart Home",
+      "brand": "Apple",
+      "inStock": true,
+      "stockCount": 35,
+      "sku": "APL-HPMINI-WHT",
+      "description": "Jam-packed with innovation, HomePod mini delivers unexpectedly powerful sound.",
+      "shortDescription": "Smart speaker with innovative features",
+      "features": [
+        "Siri voice control",
+        "360° sound",
+        "Smart home hub",
+        "Intercom functionality"
+      ],
+      "specifications": {
+        "height": "84.3mm",
+        "weight": "345g",
+        "connectivity": "Wi-Fi, Bluetooth",
+        "processor": "Apple S5"
+      },
+      "tags": [
+        "smart speaker",
+        "homepod",
+        "apple"
+      ],
+      "weight": "345g",
+      "dimensions": "84.3 × 97.9 mm",
+      "colors": [
+        "White",
+        "Space Gray"
+      ],
+      "warranty": "1 year",
+      "seller": {
+        "id": "seller15",
+        "name": "Apple Store",
+        "rating": 4.9,
+        "totalSales": 5000,
+        "verified": true
+      },
+      "shipping": {
+        "free": true,
+        "estimatedDays": "1-2",
+        "express": true
+      }
+    },
+    {
+      "id": "16",
+      "name": "Xiaomi Mi 11 Ultra 12GB+256GB",
+      "slug": "xiaomi-mi-11-ultra",
+      "price": 590,
+      "originalPrice": 590,
+      "discount": 0,
+      "rating": 4.7,
+      "reviews": 782,
+      "image": "/images/image-16.png",
+      "images": [
+        "/images/xiaomi-mi11-1.png",
+        "/images/xiaomi-mi11-2.png"
+      ],
+      "category": "Electronics",
+      "subcategory": "SmartPhone",
+      "brand": "Xiaomi",
+      "inStock": true,
+      "stockCount": 18,
+      "sku": "XM-MI11U-12-256",
+      "description": "Flagship Xiaomi Mi 11 Ultra smartphone with 12GB RAM and 256GB storage.",
+      "shortDescription": "Xiaomi flagship smartphone",
+      "features": [
+        "12GB RAM",
+        "256GB storage",
+        "120Hz AMOLED display",
+        "Triple camera system"
+      ],
+      "specifications": {
+        "display": "6.81\" AMOLED",
+        "processor": "Snapdragon 888",
+        "ram": "12GB",
+        "storage": "256GB"
+      },
+      "tags": [
+        "smartphone",
+        "xiaomi",
+        "flagship"
+      ],
+      "weight": "234g",
+      "dimensions": "164.3 × 74.6 × 8.4 mm",
+      "colors": [
+        "Ceramic Black",
+        "Ceramic White"
+      ],
+      "warranty": "2 years",
+      "seller": {
+        "id": "seller16",
+        "name": "Xiaomi Official",
+        "rating": 4.8,
+        "totalSales": 3200,
+        "verified": true
+      },
+      "shipping": {
+        "free": true,
+        "estimatedDays": "2-3",
+        "express": true
+      }
+    },
+    {
+      "id": "17",
+      "name": "Macbook Pro",
+      "slug": "macbook-pro",
+      "price": 1999,
+      "originalPrice": 1999,
+      "discount": 0,
+      "rating": 4.9,
+      "reviews": 1245,
+      "image": "/images/image-17.png",
+      "images": [
+        "/images/macbook-pro-1.png",
+        "/images/macbook-pro-2.png"
+      ],
+      "category": "Electronics",
+      "subcategory": "Computer & Laptop",
+      "brand": "Apple",
+      "inStock": true,
+      "stockCount": 22,
+      "sku": "APL-MBP-M1-32-1T",
+      "description": "Apple M1 Max Chip with 32GB Unified Memory and 1TB SSD Storage.",
+      "shortDescription": "High-performance Macbook Pro",
+      "features": [
+        "M1 Max chip",
+        "32GB unified memory",
+        "1TB SSD storage",
+        "Liquid Retina XDR display"
+      ],
+      "specifications": {
+        "display": "16.2\" Liquid Retina XDR",
+        "processor": "M1 Max 10-core",
+        "memory": "32GB",
+        "storage": "1TB SSD"
+      },
+      "tags": [
+        "laptop",
+        "macbook",
+        "apple"
+      ],
+      "weight": "2.1kg",
+      "dimensions": "35.57 × 24.81 × 1.68 cm",
+      "colors": [
+        "Space Gray",
+        "Silver"
+      ],
+      "warranty": "1 year",
+      "seller": {
+        "id": "seller17",
+        "name": "Apple Store",
+        "rating": 4.9,
+        "totalSales": 5000,
+        "verified": true
+      },
+      "shipping": {
+        "free": true,
+        "estimatedDays": "1-2",
+        "express": true
+      }
+    },
+    {
+      "id": "18",
+      "name": "Wyze Cam Pan v2 1080p Pan/Tilt/Zoom Wi-Fi Indoor Smart Camera",
+      "slug": "wyze-cam-pan",
+      "price": 1500,
+      "originalPrice": 1500,
+      "discount": 0,
+      "rating": 4.4,
+      "reviews": 856,
+      "image": "/images/image-18.png",
+      "images": [
+        "/images/wyze-cam-1.png",
+        "/images/wyze-cam-2.png"
+      ],
+      "category": "Electronics",
+      "subcategory": "Smart Home",
+      "brand": "Wyze",
+      "inStock": true,
+      "stockCount": 31,
+      "sku": "WYZ-CAMPAN-V2",
+      "description": "Indoor smart security camera with pan/tilt/zoom and 1080p resolution.",
+      "shortDescription": "Indoor smart security camera",
+      "features": [
+        "1080p HD",
+        "Pan/tilt/zoom",
+        "Motion tracking",
+        "Night vision"
+      ],
+      "specifications": {
+        "resolution": "1080p",
+        "viewing": "360° horizontal, 93° vertical",
+        "storage": "MicroSD (not included)",
+        "connectivity": "Wi-Fi"
+      },
+      "tags": [
+        "camera",
+        "security",
+        "smart home"
+      ],
+      "weight": "300g",
+      "dimensions": "100 × 100 × 100 mm",
+      "colors": [
+        "White"
+      ],
+      "warranty": "1 year",
+      "seller": {
+        "id": "seller18",
+        "name": "SmartHomeGadgets",
+        "rating": 4.5,
+        "totalSales": 680,
+        "verified": true
+      },
+      "shipping": {
+        "free": true,
+        "estimatedDays": "3-5",
+        "express": false
+      }
+    },
+     {
+  "id": "19",
+  "name": "Google Pixel 6 Pro",
+  "slug": "google-pixel-6-pro",
+  "price": 799,
+  "originalPrice": 899,
+  "discount": 11,
+  "rating": 4.6,
+  "reviews": 412,
+  "image": "/images/image-19.png",
+  "images": [
+    "/images/google-pixel-6-pro-1.png",
+    "/images/google-pixel-6-pro-2.png",
+    "/images/google-pixel-6-pro-3.png"
+  ],
+  "category": "Electronics",
+  "subcategory": "Smartphones",
+  "brand": "Google",
+  "inStock": true,
+  "stockCount": 20,
+  "sku": "GOO-PIX6P-128",
+  "description": "Google Pixel 6 Pro features a 6.7-inch LTPO OLED display, Google Tensor chip, and a triple rear camera system with 50MP main sensor.",
+  "shortDescription": "Flagship smartphone with Google Tensor chip and triple camera system",
+  "features": [
+    "6.7-inch LTPO OLED display",
+    "Google Tensor processor",
+    "Triple rear cameras (50MP main)",
+    "12GB RAM, 128GB storage",
+    "5G connectivity",
+    "Fast charging and wireless charging"
+  ],
+  "specifications": {
+    "display": "6.7-inch QHD+ LTPO OLED, 120Hz",
+    "processor": "Google Tensor",
+    "memory": "12GB",
+    "storage": "128GB",
+    "camera": "50MP wide, 48MP telephoto, 12MP ultrawide",
+    "battery": "5003mAh, fast & wireless charging",
+    "connectivity": "5G, Wi-Fi 6E, Bluetooth 5.2, NFC"
+  },
+  "tags": [
+    "smartphone",
+    "google",
+    "pixel",
+    "android",
+    "5g"
+  ],
+  "weight": "210g",
+  "dimensions": "163.9 × 75.9 × 8.9 mm",
+  "colors": [
+    "Stormy Black",
+    "Cloudy White",
+    "Sorta Sunny"
+  ],
+  "warranty": "1 year manufacturer warranty",
+  "seller": {
+    "id": "seller6",
+    "name": "GadgetCentral",
+    "rating": 4.7,
+    "totalSales": 780,
+    "verified": true
+  },
+  "shipping": {
+    "free": true,
+    "estimatedDays": "2-4",
+    "express": true
+  }
+},
+{
+  "id": "20",
+  "name": "Xbox Series S Console",
+  "slug": "xbox-series-s-console",
+  "price": 299,
+  "originalPrice": 299,
+  "discount": 0,
+  "rating": 4.7,
+  "reviews": 524,
+  "image": "/images/image-20.png",
+  "images": [
+    "/images/xbox-series-s-console-1.png",
+    "/images/xbox-series-s-console-2.png",
+    "/images/xbox-series-s-console-3.png"
+  ],
+  "category": "Electronics",
+  "subcategory": "Gaming Consoles",
+  "brand": "Microsoft",
+  "inStock": true,
+  "stockCount": 40,
+  "sku": "MSFT-XBSS-512GB",
+  "description": "The best place to play. Experience next-gen speed and performance at an affordable price. Save up to 50% on select Xbox games and get 3 months of PC Game Pass for only $2 USD.",
+  "shortDescription": "Next-gen gaming with Xbox Series S + Game Pass offer",
+  "features": [
+    "All-digital gaming experience",
+    "512GB SSD for fast load times",
+    "Support for up to 1440p gaming",
+    "Up to 120 FPS performance",
+    "Quick Resume and fast load times",
+    "Access to hundreds of games with Game Pass"
+  ],
+  "specifications": {
+    "processor": "8-core AMD Zen 2, 3.6 GHz",
+    "gpu": "4 TFLOPS, AMD RDNA 2",
+    "memory": "10GB GDDR6",
+    "storage": "512GB NVMe SSD",
+    "video": "1440p @ 60Hz (up to 120Hz)",
+    "connectivity": "HDMI 2.1, Wi-Fi 5, Ethernet, USB 3.1"
+  },
+  "tags": [
+    "gaming",
+    "console",
+    "xbox",
+    "game pass",
+    "budget"
+  ],
+  "weight": "1.93kg",
+  "dimensions": "6.5 × 15.1 × 27.5 cm",
+  "colors": [
+    "White"
+  ],
+  "warranty": "1 year limited warranty",
+  "seller": {
+    "id": "seller7",
+    "name": "GameHub",
+    "rating": 4.8,
+    "totalSales": 950,
+    "verified": true
+  },
+  "shipping": {
+    "free": true,
+    "estimatedDays": "3-5",
+    "express": true
+  }
+},
+ {
+      "id": "21",
+      "name": "Base Sport Earbuds - Wireless Earphones - Bluetooth in Ear",
+      "slug": "base-sport-earbuds",
+      "price": 2300,
+      "originalPrice": 2300,
+      "discount": 3,
+      "rating": 4.0,
+      "reviews": 75,
+      "image": "/images/image-21.png",
+      "images": [
+        "/images/base-sport-earbuds-1.png",
+        "/images/base-sport-earbuds-2.png"
+      ],
+      "category": "Electronics",
+      "subcategory": "Headphones",
+      "brand": "Base",
+      "inStock": true,
+      "stockCount": 30,
+      "sku": "BASE-SPORT-BT",
+      "description": "Wireless Bluetooth earbuds designed for sports activities with secure fit and long battery life.",
+      "shortDescription": "Wireless sport earbuds with Bluetooth",
+      "features": [
+        "Bluetooth 5.0",
+        "IPX5 water resistance",
+        "10hr battery life",
+        "Secure fit for sports"
+      ],
+      "specifications": {
+        "battery": "10 hours",
+        "waterproof": "IPX5",
+        "bluetooth": "5.0",
+        "weight": "6g per earbud"
+      },
+      "tags": [
+        "earbuds",
+        "wireless",
+        "sports"
+      ],
+      "weight": "60g",
+      "dimensions": "65 × 45 × 30 mm",
+      "colors": [
+        "Black",
+        "Red"
+      ],
+      "warranty": "1 year",
+      "seller": {
+        "id": "seller19",
+        "name": "AudioDeals",
+        "rating": 4.2,
+        "totalSales": 350,
+        "verified": true
+      },
+      "shipping": {
+        "free": true,
+        "estimatedDays": "3-5",
+        "express": false
+      }
+    },
+    {
+      "id": "22",
+      "name": "5GPP PACK NOW MENU TOWN Point & Shop",
+      "slug": "5gpp-pack-menu-town",
+      "price": 1200,
+      "originalPrice": 1200,
+      "discount": 0,
+      "rating": 3.9,
+      "reviews": 42,
+      "image": "/images/5gpp-pack.png",
+      "images": [
+        "/images/5gpp-pack-1.png",
+        "/images/5gpp-pack-2.png"
+      ],
+      "category": "Electronics",
+      "subcategory": "Networking",
+      "brand": "5GPP",
+      "inStock": true,
+      "stockCount": 15,
+      "sku": "5GPP-PACK-MENU",
+      "description": "5G networking pack with advanced connectivity options for town points and shops.",
+      "shortDescription": "5G networking pack for commercial use",
+      "features": [
+        "5G connectivity",
+        "Commercial grade",
+        "Easy installation",
+        "High-speed networking"
+      ],
+      "specifications": {
+        "connectivity": "5G",
+        "range": "Up to 500m",
+        "ports": "4 Ethernet",
+        "power": "PoE"
+      },
+      "tags": [
+        "5g",
+        "networking",
+        "commercial"
+      ],
+      "weight": "1.2kg",
+      "dimensions": "216 × 188 × 50 mm",
+      "colors": [
+        "White"
+      ],
+      "warranty": "2 years",
+      "seller": {
+        "id": "seller20",
+        "name": "NetworkingPro",
+        "rating": 4.0,
+        "totalSales": 280,
+        "verified": true
+      },
+      "shipping": {
+        "free": false,
+        "estimatedDays": "5-7",
+        "express": true
+      }
+    },
+    {
+  "id": "23",
+  "name": "Xiaomi FlipBuds Pro",
+  "slug": "xiaomi-flipbuds-pro",
+  "price": 299,
+  "originalPrice": 349,
+  "discount": 14,
+  "rating": 4.6,
+  "reviews": 428,
+  "image": "/images/image-23.png",
+  "images": [
+    "/images/xiaomi-flipbuds-pro-1.png",
+    "/images/xiaomi-flipbuds-pro-2.png",
+    "/images/xiaomi-flipbuds-pro-3.png"
+  ],
+  "category": "Electronics",
+  "subcategory": "Headphones",
+  "brand": "Xiaomi",
+  "inStock": true,
+  "stockCount": 28,
+  "sku": "XM-FLPBDS-PRO",
+  "description": "Xiaomi FlipBuds Pro feature active noise cancellation, high-quality audio, and a sleek flip-open design with wireless charging case.",
+  "shortDescription": "Premium TWS earbuds with ANC and wireless charging",
+  "features": [
+    "Active Noise Cancellation (40dB)",
+    "Wireless charging case",
+    "11mm dynamic drivers",
+    "28hr total battery life",
+    "Bluetooth 5.2",
+    "IPX4 water resistance"
+  ],
+  "specifications": {
+    "battery": "7hr (earbuds), +21hr (case)",
+    "anc": "40dB reduction",
+    "bluetooth": "5.2",
+    "waterproof": "IPX4",
+    "driver": "11mm dynamic",
+    "charging": "Wireless/Qi compatible"
+  },
+  "tags": [
+    "earbuds",
+    "wireless",
+    "xiaomi",
+    "anc",
+    "premium"
+  ],
+  "weight": "60g (with case)",
+  "dimensions": "65 × 45 × 25 mm (case)",
+  "colors": [
+    "Black",
+    "White"
+  ],
+  "warranty": "1 year",
+  "seller": {
+    "id": "seller16",
+    "name": "Xiaomi Official",
+    "rating": 4.8,
+    "totalSales": 3200,
+    "verified": true
+  },
+  "shipping": {
+    "free": true,
+    "estimatedDays": "2-3",
+    "express": true
+  }
+}
+  ]
+}
+  
+
+
+ 

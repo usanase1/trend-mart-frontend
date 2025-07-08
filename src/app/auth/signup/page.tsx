@@ -5,6 +5,44 @@ import { useState } from "react"
 import { Eye, EyeOff } from "lucide-react"
 import Link from "next/link"
 
+function validateEmail(email: string) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+}
+
+function validateSignUp(formData: { name: string; email: string; password: string; confirmPassword: string }, agreedToTerms: boolean) {
+  const errors: string[] = []
+  if (!formData.name) {
+    errors.push("Name is required.")
+  }
+  if (!formData.email) {
+    errors.push("Email is required.")
+  } else if (!validateEmail(formData.email)) {
+    errors.push("Please enter a valid email address.")
+  }
+  if (!formData.password) {
+    errors.push("Password is required.")
+  } else {
+    if (formData.password.length < 8) {
+      errors.push("Password must be at least 8 characters.")
+    }
+    if (!/[0-9]/.test(formData.password)) {
+      errors.push("Password must include at least one number.")
+    }
+    if (!/[^A-Za-z0-9]/.test(formData.password)) {
+      errors.push("Password must include at least one symbol.")
+    }
+  }
+  if (!formData.confirmPassword) {
+    errors.push("Please confirm your password.")
+  } else if (formData.password !== formData.confirmPassword) {
+    errors.push("Passwords do not match.")
+  }
+  if (!agreedToTerms) {
+    errors.push("You must agree to the Terms and Privacy Policy.")
+  }
+  return errors
+}
+
 export default function SignUpPage() {
   const [showPassword, setShowPassword] = useState(false)
   const [showConfirmPassword, setShowConfirmPassword] = useState(false)
@@ -15,6 +53,7 @@ export default function SignUpPage() {
     password: "",
     confirmPassword: "",
   })
+  const [errors, setErrors] = useState<string[]>([])
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target
@@ -22,10 +61,17 @@ export default function SignUpPage() {
       ...prev,
       [name]: value,
     }))
+    setErrors([])
   }
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
+    const validationErrors = validateSignUp(formData, agreedToTerms)
+    if (validationErrors.length > 0) {
+      setErrors(validationErrors)
+      return
+    }
+    setErrors([])
     console.log("Sign up data:", formData)
     // Handle sign up logic here
   }
@@ -61,6 +107,17 @@ export default function SignUpPage() {
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-4">
+            {/* Error Messages */}
+            {errors.length > 0 && (
+              <div className="bg-red-100 text-red-700 px-4 py-2 rounded mb-2 text-sm">
+                <ul className="list-disc pl-5">
+                  {errors.map((err, idx) => (
+                    <li key={idx}>{err}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
             {/* Name Field */}
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
@@ -70,10 +127,9 @@ export default function SignUpPage() {
                 id="name"
                 name="name"
                 type="text"
-                required
                 value={formData.name}
                 onChange={handleInputChange}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#FA8232] focus:border-[#FA8232] outline-none transition-colors"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#FA8232] focus:border-[#FA8232] outline-none transition-colors placeholder-gray-500 text-gray-900"
                 placeholder="Enter your name"
               />
             </div>
@@ -87,7 +143,6 @@ export default function SignUpPage() {
                 id="email"
                 name="email"
                 type="email"
-                required
                 value={formData.email}
                 onChange={handleInputChange}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#FA8232] focus:border-[#FA8232] outline-none transition-colors text-gray-900"
@@ -105,10 +160,9 @@ export default function SignUpPage() {
                   id="password"
                   name="password"
                   type={showPassword ? "text" : "password"}
-                  required
                   value={formData.password}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 pr-12 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#FA8232] focus:border-[#FA8232] outline-none transition-colors"
+                  className="w-full px-4 py-3 pr-12 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#FA8232] focus:border-[#FA8232] outline-none transition-colors placeholder-gray-500 text-gray-900"
                   placeholder="8+ characters"
                 />
                 <button
@@ -131,10 +185,9 @@ export default function SignUpPage() {
                   id="confirmPassword"
                   name="confirmPassword"
                   type={showConfirmPassword ? "text" : "password"}
-                  required
                   value={formData.confirmPassword}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 pr-12 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#FA8232] focus:border-[#FA8232] outline-none transition-colors"
+                  className="w-full px-4 py-3 pr-12 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#FA8232] focus:border-[#FA8232] outline-none transition-colors placeholder-gray-500 text-gray-900"
                   placeholder="Confirm your password"
                 />
                 <button
