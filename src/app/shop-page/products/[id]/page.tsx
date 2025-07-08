@@ -5,16 +5,28 @@ import { useParams } from "next/navigation";
 import ProductDetails from "@/components/products/ProductDetailsPage";
 import Breadcrumb from "@/components/ui/Breadcrumb";
 
+type Product = {
+  id: number | string;
+  name: string;
+  price: number;
+  description: string;
+  image: string;
+  category?: string;
+  [key: string]: any;
+};
+
 export default function ProductDetailPage() {
-  const { id } = useParams(); // get dynamic route param
-  const [product, setProduct] = useState<any>(null);
+  const { id } = useParams();
+  const [product, setProduct] = useState<Product | null>(null);
 
   useEffect(() => {
     fetch("/product-mock.json")
       .then((res) => res.json())
       .then((data) => {
-        const found = data.products.find((p: any) => String(p.id) === String(id));
-        setProduct(found);
+        const found: Product | undefined = data.products.find(
+          (p: Product) => String(p.id) === String(id)
+        );
+        if (found) setProduct(found);
       });
   }, [id]);
 
