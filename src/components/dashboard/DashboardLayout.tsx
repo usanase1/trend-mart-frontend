@@ -5,10 +5,31 @@ import PaymentCard from "./PaymentCard";
 import RecentOrdersTable from "./RecentOrdersTable";
 
 
-const orders = [
-  { id: '96459761', status: 'IN PROGRESS', date: 'Dec 30, 2019 05:18', total: '$1,500', items: 5 },
-  { id: '71667167', status: 'COMPLETED', date: 'Feb 2, 2019 19:28', total: '$80', items: 11 },
-  { id: '95214362', status: 'CANCELED', date: 'Mar 20, 2019 23:14', total: '$160', items: 3 },
+const mockOrders = [
+  {
+    id: "#123456",
+    date: "July 6, 2025",
+    status: "Delivered",
+    total: "$219.00",
+  },
+  {
+    id: "#123457",
+    date: "July 5, 2025",
+    status: "Shipped",
+    total: "$89.99",
+  },
+  {
+    id: "#123458",
+    date: "July 2, 2025",
+    status: "Processing",
+    total: "$149.99",
+  },
+  {
+    id: "#123459",
+    date: "June 28, 2025",
+    status: "Delivered",
+    total: "$299.00",
+  },
 ];
 export default function DashboardLayout() {
   return (
@@ -48,7 +69,7 @@ export default function DashboardLayout() {
         </div>
         </div>
 
-        {/* Payment section */}
+        
         <div>
           <div className="flex justify-between items-center mb-2">
             <h4 className="font-semibold">Payment Option</h4>
@@ -60,7 +81,7 @@ export default function DashboardLayout() {
             
 
           </div>
-          <RecentOrdersTable orders={orders} showLimit={3} />
+          <RecentOrdersTable orders={mockOrders} showAll={false} />
         </div>
       </main>
     </div>
