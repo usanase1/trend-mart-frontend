@@ -1,8 +1,19 @@
 "use client";
+import { Product } from "@/landing/Home";
+
+
+interface ExtendedProduct extends Product {
+  features: string[];
+  shipping: {
+    estimatedDays: number;
+    free: boolean;
+  };
+}
 
 interface ProductDescriptionProps {
-  product: any;
+  product: ExtendedProduct;
 }
+
 
 export default function ProductDescription({ product }: ProductDescriptionProps) {
   return (

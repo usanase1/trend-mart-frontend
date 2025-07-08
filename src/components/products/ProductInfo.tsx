@@ -3,7 +3,14 @@
 import { ShoppingCart, Heart } from "lucide-react";
 
 interface ProductInfoProps {
-  product: any;
+  product: {
+    name: string;
+    price: number;
+    originalPrice: number;
+    discount: number;
+    inStock: boolean;
+    sku: string;
+  };
 }
 
 export default function ProductInfo({ product }: ProductInfoProps) {
@@ -28,7 +35,14 @@ export default function ProductInfo({ product }: ProductInfoProps) {
       </div>
 
       <div className="flex gap-2 text-sm">
-        <span>Availability: {product.inStock ? <span className="text-green-500">In Stock</span> : "Out of Stock"}</span>
+        <span>
+          Availability:{" "}
+          {product.inStock ? (
+            <span className="text-green-500">In Stock</span>
+          ) : (
+            "Out of Stock"
+          )}
+        </span>
         <span>| SKU: {product.sku}</span>
       </div>
 

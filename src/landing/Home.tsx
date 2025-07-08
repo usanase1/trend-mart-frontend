@@ -18,7 +18,7 @@ import {
   Eye,
 } from "lucide-react";
 
-type Product = {
+export type Product = {
   id: string;
   name: string;
   slug: string;
