@@ -2,7 +2,6 @@
 
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
-import { Fragment } from 'react';
 
 type OrderStatus = 'IN PROGRESS' | 'COMPLETED' | 'CANCELED';
 
