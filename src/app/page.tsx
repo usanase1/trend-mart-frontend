@@ -4,7 +4,8 @@ import HomePage from "@/landing/Home";
 export default function Home() {
   return (
     <div>
-    <HomePage/>
+    <HomePage
+    />
     <div>Home Page</div>
     </div>
   );

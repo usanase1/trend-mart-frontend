@@ -6,6 +6,8 @@ import Link from "next/link";
 import Navbar from "@/components/NavBar";
 import Footer from "@/components/layout/Footer";
 import { useCart } from "@/context/CartContext";
+import ShopNowButton from "./shopButton";
+import { useRouter } from "next/navigation";
 import {
   Package,
   Trophy,
@@ -37,6 +39,7 @@ type Product = {
 export default function Home() {
   const [products, setProducts] = useState<Product[]>([]);
   const { addToCart } = useCart();
+  const router = useRouter();
 
   useEffect(() => {
     fetch("/product-mock.json")
@@ -64,7 +67,7 @@ export default function Home() {
     <>
       <Navbar />
       <main className="px-4 py-4 max-w-6xl mx-auto bg-white">
-        {/* Xbox Banner */}
+        
         <section className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-12">
           <div className="col-span-1 lg:col-span-2 bg-[#F5F7FA] p-6 rounded-lg flex flex-col md:flex-row items-center justify-between relative overflow-hidden">
             {products
@@ -84,9 +87,7 @@ export default function Home() {
                     <p className="text-gray-600 text-sm mb-4">
                       {product.shortDescription}
                     </p>
-                    <button className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-5 py-2 rounded text-sm">
-                      SHOP NOW →
-                    </button>
+                    <ShopNowButton />
                   </div>
 
                   <div className="absolute top-6 right-6 md:static md:mt-0">
@@ -328,7 +329,12 @@ export default function Home() {
                         >
                           <ShoppingCart size={16} />
                         </button>
-                        <button className="w-9 h-9 rounded-full bg-white text-gray-600 hover:text-blue-600 shadow-md flex items-center justify-center">
+                        <button
+                          onClick={() =>
+                            router.push(`/shop-page/products/${product.id}`)
+                          }
+                          className="w-9 h-9 rounded-full bg-white text-gray-600 hover:text-blue-600 shadow-md flex items-center justify-center"
+                        >
                           <Eye size={16} />
                         </button>
                       </div>
@@ -409,10 +415,10 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Featured Products with Promo Side Banner */}
+        
         <section className="my-24">
           <div className="flex flex-col md:flex-row gap-6">
-            <div className="w-full md:w-[300px] bg-yellow-100 p-6 rounded-lg flex flex-col items-start justify-between">
+            <div className="w-full md:w-[300px] bg-[#F3DE6D] p-6 rounded-lg flex flex-col items-start justify-between">
               <div>
                 <p className="text-sm font-semibold text-orange-600 mb-2">
                   COMPUTER & ACCESSORIES
@@ -437,18 +443,6 @@ export default function Home() {
                   height={360}
                   className="rounded"
                 />
-
-                <div className="absolute inset-0 bg-black/10 flex items-center justify-center gap-3 opacity-0 group-hover:opacity-100 transition duration-300">
-                  <button className="w-9 h-9 rounded-full bg-white text-gray-600 hover:text-red-500 shadow-md flex items-center justify-center">
-                    <Heart size={16} />
-                  </button>
-                  <button className="w-9 h-9 rounded-full bg-orange-500 text-white hover:bg-orange-600 shadow-md flex items-center justify-center">
-                    <ShoppingCart size={16} />
-                  </button>
-                  <button className="w-9 h-9 rounded-full bg-white text-gray-600 hover:text-blue-600 shadow-md flex items-center justify-center">
-                    <Eye size={16} />
-                  </button>
-                </div>
               </div>
             </div>
 
@@ -562,10 +556,12 @@ export default function Home() {
                   <span className="ml-2">→</span>
                 </button>
               </div>
-              <img
+              <Image
                 src="/images/homepod.png"
                 alt="Apple Homepod Mini"
                 className="w-40 h-40 object-contain"
+                height={240}
+                width={240}
               />
             </div>
 
@@ -585,10 +581,12 @@ export default function Home() {
                   <span className="ml-2">→</span>
                 </button>
               </div>
-              <img
+              <Image
                 src="/images/xiaomi-mi11.png"
                 alt="Xiaomi Mi 11 Ultra"
                 className="w-40 h-40 object-contain"
+                height={349}
+                width={312}
               />
 
               <div className="absolute top-4 right-4 bg-blue-500 text-white text-sm font-bold px-3 py-1 rounded-full">
@@ -769,12 +767,13 @@ export default function Home() {
               </button>
             </div>
 
-            {/* Image */}
             <div className="flex-1 max-w-md">
-              <img
+              <Image
                 src="/images/macbook-pro.png"
                 alt="Macbook Pro"
                 className="w-full h-auto object-contain"
+                height={424}
+                width={536}
               />
             </div>
           </div>
@@ -783,7 +782,6 @@ export default function Home() {
         {/* Deal Categories Section */}
         <section className="my-16">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* FLASH SALE TODAY */}
             <div>
               <h3 className="text-sm font-bold uppercase mb-4">
                 Flash Sale Today
