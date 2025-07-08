@@ -6,7 +6,7 @@ import { Fragment } from 'react';
 
 type OrderStatus = 'IN PROGRESS' | 'COMPLETED' | 'CANCELED';
 
-type Order = {
+export type Orders = {
   id: string;
   status: OrderStatus;
   date: string;
@@ -15,7 +15,7 @@ type Order = {
 };
 
 type Props = {
-  orders: Order[];
+  orders: Orders[];
   showLimit?: number;
   hideHeaderActions?: boolean;
 };

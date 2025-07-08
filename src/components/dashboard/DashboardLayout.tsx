@@ -1,36 +1,44 @@
-import Sidebar from "./Sidebar";
+import Sidebar from "@/app/dashboard/sidebar/Sidebar";
 import InfoCard from "./InfoCard";
 import ProfileCard from "./ProfileCard";
 import PaymentCard from "./PaymentCard";
 import RecentOrdersTable from "./RecentOrdersTable";
+import { Orders } from "./RecentOrdersTable";
 
 
-const mockOrders = [
+
+const mockOrders: Orders[] = [
   {
-    id: "#123456",
+    id: "123456",
+    status: "COMPLETED" as const,
     date: "July 6, 2025",
-    status: "Delivered",
     total: "$219.00",
+    items: 2,
   },
   {
-    id: "#123457",
+    id: "123457",
+    status: "IN PROGRESS" as const,
     date: "July 5, 2025",
-    status: "Shipped",
     total: "$89.99",
+    items: 1,
   },
   {
-    id: "#123458",
+    id: "123458",
+    status: "CANCELED" as const,
     date: "July 2, 2025",
-    status: "Processing",
     total: "$149.99",
+    items: 3,
   },
   {
-    id: "#123459",
+    id: "123459",
+    status: "COMPLETED" as const,
     date: "June 28, 2025",
-    status: "Delivered",
     total: "$299.00",
+    items: 4,
   },
 ];
+
+
 export default function DashboardLayout() {
   return (
     <div className="flex min-h-screen bg-gray-50">
@@ -81,7 +89,7 @@ export default function DashboardLayout() {
             
 
           </div>
-          <RecentOrdersTable orders={mockOrders} showAll={false} />
+          <RecentOrdersTable orders={mockOrders} showLimit={3} />
         </div>
       </main>
     </div>
