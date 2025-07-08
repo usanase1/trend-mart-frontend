@@ -20,7 +20,7 @@ import DropdownMenu from "./DropdownMenu";
 import LoginForm from "./LoginForm";
 import CartModal from "./CartModal";
 import { useCart } from "@/context/CartContext";
-import { useModal } from "@/hooks/useModal"; 
+import { useModal } from "@/hooks/useModal";
 
 type Category = {
   id: number;
@@ -43,26 +43,24 @@ export default function Navbar() {
   return (
     <>
      
-      <div className="bg-black text-white text-sm flex justify-between items-center px-6 py-2">
-        <div>
-          <span className="bg-yellow-400 text-black px-2 py-0.5 font-semibold rounded">Black</span> Friday
-          <span className="ml-2">Up to <span className="text-yellow-400 font-bold">59%</span> OFF</span>
-        </div>
-        <Link href="#" className="bg-yellow-400 text-black px-4 py-1 rounded font-medium text-sm hover:bg-yellow-300 transition bg-[#1B6392]">
-          SHOP NOW →
-        </Link>
-      </div>
 
-     
       <div className="bg-[#1B6392] text-white text-xs px-6 py-2">
         <div className="flex justify-between items-center">
           <span>Welcome to TrendMart online eCommerce store.</span>
           <div className="flex items-center gap-4">
             <span>Follow us:</span>
-            <Link href="/"><Facebook className="w-4 h-4" /></Link>
-            <Link href="/"><Twitter className="w-4 h-4" /></Link>
-            <Link href="/"><Instagram className="w-4 h-4" /></Link>
-            <Link href="/"><Youtube className="w-4 h-4" /></Link>
+            <Link href="/">
+              <Facebook className="w-4 h-4" />
+            </Link>
+            <Link href="/">
+              <Twitter className="w-4 h-4" />
+            </Link>
+            <Link href="/">
+              <Instagram className="w-4 h-4" />
+            </Link>
+            <Link href="/">
+              <Youtube className="w-4 h-4" />
+            </Link>
             <select className="bg-[#1B6392] text-white text-xs border-none outline-none">
               <option>Eng</option>
               <option>Fr</option>
@@ -76,9 +74,13 @@ export default function Navbar() {
         <hr className="border-t border-white mt-2" />
       </div>
 
-     
       <div className="bg-[#1B6392] text-white py-4 px-6 flex flex-col md:flex-row items-center justify-between gap-4">
-        <Link href="/" className="text-2xl font-bold tracking-wide flex-shrink-0">TrendMart</Link>
+        <Link
+          href="/"
+          className="text-2xl font-bold tracking-wide flex-shrink-0"
+        >
+          TrendMart
+        </Link>
 
         <div className="flex w-full md:max-w-md rounded overflow-hidden bg-white">
           <input
@@ -92,9 +94,8 @@ export default function Navbar() {
         </div>
 
         <div className="flex items-center gap-6">
-         
           <button onClick={cartModal.open} className="relative cursor-pointer">
-            <ShoppingCart className="w-6 h-6 hover:text-yellow-400" />
+            <ShoppingCart className="w-6 h-6 hover:text-yellow-400 text-black" />
             {itemCount > 0 && (
               <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
                 {itemCount}
@@ -102,34 +103,43 @@ export default function Navbar() {
             )}
           </button>
 
-         
           <Link href="/wishlist">
             <Heart className="w-6 h-6 hover:text-yellow-400" />
           </Link>
 
-         
           <button onClick={loginModal.open}>
             <User className="w-6 h-6 hover:text-yellow-400 cursor-pointer" />
           </button>
         </div>
       </div>
 
-     
       <div className="bg-white text-black px-6 py-3 border-b">
         <div className="flex flex-wrap items-center gap-6 text-sm">
           <DropdownMenu />
-          <button className="flex items-center gap-1 hover:text-[#1B6392]"><MapPin className="w-4 h-4" /> Track Order</button>
-          <button className="flex items-center gap-1 hover:text-[#1B6392]"><RefreshCw className="w-4 h-4" /> Compare</button>
-          <button className="flex items-center gap-1 hover:text-[#1B6392]"><Headset className="w-4 h-4" /> Customer Support</button>
-          <button className="flex items-center gap-1 hover:text-[#1B6392]"><HelpCircle className="w-4 h-4" /> Need Help</button>
+          <Link href="/pages/TrackOrder">
+          <button className="flex items-center gap-1 hover:text-[#1B6392]">
+            <MapPin className="w-4 h-4" /> Track Order
+          </button>
+          </Link>
+          <button className="flex items-center gap-1 hover:text-[#1B6392]">
+            <RefreshCw className="w-4 h-4" /> Compare
+          </button>
+          <button className="flex items-center gap-1 hover:text-[#1B6392]">
+            <Headset className="w-4 h-4" /> Customer Support
+          </button>
+          <button className="flex items-center gap-1 hover:text-[#1B6392]">
+            <HelpCircle className="w-4 h-4" /> Need Help
+          </button>
         </div>
       </div>
 
-     
       {loginModal.isOpen && (
         <div className="fixed top-24 right-6 z-50">
           <div className="relative bg-white w-[350px] p-6 rounded-xl shadow-lg border border-gray-200">
-            <button onClick={loginModal.close} className="absolute top-2 right-3 text-gray-600 hover:text-red-600 text-xl font-bold">
+            <button
+              onClick={loginModal.close}
+              className="absolute top-2 right-3 text-gray-600 hover:text-red-600 text-xl font-bold"
+            >
               ×
             </button>
             <LoginForm />
@@ -137,7 +147,6 @@ export default function Navbar() {
         </div>
       )}
 
-     
       {cartModal.isOpen && (
         <CartModal isOpen={true} onClose={cartModal.close} />
       )}
