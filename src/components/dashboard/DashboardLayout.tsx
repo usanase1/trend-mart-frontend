@@ -1,4 +1,4 @@
-import Sidebar from "@/app/dashboard/sidebar/Sidebar";
+
 import InfoCard from "./InfoCard";
 import ProfileCard from "./ProfileCard";
 import PaymentCard from "./PaymentCard";
@@ -42,7 +42,6 @@ const mockOrders: Orders[] = [
 export default function DashboardLayout() {
   return (
     <div className="flex min-h-screen bg-gray-50">
-      <Sidebar />
       <main className="flex-1 p-6 space-y-6">
         <h2 className="text-xl font-semibold m-3">Hello, Kevin</h2>
         <p className="text-sm text-gray-600 w-1/2 m-3">

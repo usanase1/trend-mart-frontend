@@ -1,4 +1,5 @@
-import Sidebar from "./sidebar/Sidebar";
+
+import Sidebar from "./components/Sidebar";
 import Navbar from "@/components/NavBar";
 import Footer from "@/components/layout/Footer";
 

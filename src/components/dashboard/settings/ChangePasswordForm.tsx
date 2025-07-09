@@ -15,7 +15,7 @@ export default function ChangePasswordForm() {
   };
 
   return (
-    <div className="border p-6 rounded-md w-full">
+    <div className="border-gray-100 p-6 rounded-md w-full">
       <h2 className="text-lg font-semibold mb-4">Change Password</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <input
@@ -24,7 +24,7 @@ export default function ChangePasswordForm() {
           placeholder="Current Password (at least 8 characters)"
           value={passwords.current}
           onChange={handleChange}
-          className="border px-3 py-2 rounded col-span-2"
+          className="border-gray-100 px-3 py-2 rounded col-span-2"
         />
         <input
           name="new"
@@ -32,7 +32,7 @@ export default function ChangePasswordForm() {
           placeholder="New Password (8+ characters)"
           value={passwords.new}
           onChange={handleChange}
-          className="border px-3 py-2 rounded col-span-2"
+          className="border-gray-100 px-3 py-2 rounded col-span-2"
         />
         <input
           name="confirm"
@@ -40,10 +40,10 @@ export default function ChangePasswordForm() {
           placeholder="Confirm Password"
           value={passwords.confirm}
           onChange={handleChange}
-          className="border px-3 py-2 rounded col-span-2"
+          className="border-gray-100 px-3 py-2 rounded col-span-2"
         />
       </div>
-      <button className="mt-6 bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded">
+      <button className="mt-6 bg-[#FA8232] hover:bg-orange-600 text-white px-6 py-2 rounded">
         CHANGE PASSWORD
       </button>
     </div>
