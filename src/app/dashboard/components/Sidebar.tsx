@@ -16,7 +16,7 @@ const links = [
 
 export default function Sidebar() {
   return (
-    <aside className="w-60 bg-white p-4 border-r space-y-2 h-screen">
+    <aside className="w-60 bg-white p-4 border-gray-100 space-y-2 h-screen">
       {links.map((item, idx) => (
         <Link
           key={idx}
