@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { ShoppingCart } from "lucide-react";
 import { useRouter } from "next/navigation";
+import Button from '@/components/ui/Button';
 
 interface PromoProductCardProps {
   product: {
@@ -49,7 +50,9 @@ export default function PromoProductCard({ product, addToCart }: PromoProductCar
 
       
       <div className="flex flex-col gap-3">
-        <button
+        <Button
+          variant="primary"
+          size="sm"
           onClick={() =>
             addToCart({
               id: product.id,
@@ -59,17 +62,17 @@ export default function PromoProductCard({ product, addToCart }: PromoProductCar
               image: product.image,
             })
           }
-          className="bg-orange-500 hover:bg-orange-600 text-white text-sm font-semibold py-2 px-4 rounded flex items-center justify-center gap-2"
+          iconLeft={<ShoppingCart size={16} />}
         >
-          <ShoppingCart size={16} /> ADD TO CART
-        </button>
-
-        <button
+          ADD TO CART
+        </Button>
+        <Button
+          variant="outline"
+          size="sm"
           onClick={() => router.push(`/product/${product.slug}`)}
-          className="border-2 border-orange-500 text-orange-500 hover:bg-orange-50 text-sm font-semibold py-2 px-4 rounded flex items-center justify-center gap-2"
         >
           VIEW DETAILS →
-        </button>
+        </Button>
       </div>
     </div>
   );

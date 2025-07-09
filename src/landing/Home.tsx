@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import Navbar from "@/components/NavBar";
+import Navbar from "@/components/layout/NavBar";
 import Footer from "@/components/layout/Footer";
 import { useCart } from "@/context/CartContext";
 import ShopNowButton from "./shopButton";
@@ -17,6 +17,17 @@ import {
   ShoppingCart,
   Eye,
 } from "lucide-react";
+import ProductBanner from "@/components/products/ProductBanner";
+import FeatureHighlights from "@/components/ui/FeatureHighlights";
+import BestDealCard from "@/components/products/BestDealCard";
+import ProductGrid from "@/components/products/ProductGrid";
+import CategoryCard from "@/components/products/CategoryCard";
+import PromoBanner from "@/components/ui/PromoBanner";
+import ProductListCard from "@/components/products/ProductListCard";
+import SectionHeader from "@/components/ui/SectionHeader";
+import BlogCard from "@/components/ui/BlogCard";
+import HeroDealCard from '@/components/products/HeroDealCard';
+import ProductHoverActions from '@/components/products/ProductHoverActions';
 
 export type Product = {
   id: string;
@@ -67,330 +78,126 @@ export default function Home() {
     <>
       <Navbar />
       <main className="px-4 py-4 max-w-6xl mx-auto bg-white">
-        
+        {/* HERO/BANNER SECTION */}
         <section className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-12">
-          <div className="col-span-1 lg:col-span-2 bg-[#F5F7FA] p-6 rounded-lg flex flex-col md:flex-row items-center justify-between relative overflow-hidden">
+          <div className="col-span-1 lg:col-span-2">
             {products
               .filter((product) => product.name === "Xbox Series S Console")
               .map((product) => (
-                <div
+                <ProductBanner
                   key={product.id}
-                  className="flex flex-col md:flex-row items-center justify-between w-full"
-                >
-                  <div className="max-w-lg">
-                    <p className="text-xs text-blue-600 font-semibold uppercase mb-2">
-                      THE BEST PLACE TO PLAY
-                    </p>
-                    <h2 className="text-2xl font-bold mb-2 text-gray-900">
-                      Xbox Consoles
-                    </h2>
-                    <p className="text-gray-600 text-sm mb-4">
-                      {product.shortDescription}
-                    </p>
-                    <ShopNowButton />
-                  </div>
-
-                  <div className="absolute top-6 right-6 md:static md:mt-0">
-                    <div className="bg-blue-400 text-white text-sm font-bold px-4 py-2 rounded-full shadow-lg md:ml-4">
-                      ${product.price}
-                    </div>
-                  </div>
-
-                  <div className="w-full md:w-auto max-w-xs mt-6 md:mt-0">
-                    <Image
-                      src={product.image}
-                      alt={product.name}
-                      width={408}
-                      height={368}
-                      className="object-contain w-full h-auto"
-                    />
-                  </div>
-                </div>
+                  name={product.name}
+                  image={product.image}
+                  price={product.price}
+                  shortDescription={product.shortDescription}
+                  ctaText="SHOP NOW"
+                />
               ))}
           </div>
-
           <div className="flex flex-col gap-6">
             {products
               .filter((product) => product.name === "Google Pixel 6 Pro")
               .map((product) => (
-                <div
+                <ProductBanner
                   key={product.id}
-                  className="bg-[#191C1F] p-5 rounded-lg text-white relative flex items-center justify-between"
-                >
-                  <span className="absolute top-3 right-3 bg-yellow-400 text-black text-xs font-bold px-2 py-0.5 rounded">
-                    {product.discount}% OFF
-                  </span>
-                  <div>
-                    <h3 className="text-[#EBC80C] text-xs font-semibold uppercase mb-1">
-                      Summer sales
-                    </h3>
-                    <h2 className="text-lg font-semibold mb-2">
-                      {product.name}
-                    </h2>
-                    <button className="bg-[#FA8232] hover:bg-orange-600 text-white font-semibold px-4 py-2 rounded text-sm">
-                      SHOP NOW →
-                    </button>
-                  </div>
-                  <div>
-                    <Image
-                      src={product.image}
-                      alt={product.name}
-                      width={140}
-                      height={140}
-                      className="object-contain"
-                    />
-                  </div>
-                </div>
+                  name={product.name}
+                  image={product.image}
+                  price={product.price}
+                  discount={product.discount}
+                  backgroundColor="#191C1F"
+                  textColor="#fff"
+                  badgeText={`${product.discount}% OFF`}
+                  badgeColor="#EBC80C"
+                  ctaText="SHOP NOW →"
+                />
               ))}
-
             {products
               .filter((product) => product.name === "Xiaomi FlipBuds Pro")
               .map((product) => (
-                <div
+                <ProductBanner
                   key={product.id}
-                  className="bg-[#F5F7FA] p-5 rounded-lg text-gray-800 flex items-center justify-between"
-                >
-                  <div>
-                    <Image
-                      src={product.image}
-                      alt={product.name}
-                      width={100}
-                      height={100}
-                      className="object-contain mb-3"
-                    />
-                    <h2 className="text-sm font-semibold">{product.name}</h2>
-                    <p className="text-sm text-blue-500 font-bold mb-2">
-                      ${product.price} USD
-                    </p>
-                    <button className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-4 py-2 rounded text-sm">
-                      SHOP NOW →
-                    </button>
-                  </div>
-                </div>
+                  name={product.name}
+                  image={product.image}
+                  price={product.price}
+                  backgroundColor="#F5F7FA"
+                  ctaText="SHOP NOW →"
+                />
               ))}
           </div>
         </section>
-
         <div className="text-black">End of first banner</div>
+        {/* FEATURE HIGHLIGHTS SECTION */}
+        <FeatureHighlights />
 
-        <div className="flex flex-wrap gap-6 my-8 justify-between text-sm text-black py-24">
-          <div className="flex items-center gap-2">
-            <Package className="text-orange-500" />
-            <div>
-              <p className="font-bold">FASTED DELIVERY</p>
-              <span className="text-gray-500">Delivery in 24/H</span>
+        <SectionHeader
+          title="Best Deals"
+          rightContent={
+            <div className="text-sm bg-yellow-100 px-3 py-1 rounded text-black font-semibold">
+              Deals ends in <span className="text-orange-600">16d : 21h : 57m : 23s</span>
             </div>
+          }
+        />
+        <div className="flex flex-col lg:flex-row gap-6 mb-12">
+          <div className="w-full lg:w-1/3 flex justify-center items-stretch">
+            {products
+              .filter(
+                (product) =>
+                  product.slug === "xbox-series-s-512gb-ssd-console" &&
+                  product.discount > 0
+              )
+              .map((product) => (
+                <HeroDealCard
+                  key={product.id}
+                  product={product}
+                  onAddToCart={() => addToCart({
+                    id: product.id,
+                    name: product.name,
+                    price: product.price,
+                    quantity: 1,
+                    image: product.image,
+                  })}
+                  onView={() => router.push(`/shop-page/products/${product.id}`)}
+                />
+              ))}
           </div>
-          <div className="flex items-center gap-2">
-            <Trophy className="text-orange-500" />
-            <div>
-              <p className="font-bold">24 HOURS RETURN</p>
-              <span className="text-gray-500">100% money back guarantee</span>
-            </div>
-          </div>
-          <div className="flex items-center gap-2">
-            <ShieldCheck className="text-orange-500" />
-            <div>
-              <p className="font-bold">SECURE PAYMENT</p>
-              <span className="text-gray-500">Your money is safe</span>
-            </div>
-          </div>
-          <div className="flex items-center gap-2">
-            <Headphones className="text-orange-500" />
-            <div>
-              <p className="font-bold">SUPPORT 24/7</p>
-              <span className="text-gray-500">Live contact/message</span>
-            </div>
+          <div className="w-full lg:w-2/3">
+            <ProductGrid
+              products={products.filter(
+                (product) =>
+                  product.slug !== "xbox-series-s-512gb-ssd-console" &&
+                  product.discount > 0
+              )}
+              gridClassName="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+              renderCard={(product) => (
+                <div key={product.id}>
+                  <BestDealCard product={product} onAddToCart={() => addToCart({
+                    id: product.id,
+                    name: product.name,
+                    price: product.price,
+                    quantity: 1,
+                    image: product.image,
+                  })} />
+                </div>
+              )}
+            />
           </div>
         </div>
-
-        <section className="best-deals-section mt-8">
-          <div className="flex justify-between items-center mb-4">
-            <h2 className="text-xl font-bold">Best Deals</h2>
-            <div className="text-sm bg-yellow-100 px-3 py-1 rounded text-black font-semibold">
-              Deals ends in{" "}
-              <span className="text-orange-600">16d : 21h : 57m : 23s</span>
-            </div>
-          </div>
-
-          <div className="flex flex-col lg:flex-row gap-6 mb-12">
-            <div className="w-full lg:w-1/3">
-              {products
-                .filter(
-                  (product) =>
-                    product.slug === "xbox-series-s-512gb-ssd-console" &&
-                    product.discount > 0
-                )
-                .map((product) => (
-                  <div
-                    key={product.id}
-                    className="relative rounded-lg p-4 bg-white shadow group transition hover:shadow-md h-full"
-                  >
-                    <div className="absolute top-2 left-2 z-10">
-                      <span className="bg-yellow-400 text-black text-xs font-bold px-2 py-0.5 rounded">
-                        {product.discount}% OFF
-                      </span>
-                      <span className="block mt-1 bg-red-600 text-white text-[10px] px-1 py-0.5 rounded w-fit font-bold">
-                        HOT
-                      </span>
-                    </div>
-
-                    <Link href={`/product/${product.slug}`} className="block">
-                      <div className="relative h-64 mb-3">
-                        <Image
-                          src={product.image}
-                          alt={product.name}
-                          fill
-                          className="object-contain"
-                        />
-                      </div>
-                    </Link>
-
-                    <div>
-                      <h2 className="text-lg font-semibold mb-1">
-                        {product.name}
-                      </h2>
-                      <div className="flex items-center gap-2 mb-1">
-                        <span className="text-orange-600 font-bold text-lg">
-                          ${product.price}
-                        </span>
-                        {product.originalPrice && (
-                          <span className="text-gray-400 line-through text-sm">
-                            ${product.originalPrice}
-                          </span>
-                        )}
-                      </div>
-                      <div className="text-yellow-500 text-sm mb-1">
-                        {"★".repeat(Math.floor(product.rating))}
-                        <span className="text-gray-500 ml-1">
-                          ({product.reviews.toLocaleString()})
-                        </span>
-                      </div>
-                      <p className="text-sm text-gray-600 mb-4">
-                        {product.description}
-                      </p>
-
-                      <div className="flex items-center gap-3">
-                        <Heart className="text-gray-600 hover:text-red-500 cursor-pointer" />
-                        <button className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded font-semibold text-sm">
-                          Add to Cart
-                        </button>
-                        <ShoppingCart className="text-gray-600 hover:text-orange-500 cursor-pointer" />
-                      </div>
-                    </div>
-                  </div>
-                ))}
-            </div>
-
-            <div className="w-full lg:w-2/3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {products
-                .filter(
-                  (product) =>
-                    product.slug !== "xbox-series-s-512gb-ssd-console" &&
-                    product.discount > 0
-                )
-                .map((product) => (
-                  <div
-                    key={product.id}
-                    className="relative rounded-lg p-3 bg-white shadow group transition hover:shadow-md"
-                  >
-                    <div className="absolute top-2 left-2 z-10">
-                      <span className="bg-yellow-400 text-black text-xs font-bold px-2 py-0.5 rounded">
-                        {product.discount}% OFF
-                      </span>
-                      <span className="block mt-1 bg-red-600 text-white text-[10px] px-1 py-0.5 rounded w-fit font-bold">
-                        HOT
-                      </span>
-                    </div>
-
-                    <div className="relative h-36 mb-2 overflow-hidden rounded">
-                      <Image
-                        src={product.image}
-                        alt={product.name}
-                        fill
-                        className="object-contain"
-                      />
-
-                      <div className="absolute inset-0 bg-black/10 flex items-center justify-center gap-3 opacity-0 group-hover:opacity-100 transition duration-300">
-                        <button className="w-9 h-9 rounded-full bg-white text-gray-600 hover:text-red-500 shadow-md flex items-center justify-center">
-                          <Heart size={16} />
-                        </button>
-                        <button
-                          onClick={() =>
-                            addToCart({
-                              id: product.id,
-                              name: product.name,
-                              price: product.price,
-                              quantity: 1,
-                              image: product.image,
-                            })
-                          }
-                          className="w-9 h-9 rounded-full bg-orange-500 text-white hover:bg-orange-600 shadow-md flex items-center justify-center"
-                        >
-                          <ShoppingCart size={16} />
-                        </button>
-                        <button
-                          onClick={() =>
-                            router.push(`/shop-page/products/${product.id}`)
-                          }
-                          className="w-9 h-9 rounded-full bg-white text-gray-600 hover:text-blue-600 shadow-md flex items-center justify-center"
-                        >
-                          <Eye size={16} />
-                        </button>
-                      </div>
-                    </div>
-
-                    <div>
-                      <div className="flex items-center gap-2 mb-1">
-                        <span className="text-orange-600 font-bold text-sm">
-                          ${product.price}
-                        </span>
-                        {product.originalPrice && (
-                          <span className="text-gray-400 line-through text-xs">
-                            ${product.originalPrice}
-                          </span>
-                        )}
-                      </div>
-                      <p className="text-[11px] text-gray-500 line-clamp-2">
-                        {product.features?.[0] ?? "High quality product"}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-            </div>
-          </div>
-        </section>
-
         {/* Shop with Categorys Section */}
         <section className="my-24">
-          <h2 className="text-2xl font-bold text-center mb-6">
-            Shop with Categorys
-          </h2>
-
+          <SectionHeader title="Shop with Categorys" />
           <div className="relative">
             <div
               id="category-scroll"
               className="flex gap-6 overflow-x-auto px-6 scrollbar-hide scroll-smooth"
             >
               {getUniqueCategories().map((cat) => (
-                <div
+                <CategoryCard
                   key={cat.subcategory}
-                  className="min-w-[160px] bg-white rounded-lg flex flex-col items-center justify-center p-4 shadow-sm hover:shadow-md transition"
-                >
-                  <Image
-                    src={cat.image}
-                    alt={cat.subcategory}
-                    width={100}
-                    height={100}
-                    className="mb-2 object-contain"
-                  />
-                  <p className="text-center text-sm font-medium">
-                    {cat.subcategory}
-                  </p>
-                </div>
+                  image={cat.image}
+                  name={cat.subcategory}
+                />
               ))}
             </div>
-
             <button
               onClick={() =>
                 document
@@ -401,7 +208,6 @@ export default function Home() {
             >
               ←
             </button>
-
             <button
               onClick={() =>
                 document
@@ -414,69 +220,34 @@ export default function Home() {
             </button>
           </div>
         </section>
-
-        
         <section className="my-24">
           <div className="flex flex-col md:flex-row gap-6">
-            <div className="w-full md:w-[300px] bg-[#F3DE6D] p-6 rounded-lg flex flex-col items-start justify-between">
-              <div>
-                <p className="text-sm font-semibold text-orange-600 mb-2">
-                  COMPUTER & ACCESSORIES
-                </p>
-                <h2 className="text-2xl font-bold mb-2">32% Discount</h2>
-                <p className="text-sm text-gray-700 mb-3">
-                  For all electronics products
-                </p>
-                <div className="text-xs text-black font-semibold bg-white py-1 px-2 rounded mb-4">
-                  Offers ends in:{" "}
-                  <span className="font-bold ml-1">ENDS OF CHRISTMAS</span>
-                </div>
-                <button className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-4 py-2 rounded">
-                  SHOP NOW →
-                </button>
-              </div>
-              <div className="mt-4 w-full">
-                <Image
-                  src="/images/promo-banner-yellow.png"
-                  alt="Promo Banner"
-                  width={300}
-                  height={360}
-                  className="rounded"
-                />
-              </div>
-            </div>
-
+            <PromoBanner
+              title="32% Discount"
+              subtitle="COMPUTER & ACCESSORIES"
+              description="For all electronics products"
+              image="/images/promo-banner-yellow.png"
+              badgeText="Offers ends in: ENDS OF CHRISTMAS"
+            />
             <div className="flex-1">
-              <div className="flex justify-between items-center mb-4">
-                <h2 className="text-xl font-bold">Featured Products</h2>
-                <div className="flex gap-4 text-sm text-gray-600">
-                  <span className="text-black font-medium border-b-2 border-orange-500 pb-1 cursor-pointer">
-                    All Product
-                  </span>
-                  <span className="hover:text-orange-500 cursor-pointer">
-                    Smart Phone
-                  </span>
-                  <span className="hover:text-orange-500 cursor-pointer">
-                    Laptop
-                  </span>
-                  <span className="hover:text-orange-500 cursor-pointer">
-                    Headphone
-                  </span>
-                  <span className="hover:text-orange-500 cursor-pointer">
-                    TV
-                  </span>
-                  <span className="hover:text-orange-500 font-semibold cursor-pointer">
-                    Browse All Product →
-                  </span>
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                {products.slice(0, 8).map((product) => (
-                  <div
-                    key={product.id}
-                    className="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition relative"
-                  >
+              <SectionHeader
+                title="Featured Products"
+                rightContent={
+                  <div className="flex gap-4 text-sm text-gray-600">
+                    <span className="text-black font-medium border-b-2 border-orange-500 pb-1 cursor-pointer">All Product</span>
+                    <span className="hover:text-orange-500 cursor-pointer">Smart Phone</span>
+                    <span className="hover:text-orange-500 cursor-pointer">Laptop</span>
+                    <span className="hover:text-orange-500 cursor-pointer">Headphone</span>
+                    <span className="hover:text-orange-500 cursor-pointer">TV</span>
+                    <span className="hover:text-orange-500 font-semibold cursor-pointer">Browse All Product →</span>
+                  </div>
+                }
+              />
+              <ProductGrid
+                products={products.slice(0, 8)}
+                renderCard={(product) => (
+                  <div key={product.id} className="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition relative group">
+                    {/* Discount/Badge logic can be extracted to a Badge component if desired */}
                     {product.discount >= 20 && (
                       <div className="absolute top-2 left-2 bg-yellow-400 text-black text-xs font-bold px-2 py-0.5 rounded">
                         {product.discount}% OFF
@@ -497,42 +268,38 @@ export default function Home() {
                         SALE
                       </div>
                     )}
-
-                    <Link href={`/product/${product.slug}`}>
-                      <div className="w-full h-40 relative mb-3">
-                        <Image
-                          src={product.image}
-                          alt={product.name}
-                          fill
-                          className="object-contain"
-                        />
-                      </div>
-                    </Link>
-
+                    <div className="w-full h-40 relative mb-3 group">
+                      <a href={`/product/${product.slug}`}>
+                        <Image src={product.image} alt={product.name} fill className="object-contain" />
+                      </a>
+                      <ProductHoverActions
+                        product={product}
+                        onAddToCart={() => addToCart({
+                          id: product.id,
+                          name: product.name,
+                          price: product.price,
+                          quantity: 1,
+                          image: product.image,
+                        })}
+                        onView={() => router.push(`/shop-page/products/${product.id}`)}
+                      />
+                    </div>
                     <div>
-                      <h3 className="text-sm font-semibold line-clamp-2 h-10 mb-1">
-                        {product.name}
-                      </h3>
+                      <h3 className="text-sm font-semibold line-clamp-2 h-10 mb-1">{product.name}</h3>
                       <div className="flex items-center gap-2 mb-1">
-                        <span className="text-blue-800 font-bold">
-                          ${product.price}
-                        </span>
+                        <span className="text-blue-800 font-bold">${product.price}</span>
                         {product.originalPrice && (
-                          <span className="text-gray-400 line-through text-sm">
-                            ${product.originalPrice}
-                          </span>
+                          <span className="text-gray-400 line-through text-sm">${product.originalPrice}</span>
                         )}
                       </div>
                       <div className="text-yellow-500 text-xs">
                         {"★".repeat(Math.floor(product.rating))}
-                        <span className="text-gray-400 ml-1">
-                          ({product.reviews})
-                        </span>
+                        <span className="text-gray-400 ml-1">({product.reviews})</span>
                       </div>
                     </div>
                   </div>
-                ))}
-              </div>
+                )}
+              />
             </div>
           </div>
         </section>
@@ -652,37 +419,27 @@ export default function Home() {
                         BEST DEALS
                       </div>
                     )}
-
-                    <Link
-                      href={`/product/${product.slug}`}
-                      className="block relative h-40 mb-3"
-                    >
-                      <Image
-                        src={product.image}
-                        alt={product.name}
-                        fill
-                        className="object-contain"
+                    <div className="w-full h-40 relative mb-3 group">
+                      <a href={`/product/${product.slug}`}>
+                        <Image src={product.image} alt={product.name} fill className="object-contain" />
+                      </a>
+                      <ProductHoverActions
+                        product={product}
+                        onAddToCart={() => addToCart({
+                          id: product.id,
+                          name: product.name,
+                          price: product.price,
+                          quantity: 1,
+                          image: product.image,
+                        })}
+                        onView={() => router.push(`/shop-page/products/${product.id}`)}
                       />
-                      <div className="absolute inset-0 bg-black/10 flex items-center justify-center gap-3 opacity-0 group-hover:opacity-100 transition duration-300">
-                        <button className="w-9 h-9 rounded-full bg-white text-gray-600 hover:text-red-500 shadow-md flex items-center justify-center">
-                          <Heart size={16} />
-                        </button>
-                        <button className="w-9 h-9 rounded-full bg-orange-500 text-white hover:bg-orange-600 shadow-md flex items-center justify-center">
-                          <ShoppingCart size={16} />
-                        </button>
-                        <button className="w-9 h-9 rounded-full bg-white text-gray-600 hover:text-blue-600 shadow-md flex items-center justify-center">
-                          <Eye size={16} />
-                        </button>
-                      </div>
-                    </Link>
-
+                    </div>
                     <h3 className="text-sm font-semibold line-clamp-2 h-10 mb-1">
                       {product.name}
                     </h3>
                     <div className="flex items-center gap-2 mb-1">
-                      <span className="text-blue-800 font-bold">
-                        ${product.price}
-                      </span>
+                      <span className="text-blue-800 font-bold">${product.price}</span>
                       {product.originalPrice && (
                         <span className="text-gray-400 line-through text-sm">
                           ${product.originalPrice}
@@ -1026,3 +783,5 @@ export default function Home() {
     </>
   );
 }
+
+

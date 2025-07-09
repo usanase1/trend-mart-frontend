@@ -2,6 +2,8 @@
 'use client';
 
 import React, { useState } from 'react';
+import Button from '@/components/ui/Button';
+import { ButtonVariant } from "@/types/components";
 
 interface TagButtonProps {
   label: string;
@@ -11,13 +13,14 @@ interface TagButtonProps {
 
 const TagButton: React.FC<TagButtonProps> = ({ label, isSelected, onClick }) => {
   return (
-    <button
+    <Button
+      variant={isSelected ? "primary" : "outline"}
+      size="sm"
+      className={isSelected ? "border-orange-500" : "border-gray-300"}
       onClick={() => onClick?.(label)}
-      className={`px-4 py-2 rounded-full border text-sm font-medium transition
-        ${isSelected ? 'bg-orange-500 text-white border-orange-500' : 'bg-white text-gray-700 border-gray-300 hover:bg-orange-100'}`}
     >
       {label}
-    </button>
+    </Button>
   );
 };
 

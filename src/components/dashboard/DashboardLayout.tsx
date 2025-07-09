@@ -7,7 +7,7 @@ import { Orders } from "./RecentOrdersTable";
 
 
 
-const mockOrders: Orders[] = [
+export const mockOrders: Orders[] = [
   {
     id: "123456",
     status: "COMPLETED" as const,

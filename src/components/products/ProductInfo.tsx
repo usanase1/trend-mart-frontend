@@ -1,6 +1,7 @@
 "use client";
 
 import { ShoppingCart, Heart } from "lucide-react";
+import Button from '@/components/ui/Button';
 
 interface ProductInfoProps {
   product: {
@@ -26,12 +27,12 @@ export default function ProductInfo({ product }: ProductInfoProps) {
       </div>
 
       <div className="flex gap-4">
-        <button className="bg-orange-500 text-white px-6 py-2 rounded flex items-center gap-2">
+        <Button variant="primary" size="md">
           <ShoppingCart className="w-4 h-4" /> Add to Cart
-        </button>
-        <button className="border border-orange-500 text-orange-500 px-6 py-2 rounded flex items-center gap-2">
+        </Button>
+        <Button variant="outline" size="md">
           Buy Now
-        </button>
+        </Button>
       </div>
 
       <div className="flex gap-2 text-sm">

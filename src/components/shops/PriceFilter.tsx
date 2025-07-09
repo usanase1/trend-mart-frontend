@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import Input from '@/components/ui/Input';
+import Button from '@/components/ui/Button';
 
 type Props = {
   selectedRange: [number, number];
@@ -35,26 +37,27 @@ export default function PriceFilter({ selectedRange, onChange }: Props) {
     <div className="mb-6">
       <h2 className="text-sm font-semibold mb-4 uppercase">Price Range</h2>
       <div className="flex items-center gap-2 mb-4">
-        <input
+        <Input
           type="number"
-          className="w-full border text-sm px-2 py-1 rounded"
+          className="text-sm"
           placeholder="Min price"
           value={min}
           onChange={(e) => setMin(Number(e.target.value))}
         />
-        <input
+        <Input
           type="number"
-          className="w-full border text-sm px-2 py-1 rounded"
+          className="text-sm"
           placeholder="Max price"
           value={max}
           onChange={(e) => setMax(Number(e.target.value))}
         />
-        <button
-          className="bg-orange-500 hover:bg-orange-600 text-white text-sm px-2 py-1 rounded"
+        <Button
+          variant="primary"
+          size="sm"
           onClick={handleManualChange}
         >
           Apply
-        </button>
+        </Button>
       </div>
 
       <ul className="space-y-2">

@@ -2,6 +2,8 @@
 
 import type React from "react"
 import { useState } from "react"
+import Input from '@/components/ui/Input';
+import Button from '@/components/ui/Button';
 
 export default function Footer() {
   const [email, setEmail] = useState("")
@@ -32,7 +34,7 @@ export default function Footer() {
             onSubmit={handleSubmit}
             className="max-w-md mx-auto flex items-center gap-0 bg-white rounded overflow-hidden mb-8"
           >
-            <input
+            <Input
               type="email"
               placeholder="Email address"
               value={email}
@@ -40,12 +42,14 @@ export default function Footer() {
               className="flex-1 px-4 py-3 text-black outline-none"
               required
             />
-            <button
+            <Button
               type="submit"
-              className="bg-orange-500 text-white px-6 py-3 hover:bg-orange-600 transition font-medium"
+              variant="primary"
+              size="md"
+              className="px-6 py-3 font-medium"
             >
               SUBSCRIBE →
-            </button>
+            </Button>
           </form>
         ) : (
           <div className="mb-8">
@@ -170,7 +174,7 @@ export default function Footer() {
           <div>
             <h5 className="text-white font-semibold mb-4 uppercase">Download App</h5>
             <div className="space-y-3">
-              <button className="w-full bg-gray-800 hover:bg-gray-700 transition rounded p-3 flex items-center gap-3 text-left">
+              <Button className="w-full bg-gray-800 hover:bg-gray-700 transition rounded p-3 flex items-center gap-3 text-left">
                 <div className="w-8 h-8 bg-white rounded flex items-center justify-center">
                   <i className="fab fa-google-play text-black text-sm"></i>
                 </div>
@@ -178,8 +182,8 @@ export default function Footer() {
                   <div className="text-xs text-gray-400">Get it on</div>
                   <div className="text-white font-semibold">Google Play</div>
                 </div>
-              </button>
-              <button className="w-full bg-gray-800 hover:bg-gray-700 transition rounded p-3 flex items-center gap-3 text-left">
+              </Button>
+              <Button className="w-full bg-gray-800 hover:bg-gray-700 transition rounded p-3 flex items-center gap-3 text-left">
                 <div className="w-8 h-8 bg-white rounded flex items-center gap-1 justify-center">
                   <i className="fab fa-apple text-black text-sm"></i>
                 </div>
@@ -187,7 +191,7 @@ export default function Footer() {
                   <div className="text-xs text-gray-400">Get it on</div>
                   <div className="text-white font-semibold">App Store</div>
                 </div>
-              </button>
+              </Button>
             </div>
           </div>
 

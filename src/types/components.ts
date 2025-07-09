@@ -1,0 +1,1 @@
+// All types have been moved to feature-based files: products.ts, ui.ts, shops.ts, blog.ts 

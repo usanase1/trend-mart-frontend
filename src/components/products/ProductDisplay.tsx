@@ -2,18 +2,20 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import CategoryFilter from "./shops/CategoryFilter";
-import PriceFilter from "./shops/PriceFilter";
-import BrandFilter from "./shops/BrandFilter";
-import Navbar from "./NavBar";
-import Footer from "./layout/Footer";
-import ProductToolbar from "./shops/ProductToolbar";
-import Breadcrumb from "./ui/Breadcrumb";
+import CategoryFilter from '@/components/shops/CategoryFilter';
+import PriceFilter from '@/components/shops/PriceFilter';
+import BrandFilter from '@/components/shops/BrandFilter';
+import Navbar from '@/components/layout/NavBar';
+import Footer from '@/components/layout/Footer';
+import ProductToolbar from '@/components/shops/ProductToolbar';
+import Breadcrumb from '@/components/ui/Breadcrumb';
 import { useCart } from "@/context/CartContext";
-import PopularTags from "./shops/PopularTag";
-import PromoProductCard from "./shops/PromoProductCard";
+import PopularTags from '@/components/shops/PopularTag';
+import PromoProductCard from '@/components/shops/PromoProductCard';
 import { Heart, ShoppingCart, Eye } from "lucide-react";
 import { useRouter } from "next/navigation";
+import Button from '@/components/ui/Button';
+import ProductActionButton from '@/components/ui/ProductActionButton';
 
 type Product = {
   id: string;
@@ -160,10 +162,15 @@ export default function ProductDisplay() {
                   />
 
                   <div className="absolute inset-0 bg-black/10 flex items-center justify-center gap-3 opacity-0 group-hover:opacity-100 transition duration-300">
-                    <button className="w-9 h-9 rounded-full bg-white text-gray-600 hover:text-red-500 shadow-md flex items-center justify-center">
-                      <Heart size={16} />
-                    </button>
-                    <button
+                    <ProductActionButton
+                      icon={<Heart size={16} />}
+                      ariaLabel="Add to Wishlist"
+                      colorClass="bg-white text-gray-600 hover:text-red-500"
+                    />
+                    <ProductActionButton
+                      icon={<ShoppingCart size={16} />}
+                      ariaLabel="Add to Cart"
+                      colorClass="bg-orange-500 text-white hover:bg-orange-600"
                       onClick={() =>
                         addToCart({
                           id: p.id,
@@ -173,16 +180,13 @@ export default function ProductDisplay() {
                           image: p.image,
                         })
                       }
-                      className="w-9 h-9 rounded-full bg-orange-500 text-white hover:bg-orange-600 shadow-md flex items-center justify-center"
-                    >
-                      <ShoppingCart size={16} />
-                    </button>
-                    <button
+                    />
+                    <ProductActionButton
+                      icon={<Eye size={16} />}
+                      ariaLabel="View Details"
+                      colorClass="bg-white text-gray-600 hover:text-blue-600"
                       onClick={() => router.push(`/shop-page/products/${p.id}`)}
-                      className="w-9 h-9 rounded-full bg-white text-gray-600 hover:text-blue-600 shadow-md flex items-center justify-center"
-                    >
-                      <Eye size={16} />
-                    </button>
+                    />
                   </div>
                 </div>
 
@@ -200,9 +204,11 @@ export default function ProductDisplay() {
           {totalPages > 1 && (
             <div className="flex justify-center mt-6 space-x-2">
               {Array.from({ length: totalPages }, (_, i) => (
-                <button
+                <Button
                   key={i}
                   onClick={() => setCurrentPage(i + 1)}
+                  variant={currentPage === i + 1 ? "secondary" : "outline"}
+                  size="sm"
                   className={`px-3 py-1 border rounded ${
                     currentPage === i + 1
                       ? "bg-blue-600 text-white"
@@ -210,7 +216,7 @@ export default function ProductDisplay() {
                   }`}
                 >
                   {i + 1}
-                </button>
+                </Button>
               ))}
             </div>
           )}

@@ -1,5 +1,7 @@
 "use client";
 
+import Checkbox from '@/components/ui/Checkbox';
+
 type Props = {
   categories: string[];
   selected: string[];
@@ -24,13 +26,11 @@ export default function CategoryFilter({
       <ul className="space-y-2 text-sm">
         {categories.map((cat) => (
           <li key={cat} className="flex items-center gap-2">
-            <input
-              type="checkbox"
+            <Checkbox
               checked={selected.includes(cat)}
               onChange={() => toggle(cat)}
-              className="accent-orange-500"
+              label={cat}
             />
-            <label>{cat}</label>
           </li>
         ))}
       </ul>

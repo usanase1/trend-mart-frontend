@@ -1,6 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import Input from '@/components/ui/Input';
+import Select from '@/components/ui/Select';
+import Button from '@/components/ui/Button';
 
 interface AddressFormProps {
   title: string;
@@ -8,16 +11,16 @@ interface AddressFormProps {
 
 export default function AddressForm({ title }: AddressFormProps) {
   const [form, setForm] = useState({
-    firstName: "Kevin",
-    lastName: "Gilbert",
+    firstName: "",
+    lastName: "",
     company: "",
-    address: "Road No. 13/x, House no. 1320/C, Flat No. 5D",
-    country: "Bangladesh",
+    address: "",
+    country: "",
     region: "",
-    city: "Dhaka",
-    zip: "1207",
-    email: "kevin12345@gmail.com",
-    phone: "+1-202-555-0118",
+    city: "",
+    zip: "",
+    email: "",
+    phone: "",
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -30,27 +33,19 @@ export default function AddressForm({ title }: AddressFormProps) {
       <h2 className="text-lg font-semibold mb-4">{title}</h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <input name="firstName" placeholder="First Name" value={form.firstName} onChange={handleChange} className="border-gray-100 px-3 py-2 rounded" />
-        <input name="lastName" placeholder="Last Name" value={form.lastName} onChange={handleChange} className="border-gray-100 px-3 py-2 rounded" />
-        <input name="company" placeholder="Company Name (Optional)" value={form.company} onChange={handleChange} className="col-span-2 border-gray-100 px-3 py-2 rounded" />
-        <input name="address" placeholder="Address" value={form.address} onChange={handleChange} className="col-span-2 border-gray-100 px-3 py-2 rounded" />
-        <select name="country" value={form.country} onChange={handleChange} className="border-gray-100 px-3 py-2 rounded">
-          <option>Bangladesh</option>
-          <option>Rwanda</option>
-        </select>
-        <select name="region" value={form.region} onChange={handleChange} className="border-gray-100 px-3 py-2 rounded">
-          <option>Select...</option>
-          <option>Dhaka</option>
-        </select>
-        <input name="city" placeholder="City" value={form.city} onChange={handleChange} className="border-gray-100 px-3 py-2 rounded" />
-        <input name="zip" placeholder="Zip Code" value={form.zip} onChange={handleChange} className="border-gray-100 px-3 py-2 rounded" />
-        <input name="email" placeholder="Email" value={form.email} onChange={handleChange} className="border-gray-100 px-3 py-2 rounded col-span-2" />
-        <input name="phone" placeholder="Phone Number" value={form.phone} onChange={handleChange} className="border-gray-100 px-3 py-2 rounded col-span-2" />
+        <Input name="firstName" placeholder="First Name" value={form.firstName} onChange={handleChange} />
+        <Input name="lastName" placeholder="Last Name" value={form.lastName} onChange={handleChange} />
+        <Input name="company" placeholder="Company Name (Optional)" value={form.company} onChange={handleChange} className="col-span-2" />
+        <Input name="address" placeholder="Address" value={form.address} onChange={handleChange} className="col-span-2" />
+        <Select name="country" value={form.country} onChange={handleChange} options={[{ value: "Bangladesh", label: "Bangladesh" }, { value: "Rwanda", label: "Rwanda" }]} className="text-gray-700" />
+        <Select name="region" value={form.region} onChange={handleChange} options={[{ value: "", label: "Select..." }, { value: "Dhaka", label: "Dhaka" }]} className="text-gray-700" />
+        <Input name="city" placeholder="City" value={form.city} onChange={handleChange} />
+        <Input name="zip" placeholder="Zip Code" value={form.zip} onChange={handleChange} />
+        <Input name="email" placeholder="Email" value={form.email} onChange={handleChange} className="col-span-2" />
+        <Input name="phone" placeholder="Phone Number" value={form.phone} onChange={handleChange} className="col-span-2" />
       </div>
 
-      <button className="mt-6 bg-[#FA8232] hover:bg-orange-600 text-white px-6 py-2 rounded">
-        SAVE CHANGES
-      </button>
+      <Button className="mt-6" variant="primary" size="md">SAVE CHANGES</Button>
     </div>
   );
 }
