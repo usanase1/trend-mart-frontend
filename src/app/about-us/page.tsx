@@ -27,17 +27,9 @@ export default function About() {
   ];
 
   return (
-    <div className="bg-white">
+    <div className="bg-white min-h-screen flex flex-col">
       <div
-        className="
-          w-[1920px]
-          h-[3316px]
-          bg-white
-          rounded-[4px]
-          opacity-100
-          mx-auto
-          overflow-hidden
-        "
+        className="flex-1 w-full bg-white rounded-[4px] opacity-100 mx-auto overflow-hidden"
       >
         <div className="max-w-7xl mx-auto px-4 py-16 space-y-24">
 
@@ -78,10 +70,10 @@ export default function About() {
                 Nulla tempus felis a dui aliquet, non ultricies nibh elementum.
               </p>
               <ul className="space-y-2 text-gray-700">
-                <li>✅ Great 24/7 customer services.</li>
-                <li>✅ 600+ dedicated employees.</li>
-                <li>✅ 50+ branches all over the world.</li>
-                <li>✅ Over 1 million electronics products.</li>
+                <li><img src="/images/checks.png" alt="check" className="inline w-5 h-5 mr-2 align-middle" />Great 24/7 customer services.</li>
+                <li><img src="/images/checks.png" alt="check" className="inline w-5 h-5 mr-2 align-middle" />600+ dedicated employees.</li>
+                <li><img src="/images/checks.png" alt="check" className="inline w-5 h-5 mr-2 align-middle" />50+ branches all over the world.</li>
+                <li><img src="/images/checks.png" alt="check" className="inline w-5 h-5 mr-2 align-middle" />Over 1 million electronics products.</li>
               </ul>
             </div>
             <div className="w-full h-80 bg-gray-200 rounded-lg overflow-hidden">
@@ -144,32 +136,61 @@ export default function About() {
         </div>
 
         <div className="max-w-7xl mx-auto px-4 py-16 space-y-24">
-          {/* Products section */}
-          <div className="space-y-8">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              {products.map((product, idx) => (
-                <div key={idx} className="border p-4 rounded-lg text-center">
-                  <div className="w-full h-32 bg-gray-100 mb-4"></div>
-                  <h3 className="font-semibold text-sm">{product.title}</h3>
-                  <p className="text-blue-600 font-bold">{product.price}</p>
+          {/* Products section - Responsive columns with product cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full justify-center">
+            {[
+              {
+                title: "FLASH SALE TODAY",
+                products: [
+                  { image: "/images/image-1.png", title: "Bose Sport Earbuds -Wireless Earphones -Bluetooth In Ear...", price: "$1,500" },
+                  { image: "/images/image-3.png", title: "Simple Mobile 4G LTE Prepaid Smartphone", price: "$1,500" },
+                  { image: "/images/image-4.png", title: "4K UHD LED Smart TV with Chromecast Built-in", price: "$1,500" },
+                ],
+              },
+              {
+                title: "BEST SELLERS",
+                products: [
+                  { image: "/images/image-2.png", title: "Samsung Electronics Samsung Galaxy S21 5G", price: "$1,500" },
+                  { image: "/images/image-5.png", title: "Simple Mobile 5G LTE Galaxy 12 Mini 512GB Gaming Phone", price: "$1,500" },
+                  { image: "/images/image-6.png", title: "Sony DSCHX8 High Zoom Point & Shoot Camera", price: "$1,500" },
+                ],
+              },
+              {
+                title: "TOP RATED",
+                products: [
+                  { image: "/images/image-7.png", title: "Portable Wshing Machine, 11lbs capacity Model 18NMF...", price: "$1,500" },
+                  { image: "/images/image-8.png", title: "Sony DSCHX8 High Zoom Point & Shoot Camera", price: "$1,500" },
+                  { image: "/images/image-9.png", title: "Dell Optiplex 7000x7480 All-in-One Computer Monitor", price: "$1,500" },
+                ],
+              },
+              {
+                title: "NEW ARRIVAL",
+                products: [
+                  { image: "/images/image-10.png", title: "TOZO T6 True Wireless Earbuds Bluetooth Headpho...", price: "$1,500" },
+                  { image: "/images/image-11.png", title: "JBL FLIP 4 -Waterproof Portable Bluetooth Speaker...", price: "$1,500" },
+                  { image: "/images/image-12.png", title: "Wyze Cam Pan v2 1080p Pan/Tilt/Zoom Wi-Fi Indoor Smar...", price: "$1,500" },
+                ],
+              },
+            ].map((section, idx) => (
+              <div key={idx} className="flex flex-col items-stretch">
+                <h3 className="font-bold text-lg mb-4">{section.title}</h3>
+                <div className="flex flex-col">
+                  {section.products.map((product, pIdx) => (
+                    <div key={pIdx} className="min-w-[312px] max-w-[400px] h-[104px] flex items-center gap-3 border border-[#E4E7E9] rounded-[3px] p-3 bg-white mb-3 last:mb-0">
+                      <img src={product.image} alt={product.title} className="w-16 h-16 object-contain" />
+                      <div>
+                        <div className="font-medium text-sm mb-1 line-clamp-2">{product.title}</div>
+                        <span className="font-[Public Sans] font-semibold text-[14px] leading-[20px] text-[#2DA5F3]">
+                          {product.price}
+                        </span>
+                      </div>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
 
-          {/* Newsletter */}
-          <div className="bg-blue-600 text-white p-8 rounded-lg text-center space-y-4 w-[1920px]">
-            <h2 className="text-2xl font-bold">Subscribe to our newsletter</h2>
-            <p>Praesent fringilla erat a lacinia egestas. Donec vehicula tempor libero et cursus.</p>
-            <div className="flex max-w-md mx-auto">
-              <input
-                type="email"
-                placeholder="Email address"
-                className="flex-grow p-3 rounded-l-md text-gray-800"
-              />
-              <button className="bg-orange-500 px-6 rounded-r-md">Subscribe</button>
-            </div>
-          </div>
         </div>
       </div>
     </div>
