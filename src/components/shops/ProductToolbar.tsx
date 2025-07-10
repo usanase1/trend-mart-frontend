@@ -1,6 +1,9 @@
 // components/shops/ProductToolbar.tsx
 "use client";
 
+import Input from '@/components/ui/Input';
+import Select from '@/components/ui/Select';
+
 type Props = {
   searchText: string;
   onSearchChange: (text: string) => void;
@@ -19,28 +22,30 @@ export default function ProductToolbar({
   return (
     <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4 gap-4">
       {/* Search Input */}
-      <input
+      <Input
         type="text"
         placeholder="Search products..."
         value={searchText}
-        onChange={(e) => onSearchChange(e.target.value)}
-        className="border px-3 py-2 text-sm rounded w-full sm:w-1/2"
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) => onSearchChange(e.target.value)}
+        className="text-sm"
+        wrapperClassName="w-full sm:w-1/2"
       />
 
       {/* Sort & Results */}
       <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 w-full sm:w-auto">
         {/* Sort Dropdown */}
-        <select
+        <Select
           value={sortOption}
-          onChange={(e) => onSortChange(e.target.value)}
-          className="border px-3 py-2 text-sm rounded"
-        >
-          <option value="default">Sort by</option>
-          <option value="mostPopular">Most Popular</option>
-          <option value="priceLowHigh">Price: Low to High</option>
-          <option value="priceHighLow">Price: High to Low</option>
-          <option value="ratingHighLow">Rating: High to Low</option>
-        </select>
+          onChange={(e: React.ChangeEvent<HTMLSelectElement>) => onSortChange(e.target.value)}
+          options={[
+            { value: "default", label: "Sort by" },
+            { value: "mostPopular", label: "Most Popular" },
+            { value: "priceLowHigh", label: "Price: Low to High" },
+            { value: "priceHighLow", label: "Price: High to Low" },
+            { value: "ratingHighLow", label: "Rating: High to Low" },
+          ]}
+          className="text-sm"
+        />
 
         {/* Results Found */}
         <span className="text-sm text-gray-600">{resultsCount} results found</span>

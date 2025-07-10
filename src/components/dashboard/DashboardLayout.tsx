@@ -3,40 +3,8 @@ import InfoCard from "./InfoCard";
 import ProfileCard from "./ProfileCard";
 import PaymentCard from "./PaymentCard";
 import RecentOrdersTable from "./RecentOrdersTable";
-import { Orders } from "./RecentOrdersTable";
-
-
-
-const mockOrders: Orders[] = [
-  {
-    id: "123456",
-    status: "COMPLETED" as const,
-    date: "July 6, 2025",
-    total: "$219.00",
-    items: 2,
-  },
-  {
-    id: "123457",
-    status: "IN PROGRESS" as const,
-    date: "July 5, 2025",
-    total: "$89.99",
-    items: 1,
-  },
-  {
-    id: "123458",
-    status: "CANCELED" as const,
-    date: "July 2, 2025",
-    total: "$149.99",
-    items: 3,
-  },
-  {
-    id: "123459",
-    status: "COMPLETED" as const,
-    date: "June 28, 2025",
-    total: "$299.00",
-    items: 4,
-  },
-];
+import { mockOrders } from './mockOrders';
+import Button from "@/components/ui/Button";
 
 
 export default function DashboardLayout() {
@@ -80,7 +48,7 @@ export default function DashboardLayout() {
         <div>
           <div className="flex justify-between items-center mb-2">
             <h4 className="font-semibold">Payment Option</h4>
-            <button className="text-blue-600 hover:underline text-sm">Add Card →</button>
+            <Button variant="link" size="sm" className="text-blue-600 hover:underline">Add Card →</Button>
           </div>
           <div className="flex gap-4">
             <PaymentCard name="Kevin Gilbert" last4="3814" amount="$95,400.00" type="visa" />

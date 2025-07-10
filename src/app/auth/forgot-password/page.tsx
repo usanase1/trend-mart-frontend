@@ -3,6 +3,8 @@
 import type React from "react"
 import { useState } from "react"
 import Link from "next/link"
+import Input from '@/components/ui/Input';
+import Button from '@/components/ui/Button';
 
 export default function ForgotPasswordPage() {
   const [email, setEmail] = useState("")
@@ -53,37 +55,41 @@ export default function ForgotPasswordPage() {
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-6">
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                Email Address
-              </label>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#FA8232] focus:border-[#FA8232] outline-none transition-colors"
-                placeholder="Enter your email"
-              />
-            </div>
+            <Input
+              id="email"
+              name="email"
+              type="email"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Enter your email"
+              label="Email Address"
+              className="mb-0"
+            />
 
-            <button
+            <Button
               type="submit"
-              className="w-full bg-[#FA8232] text-white py-3 px-4 rounded-lg font-semibold hover:bg-[#FA8232]/90 focus:ring-2 focus:ring-[#FA8232] focus:ring-offset-2 transition-colors flex items-center justify-center gap-2"
+              fullWidth
+              variant="primary"
+              className="flex items-center justify-center gap-2"
             >
               Send Reset Link
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
-            </button>
+            </Button>
           </form>
 
           <div className="mt-8 text-center">
-            <Link href="/signin" className="text-sm text-[#FA8232] hover:text-[#FA8232]/80 font-medium">
+            <Button
+              as="a"
+              href="/signin"
+              variant="link"
+              fullWidth
+              className="text-[#FA8232] hover:text-[#FA8232]/80 font-medium mt-8"
+            >
               ← Back to Sign In
-            </Link>
+            </Button>
           </div>
         </div>
       </div>

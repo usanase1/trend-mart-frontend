@@ -1,7 +1,18 @@
 'use client';
 
-import { Home, Truck, ShoppingCart, Heart, CreditCard, History, Settings, LogOut } from 'lucide-react';
+import {
+  Home,
+  Truck,
+  ShoppingCart,
+  Heart,
+  CreditCard,
+  History,
+  Settings,
+  LogOut,
+} from 'lucide-react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import Button from '@/components/ui/Button';
 
 const links = [
   { label: 'Dashboard', icon: <Home />, href: '/dashboard' },
@@ -15,22 +26,35 @@ const links = [
 ];
 
 export default function Sidebar() {
+  const pathname = usePathname();
+
   return (
-    <aside className="w-60 bg-white p-4 border-gray-100 space-y-2 h-screen">
-      {links.map((item, idx) => (
-        <Link
-          key={idx}
-          href={item.href}
-          className="flex items-center gap-3 text-gray-700 hover:text-blue-600 px-2 py-2 rounded hover:bg-gray-50 transition"
-        >
-          <span className="w-5 h-5">{item.icon}</span>
-          {item.label}
-        </Link>
-      ))}
-      <button className="flex items-center gap-3 text-red-600 px-2 py-2 w-full hover:bg-red-50 transition">
+    <aside className="w-60 bg-white p-4 border-r border-gray-100 space-y-2 h-screen">
+      {links.map((item, idx) => {
+        const isActive = pathname === item.href;
+
+        return (
+          <Link
+            key={idx}
+            href={item.href}
+            className={`flex items-center gap-3 px-2 py-2 rounded transition ${
+              isActive
+                ? 'bg-[#FA8232] text-white'
+                : 'text-gray-700 hover:bg-gray-50 hover:text-[#FA8232]'
+            }`}
+          >
+            <span className="w-5 h-5">{item.icon}</span>
+            {item.label}
+          </Link>
+        );
+      })}
+      <Button
+        onClick={() => {}}
+        className="flex items-center gap-3 text-red-600 px-2 py-2 w-full hover:bg-red-50 transition"
+      >
         <LogOut size={18} />
         Log-out
-      </button>
+      </Button>
     </aside>
   );
 }

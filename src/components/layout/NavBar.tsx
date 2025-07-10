@@ -17,10 +17,13 @@ import {
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import DropdownMenu from "./DropdownMenu";
-import LoginForm from "./LoginForm";
+import LoginForm from '@/components/dashboard/LoginForm';
 import CartModal from "./CartModal";
 import { useCart } from "@/context/CartContext";
 import { useModal } from "@/hooks/useModal";
+import Input from '@/components/ui/Input';
+import Select from '@/components/ui/Select';
+import Button from '@/components/ui/Button';
 
 type Category = {
   id: number;
@@ -61,14 +64,8 @@ export default function Navbar() {
             <Link href="/">
               <Youtube className="w-4 h-4" />
             </Link>
-            <select className="bg-[#1B6392] text-white text-xs border-none outline-none">
-              <option>Eng</option>
-              <option>Fr</option>
-            </select>
-            <select className="bg-[#1B6392] text-white text-xs border-none outline-none">
-              <option>USD</option>
-              <option>EUR</option>
-            </select>
+            <Select className="bg-[#1B6392] text-white text-xs border-none outline-none" options={[{ value: "Eng", label: "Eng" }, { value: "Fr", label: "Fr" }]} />
+            <Select className="bg-[#1B6392] text-white text-xs border-none outline-none" options={[{ value: "USD", label: "USD" }, { value: "EUR", label: "EUR" }]} />
           </div>
         </div>
         <hr className="border-t border-white mt-2" />
@@ -83,65 +80,64 @@ export default function Navbar() {
         </Link>
 
         <div className="flex w-full md:max-w-md rounded overflow-hidden bg-white">
-          <input
+          <Input
             type="text"
             placeholder="Search for anything..."
             className="px-4 py-2 w-full text-black outline-none"
           />
-          <button className="bg-yellow-400 px-4">
+          <Button variant="icon" className="bg-yellow-400 px-4">
             <Search className="text-black w-5 h-5" />
-          </button>
+          </Button>
         </div>
 
         <div className="flex items-center gap-6">
-          <button onClick={cartModal.open} className="relative cursor-pointer">
+          <Button onClick={cartModal.open} variant="icon" className="relative cursor-pointer">
             <ShoppingCart className="w-6 h-6 hover:text-yellow-400 text-black" />
             {itemCount > 0 && (
               <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
                 {itemCount}
               </span>
             )}
-          </button>
+          </Button>
 
           <Link href="/wishlist">
             <Heart className="w-6 h-6 hover:text-yellow-400" />
           </Link>
 
-          <button onClick={loginModal.open}>
+          <Button onClick={loginModal.open} variant="icon">
             <User className="w-6 h-6 hover:text-yellow-400 cursor-pointer" />
-          </button>
+          </Button>
         </div>
       </div>
 
       <div className="bg-white text-black px-6 py-3 border-b">
         <div className="flex flex-wrap items-center gap-6 text-sm">
           <DropdownMenu />
-          <Link href="/pages/TrackOrder">
-          <button className="flex items-center gap-1 hover:text-[#1B6392]">
+          <Button variant="link" className="flex items-center gap-1 hover:text-[#1B6392]">
             <MapPin className="w-4 h-4" /> Track Order
-          </button>
-          </Link>
-          <button className="flex items-center gap-1 hover:text-[#1B6392]">
+          </Button>
+          <Button variant="link" className="flex items-center gap-1 hover:text-[#1B6392]">
             <RefreshCw className="w-4 h-4" /> Compare
-          </button>
-          <button className="flex items-center gap-1 hover:text-[#1B6392]">
+          </Button>
+          <Button variant="link" className="flex items-center gap-1 hover:text-[#1B6392]">
             <Headset className="w-4 h-4" /> Customer Support
-          </button>
-          <button className="flex items-center gap-1 hover:text-[#1B6392]">
+          </Button>
+          <Button variant="link" className="flex items-center gap-1 hover:text-[#1B6392]">
             <HelpCircle className="w-4 h-4" /> Need Help
-          </button>
+          </Button>
         </div>
       </div>
 
       {loginModal.isOpen && (
         <div className="fixed top-24 right-6 z-50">
           <div className="relative bg-white w-[350px] p-6 rounded-xl shadow-lg border border-gray-200">
-            <button
+            <Button
               onClick={loginModal.close}
+              variant="icon"
               className="absolute top-2 right-3 text-gray-600 hover:text-red-600 text-xl font-bold"
             >
               ×
-            </button>
+            </Button>
             <LoginForm />
           </div>
         </div>

@@ -3,7 +3,7 @@
 import ProductImages from "./ProductImages";
 import ProductInfo from "./ProductInfo";
 import ProductDescription from "./ProductDescription";
-import { Product } from "@/landing/Home";
+import { Product } from '@/types/products';
 
 type ExtendedProduct = Product & {
   features: string[];

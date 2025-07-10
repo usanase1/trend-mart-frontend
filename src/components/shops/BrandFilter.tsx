@@ -1,5 +1,7 @@
 "use client";
 
+import Checkbox from '@/components/ui/Checkbox';
+
 type Props = {
   brands: string[];
   selected: string[];
@@ -20,13 +22,11 @@ export default function BrandFilter({ brands, selected, onChange }: Props) {
       <ul className="grid grid-cols-2 gap-x-4 gap-y-2 text-sm">
         {brands.map((brand) => (
           <li key={brand} className="flex items-center gap-2">
-            <input
-              type="checkbox"
+            <Checkbox
               checked={selected.includes(brand)}
               onChange={() => toggle(brand)}
-              className="accent-orange-500"
+              label={brand}
             />
-            <label>{brand}</label>
           </li>
         ))}
       </ul>

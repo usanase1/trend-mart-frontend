@@ -1,3 +1,5 @@
+import Button from '@/components/ui/Button';
+
 type ProfileCardProps = {
   title: string;
   name: string;
@@ -14,7 +16,7 @@ export default function ProfileCard({ title, name, email, phone, address }: Prof
       {address && <p className="text-sm text-gray-600">{address}</p>}
       <p className="text-sm text-gray-600">Email: {email}</p>
       {phone && <p className="text-sm text-gray-600">Phone: {phone}</p>}
-      <button className="text-blue-600 text-xs mt-2 hover:underline">EDIT {title.toUpperCase()}</button>
+      <Button variant="link" size="sm" className="text-blue-600 text-xs mt-2 hover:underline">EDIT {title.toUpperCase()}</Button>
     </div>
   );
 }

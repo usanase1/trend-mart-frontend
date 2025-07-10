@@ -3,6 +3,7 @@ import React from "react";
 import Link from "next/link";
 import { Home } from "lucide-react";
 import Image from "next/image";
+import Button from "@/components/ui/Button";
 
 export default function ErrorPage() {
   return (
@@ -20,12 +21,11 @@ export default function ErrorPage() {
         It&apos;s likely the link is broken or the page is removed.
       </p>
       <div className="flex flex-col md:flex-row gap-4">
-        <button
-          className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-8 py-3 rounded flex items-center gap-2 text-base justify-center"
+        <Button
           onClick={() => window.history.back()}
         >
           <span className="text-xl">&#8592;</span> GO BACK
-        </button>
+        </Button>
         <Link href="/">
           <span className="border-2 border-orange-400 text-orange-600 font-semibold px-8 py-3 rounded flex items-center gap-2 text-base justify-center hover:bg-orange-50 transition cursor-pointer">
             <Home className="w-5 h-5" /> GO TO HOME

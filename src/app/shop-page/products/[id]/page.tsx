@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import ProductDetails from "@/components/products/ProductDetailsPage";
 import Breadcrumb from "@/components/ui/Breadcrumb";
-import { Product } from "@/landing/Home";
+import { Product } from '@/types/products';
 
 type ExtendedProduct = Product & {
   images?: string[];

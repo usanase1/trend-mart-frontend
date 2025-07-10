@@ -1,18 +1,21 @@
 "use client";
 
 import { useState } from "react";
+import Input from '@/components/ui/Input';
+import Select from '@/components/ui/Select';
+import Button from '@/components/ui/Button';
 
 export default function AccountSettingsForm() {
   const [formData, setFormData] = useState({
     displayName: "Kevin",
     username: "",
-    fullName: "Kevin Gilbert",
-    email: "kevin.gilbert@gmail.com",
-    secondaryEmail: "kevin12345@gmail.com",
-    phone: "+1-202-555-0118",
-    country: "Bangladesh",
-    state: "Dhaka",
-    zip: "1207",
+    fullName: "",
+    email: "",
+    secondaryEmail: "",
+    phone: "",
+    country: "",
+    state: "",
+    zip: "",
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -27,32 +30,24 @@ export default function AccountSettingsForm() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {/* Display Image + Inputs */}
         <div className="flex flex-col gap-4">
-          <input name="displayName" placeholder="Display name" value={formData.displayName} onChange={handleChange} className="border-gray-100 px-3 py-2 rounded" />
-          <input name="fullName" placeholder="Full Name" value={formData.fullName} onChange={handleChange} className="border-gray-100 px-3 py-2 rounded" />
-          <input name="secondaryEmail" placeholder="Secondary Email" value={formData.secondaryEmail} onChange={handleChange} className="border-gray-100 px-3 py-2 rounded" />
-          <select name="country" value={formData.country} onChange={handleChange} className="border-gray-100 px-3 py-2 rounded">
-            <option>Bangladesh</option>
-            <option>Rwanda</option>
-          </select>
+          <Input name="displayName" placeholder="Display name" value={formData.displayName} onChange={handleChange} />
+          <Input name="fullName" placeholder="Full Name" value={formData.fullName} onChange={handleChange} />
+          <Input name="secondaryEmail" placeholder="Secondary Email" value={formData.secondaryEmail} onChange={handleChange} />
+          <Select name="country" value={formData.country} onChange={handleChange} options={[{ value: "Bangladesh", label: "Bangladesh" }, { value: "Rwanda", label: "Rwanda" }]} />
         </div>
 
         <div className="flex flex-col gap-4">
-          <input name="username" placeholder="Username" value={formData.username} onChange={handleChange} className="border-gray-100 px-3 py-2 rounded" />
-          <input name="email" placeholder="Email" value={formData.email} onChange={handleChange} className="border-gray-100 px-3 py-2 rounded" />
-          <input name="phone" placeholder="Phone Number" value={formData.phone} onChange={handleChange} className="border-gray-100 px-3 py-2 rounded" />
+          <Input name="username" placeholder="Username" value={formData.username} onChange={handleChange} />
+          <Input name="email" placeholder="Email" value={formData.email} onChange={handleChange} />
+          <Input name="phone" placeholder="Phone Number" value={formData.phone} onChange={handleChange} />
           <div className="flex gap-2">
-            <select name="state" value={formData.state} onChange={handleChange} className="border-gray-100 px-3 py-2 rounded w-full">
-              <option>Dhaka</option>
-              <option>Kigali</option>
-            </select>
-            <input name="zip" placeholder="Zip Code" value={formData.zip} onChange={handleChange} className="border-gray-100 px-3 py-2 rounded w-full" />
+            <Select name="state" value={formData.state} onChange={handleChange} options={[{ value: "Dhaka", label: "Dhaka" }, { value: "Kigali", label: "Kigali" }]} className="w-full text-gray-700" />
+            <Input name="zip" placeholder="Zip Code" value={formData.zip} onChange={handleChange} className="w-full" />
           </div>
         </div>
       </div>
 
-      <button className="mt-6 bg-[#FA8232] hover:bg-orange-600 text-white px-6 py-2 rounded">
-        SAVE CHANGES
-      </button>
+      <Button className="mt-6" variant="primary" size="md">SAVE CHANGES</Button>
     </div>
   );
 }

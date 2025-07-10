@@ -1,9 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import Navbar from "../NavBar";
+import Navbar from "@/components/layout/NavBar";
 import Footer from "../layout/Footer";
 import Breadcrumb from "../ui/Breadcrumb";
+import Input from '@/components/ui/Input';
+import Button from '@/components/ui/Button';
 
 export default function TrackOrderForm() {
   const [orderId, setOrderId] = useState("");
@@ -41,12 +43,12 @@ export default function TrackOrderForm() {
           <label htmlFor="orderId" className="block text-sm font-medium text-gray-700">
             Order ID
           </label>
-          <input
+          <Input
             id="orderId"
             type="text"
             placeholder="ID..."
             value={orderId}
-            onChange={(e) => setOrderId(e.target.value)}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setOrderId(e.target.value)}
             className="mt-1 w-full px-3 py-2 border rounded-md border-gray-100 shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
           />
           <p className="text-xs text-gray-500 mt-1">
@@ -58,22 +60,24 @@ export default function TrackOrderForm() {
           <label htmlFor="email" className="block text-sm font-medium text-gray-700">
             Billing Email
           </label>
-          <input
+          <Input
             id="email"
             type="email"
             placeholder="Email address"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
             className="mt-1 w-full px-3 py-2 border rounded-md border-gray-100 shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
           />
         </div>
 
-        <button
+        <Button
           type="submit"
-          className="w-full bg-orange-500 hover:bg-orange-600 text-white py-2 px-4 rounded"
+          variant="primary"
+          size="md"
+          className="w-full"
         >
           Track Order
-        </button>
+        </Button>
 
         {error && <p className="text-red-600 text-sm">{error}</p>}
         {success && <p className="text-green-600 text-sm">{success}</p>}

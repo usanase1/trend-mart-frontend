@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
+import Button from "@/components/ui/Button";
 
 type Product = {
   id: string;
@@ -63,12 +64,12 @@ export default function CategoryDropdown() {
 
   return (
     <div className="relative inline-block text-left" ref={dropdownRef}>
-      <button
+      <Button
         onClick={() => setIsOpen(!isOpen)}
         className="bg-white text-black border px-4 py-2 rounded hover:border-gray-400 visited:color-orange"
       >
         All Categories
-      </button>
+      </Button>
 
       {isOpen && (
         <div className="absolute z-50 mt-2 flex bg-white shadow-lg border text-sm">
