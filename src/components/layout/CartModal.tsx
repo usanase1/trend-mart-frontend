@@ -3,7 +3,7 @@
 import { ShoppingCart, X } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 import Image from "next/image";
-import Link from "next/link";
+// import Link from "next/link";
 import Button from "@/components/ui/Button";
 
 export default function CartModal({

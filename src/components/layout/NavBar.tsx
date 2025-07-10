@@ -92,7 +92,7 @@ export default function Navbar() {
 
         <div className="flex items-center gap-6">
           <Button onClick={cartModal.open} variant="icon" className="relative cursor-pointer">
-            <ShoppingCart className="w-6 h-6 hover:text-yellow-400 text-black" />
+            <ShoppingCart className="w-6 h-6 hover:text-yellow-400 text-white" />
             {itemCount > 0 && (
               <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
                 {itemCount}
@@ -113,16 +113,23 @@ export default function Navbar() {
       <div className="bg-white text-black px-6 py-3 border-b">
         <div className="flex flex-wrap items-center gap-6 text-sm">
           <DropdownMenu />
-          <Button variant="link" className="flex items-center gap-1 hover:text-[#1B6392]">
+          <Button
+           variant="link" 
+           className="flex items-center gap-1 hover:text-[#1B6392] hover:underline"
+            customColor="bg-white hover:text-gray-800">
+            
             <MapPin className="w-4 h-4" /> Track Order
           </Button>
-          <Button variant="link" className="flex items-center gap-1 hover:text-[#1B6392]">
+          <Button variant="link" className="flex items-center gap-1 hover:text-[#1B6392] hover:underline"
+          customColor="bg-white hover:text-gray-800">
             <RefreshCw className="w-4 h-4" /> Compare
           </Button>
-          <Button variant="link" className="flex items-center gap-1 hover:text-[#1B6392]">
+          <Button variant="link" className="flex items-center gap-1 hover:text-[#1B6392] hover:underline"
+          customColor="bg-white hover:text-gray-800">
             <Headset className="w-4 h-4" /> Customer Support
           </Button>
-          <Button variant="link" className="flex items-center gap-1 hover:text-[#1B6392]">
+          <Button variant="link" className="flex items-center gap-1 hover:text-[#1B6392] hover:underline"
+          customColor="bg-white hover:text-gray-800">
             <HelpCircle className="w-4 h-4" /> Need Help
           </Button>
         </div>

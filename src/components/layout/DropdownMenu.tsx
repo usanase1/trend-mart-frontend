@@ -64,13 +64,13 @@ export default function CategoryDropdown() {
 
   return (
     <div className="relative inline-block text-left" ref={dropdownRef}>
-      <Button
-        onClick={() => setIsOpen(!isOpen)}
-        className="bg-white text-black border px-4 py-2 rounded hover:border-gray-400 visited:color-orange"
-      >
-        All Categories
-      </Button>
-
+     <Button
+  onClick={() => setIsOpen(!isOpen)}
+  customColor="bg-white hover:text-gray-800"
+  className="text-black px-4 py-2"
+>
+  All Categories
+</Button>
       {isOpen && (
         <div className="absolute z-50 mt-2 flex bg-white shadow-lg border text-sm">
           <div className="min-w-[200px] border-r bg-white">

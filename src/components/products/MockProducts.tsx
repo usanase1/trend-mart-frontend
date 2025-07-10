@@ -18,6 +18,7 @@ export const mockProducts: Product[] = [
     inStock: true,
     brand: 'SoundMagic',
     subcategory: 'Audio',
+    category: 'Electronics', // ✅ Added
     description: 'High quality wireless headphones with noise cancellation.',
     shortDescription: 'Wireless, noise-cancelling headphones.',
   },
@@ -35,6 +36,7 @@ export const mockProducts: Product[] = [
     inStock: true,
     brand: 'TimeTech',
     subcategory: 'Wearables',
+    category: 'Electronics', // ✅ Added
     description: 'Track your fitness and notifications on the go.',
     shortDescription: 'Fitness tracking smart watch.',
   },
@@ -52,6 +54,7 @@ export const mockProducts: Product[] = [
     inStock: true,
     brand: 'BoomBox',
     subcategory: 'Audio',
+    category: 'Electronics', // ✅ Added
     description: 'Portable waterproof speaker for outdoor fun.',
     shortDescription: 'Portable waterproof speaker.',
   },
@@ -69,6 +72,7 @@ export const mockProducts: Product[] = [
     inStock: true,
     brand: 'FitLife',
     subcategory: 'Wearables',
+    category: 'Electronics', // ✅ Added
     description: 'Track your daily activity and sleep patterns.',
     shortDescription: 'Activity and sleep tracker.',
   },
