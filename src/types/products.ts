@@ -1,5 +1,3 @@
-import { Product } from '@/landing/Home';
-
 export interface BestDealCardProps {
   product: Product;
   onAddToCart?: (product: Product) => void;
@@ -31,4 +29,23 @@ export interface ProductBannerProps {
 export interface ProductListCardProps {
   product: Product;
   onClick?: (product: Product) => void;
-} 
+}
+
+export type Product = {
+  id: string;
+  name: string;
+  slug: string;
+  price: number;
+  originalPrice: number;
+  discount: number;
+  rating: number;
+  reviews: number;
+  image: string;
+  features: string[];
+  inStock: boolean;
+  brand: string;
+  subcategory: string;
+  category: string;
+  description: string;
+  shortDescription: string;
+}; 

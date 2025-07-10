@@ -42,14 +42,14 @@ export default function PriceFilter({ selectedRange, onChange }: Props) {
           className="text-sm"
           placeholder="Min price"
           value={min}
-          onChange={(e) => setMin(Number(e.target.value))}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setMin(Number(e.target.value))}
         />
         <Input
           type="number"
           className="text-sm"
           placeholder="Max price"
           value={max}
-          onChange={(e) => setMax(Number(e.target.value))}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setMax(Number(e.target.value))}
         />
         <Button
           variant="primary"

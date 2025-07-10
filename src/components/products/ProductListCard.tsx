@@ -1,7 +1,6 @@
-import Image from "next/image";
 import React from "react";
-import { Product } from "@/landing/Home";
-import { ProductListCardProps } from '@/types/products';
+import { ProductListCardProps } from "@/types/products";
+import Image from 'next/image';
 
 const ProductListCard: React.FC<ProductListCardProps> = ({ product, onClick }) => (
   <div

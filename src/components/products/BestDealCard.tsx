@@ -1,13 +1,9 @@
 import Image from "next/image";
-import Link from "next/link";
-import { Heart, ShoppingCart, Eye } from "lucide-react";
 import React from "react";
-import { Product } from "@/landing/Home";
-import { BestDealCardProps } from '@/types/products';
-import Button from '@/components/ui/Button';
 import ProductHoverActions from './ProductHoverActions';
+import { BestDealCardProps } from '@/types/products';
 
-const BestDealCard: React.FC<BestDealCardProps> = ({ product, onAddToCart, onView }) => (
+const BestDealCard: React.FC<BestDealCardProps> = ({ product, onAddToCart }) => (
   <div className="relative rounded-lg p-4 bg-white shadow group transition hover:shadow-md">
     {/* Discount/Badge */}
     {product.discount >= 20 && (

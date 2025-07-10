@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import Button from '@/components/ui/Button';
 
 const links = [
   { label: 'Dashboard', icon: <Home />, href: '/dashboard' },
@@ -47,10 +48,13 @@ export default function Sidebar() {
           </Link>
         );
       })}
-      <button className="flex items-center gap-3 text-red-600 px-2 py-2 w-full hover:bg-red-50 transition">
+      <Button
+        onClick={() => {}}
+        className="flex items-center gap-3 text-red-600 px-2 py-2 w-full hover:bg-red-50 transition"
+      >
         <LogOut size={18} />
         Log-out
-      </button>
+      </Button>
     </aside>
   );
 }

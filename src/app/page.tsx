@@ -1,12 +1,7 @@
+"use client";
 
-import HomePage from '@/landing/Home';
+import Home from '@/components/home/Home';
 
-export default function Home() {
-  return (
-    <div>
-    <HomePage
-    />
-    <div>Home Page</div>
-    </div>
-  );
+export default function Page() {
+  return <Home />;
 }

@@ -2,7 +2,7 @@ export type ButtonVariant = 'primary' | 'secondary' | 'outline' | 'danger' | 'ic
 export type ButtonSize = 'sm' | 'md' | 'lg';
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   variant?: ButtonVariant;
   size?: ButtonSize;
   iconLeft?: React.ReactNode;
@@ -28,7 +28,8 @@ export interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElemen
   wrapperClassName?: string;
 }
 
-export interface CheckboxProps extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface CheckboxProps {
+  id?: string;
   label?: string;
   checked: boolean;
   onChange: (checked: boolean) => void;

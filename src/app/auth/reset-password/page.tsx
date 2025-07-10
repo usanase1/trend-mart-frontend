@@ -1,6 +1,8 @@
 "use client"
 import React, { useState } from "react";
 import { Eye, EyeOff, ArrowRight } from "lucide-react";
+import Input from '@/components/ui/Input';
+import Button from '@/components/ui/Button';
 
 const ResetPassword = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -15,53 +17,53 @@ const ResetPassword = () => {
         </p>
         <form className="space-y-5">
           <div>
-            <label className="block text-gray-700 mb-1" htmlFor="password">
-              Password
-            </label>
-            <div className="relative">
-              <input
-                id="password"
-                type={showPassword ? "text" : "password"}
-                placeholder="New password (8+ characters)"
-                className="w-full border border-gray-300 rounded-md px-4 py-2 pr-10 focus:outline-none focus:ring-2 focus:ring-orange-400"
-              />
-              <button
-                type="button"
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400"
-                onClick={() => setShowPassword((prev) => !prev)}
-                tabIndex={-1}
-              >
-                {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
-              </button>
-            </div>
+            <Input
+              id="password"
+              type={showPassword ? "text" : "password"}
+              placeholder="New password (8+ characters)"
+              value={undefined}
+              onChange={() => {}}
+              label="Password"
+              className="pr-10"
+            />
+            <Button
+              type="button"
+              variant="outline"
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400"
+              onClick={() => setShowPassword((prev) => !prev)}
+              tabIndex={-1}
+            >
+              {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+            </Button>
           </div>
           <div>
-            <label className="block text-gray-700 mb-1" htmlFor="confirm">
-              Confirm Password
-            </label>
-            <div className="relative">
-              <input
-                id="confirm"
-                type={showConfirm ? "text" : "password"}
-                placeholder="Confirm new password"
-                className="w-full border border-gray-300 rounded-md px-4 py-2 pr-10 focus:outline-none focus:ring-2 focus:ring-orange-400"
-              />
-              <button
-                type="button"
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400"
-                onClick={() => setShowConfirm((prev) => !prev)}
-                tabIndex={-1}
-              >
-                {showConfirm ? <EyeOff size={20} /> : <Eye size={20} />}
-              </button>
-            </div>
+            <Input
+              id="confirm"
+              type={showConfirm ? "text" : "password"}
+              placeholder="Confirm new password"
+              value={undefined}
+              onChange={() => {}}
+              label="Confirm Password"
+              className="pr-10"
+            />
+            <Button
+              type="button"
+              variant="outline"
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400"
+              onClick={() => setShowConfirm((prev) => !prev)}
+              tabIndex={-1}
+            >
+              {showConfirm ? <EyeOff size={20} /> : <Eye size={20} />}
+            </Button>
           </div>
-          <button
+          <Button
             type="submit"
-            className="w-full flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 rounded-md transition"
+            fullWidth
+            variant="primary"
+            className="flex items-center justify-center gap-2"
           >
             RESET PASSWORD <ArrowRight size={20} />
-          </button>
+          </Button>
         </form>
       </div>
     </div>

@@ -26,7 +26,7 @@ export default function ProductToolbar({
         type="text"
         placeholder="Search products..."
         value={searchText}
-        onChange={(e) => onSearchChange(e.target.value)}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) => onSearchChange(e.target.value)}
         className="text-sm"
         wrapperClassName="w-full sm:w-1/2"
       />
@@ -36,7 +36,7 @@ export default function ProductToolbar({
         {/* Sort Dropdown */}
         <Select
           value={sortOption}
-          onChange={(e) => onSortChange(e.target.value)}
+          onChange={(e: React.ChangeEvent<HTMLSelectElement>) => onSortChange(e.target.value)}
           options={[
             { value: "default", label: "Sort by" },
             { value: "mostPopular", label: "Most Popular" },

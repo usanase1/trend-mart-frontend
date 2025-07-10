@@ -1,5 +1,5 @@
 import RecentOrdersTable from "../RecentOrdersTable";
-import { mockOrders } from "../DashboardLayout";
+import { mockOrders } from "../mockOrders";
 
 export default function OrderHistory(){
 return(

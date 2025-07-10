@@ -16,25 +16,7 @@ import { Heart, ShoppingCart, Eye } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Button from '@/components/ui/Button';
 import ProductActionButton from '@/components/ui/ProductActionButton';
-
-type Product = {
-  id: string;
-  name: string;
-  slug: string;
-  category: string;
-  price: number;
-  originalPrice: number;
-  discount: number;
-  rating: number;
-  reviews: number;
-  image: string;
-  features: string[];
-  inStock: boolean;
-  brand: string;
-  subcategory: string;
-  description: string;
-  shortDescription: string;
-};
+import type { Product } from '@/types/products';
 
 const sampleProduct = {
   id: "apple-watch-7",

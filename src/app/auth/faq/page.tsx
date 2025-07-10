@@ -1,36 +1,9 @@
 'use client';
 import React, { useState } from "react";
-
-const faqs = [
-  {
-    question: "How do I reset my password?",
-    answer: (
-      <>
-        If you forgot your password, click on &quot;Forgot Password?&quot; on the sign-in page. Enter your registered email address and follow the instructions sent to your email to reset your password.
-        <ul className="list-disc ml-6 mt-2 text-sm text-gray-700">
-          <li>Go to the Sign In page and click on &quot;Forgot Password?&quot;</li>
-          <li>Enter your registered email address.</li>
-          <li>Check your email for a password reset link and follow the instructions.</li>
-        </ul>
-      </>
-    ),
-  },
-  {
-    question: "How can I change my account email?",
-    answer:
-      "To change your account email, go to your account settings, click on &apos;Edit Email&apos;, enter your new email address, and confirm the change via the verification email sent to you.",
-  },
-  {
-    question: "Where can I view my order history?",
-    answer:
-      "You can view your order history by navigating to the &apos;My Orders&apos; section in your account dashboard.",
-  },
-  {
-    question: "How do I contact customer support?",
-    answer:
-      "You can contact customer support using the form on this page or by emailing support@trendmart.com.",
-  },
-];
+import Input from '@/components/ui/Input';
+import Button from '@/components/ui/Button';
+import faqs from './faqData';
+import Textarea from '@/components/ui/Textarea';
 
 export default function FAQPage() {
   const [openIndex, setOpenIndex] = useState(1);
@@ -44,14 +17,16 @@ export default function FAQPage() {
           <div className="space-y-4">
             {faqs.map((faq, idx) => (
               <div key={idx} className="rounded-lg overflow-hidden">
-                <button
+                <Button
+                  type="button"
+                  variant={openIndex === idx ? 'primary' : 'outline'}
                   className={`w-full flex justify-between items-center px-6 py-5 text-left text-lg font-semibold transition-all duration-200 focus:outline-none border ${openIndex === idx ? 'bg-orange-500 text-white border-orange-500' : 'bg-white text-black border-gray-200 hover:bg-gray-50'}`}
                   onClick={() => setOpenIndex(openIndex === idx ? -1 : idx)}
                   style={{ boxShadow: openIndex === idx ? '0 2px 8px rgba(255, 152, 0, 0.15)' : undefined }}
                 >
                   <span>{faq.question}</span>
                   <span className="text-2xl font-bold">{openIndex === idx ? '−' : '+'}</span>
-                </button>
+                </Button>
                 {openIndex === idx && (
                   <div className="bg-white px-6 pb-6 pt-2 shadow rounded-b-lg border-l border-r border-b border-orange-200 animate-fade-in">
                     <div className="text-gray-800 text-base">{faq.answer}</div>
@@ -69,29 +44,33 @@ export default function FAQPage() {
             If you can&apos;t find your answer in our FAQ, please contact us using the form below. Our support team will respond as soon as possible.
           </p>
           <form className="space-y-4">
-            <input
+            <Input
               type="email"
               placeholder="Email address"
-              className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-400 bg-white"
               required
+              label="Email address"
             />
-            <input
+            <Input
               type="text"
               placeholder="Subject"
-              className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-400 bg-white"
               required
+              label="Subject"
             />
-            <textarea
+            <label htmlFor="message" className="block text-sm font-medium text-gray-700">Message (Optional)</label>
+            <Textarea
+              id="message"
               placeholder="Message (Optional)"
-              className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-400 bg-white"
+              label="Message (Optional)"
               rows={3}
             />
-            <button
+            <Button
               type="submit"
-              className="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 rounded transition flex items-center justify-center gap-2 text-base"
+              fullWidth
+              variant="primary"
+              className="flex items-center justify-center gap-2 text-base"
             >
               SEND MESSAGE <span className="ml-2 text-xl">→</span>
-            </button>
+            </Button>
           </form>
         </div>
       </div>

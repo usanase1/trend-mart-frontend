@@ -2,16 +2,7 @@
 
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
-
-type OrderStatus = 'IN PROGRESS' | 'COMPLETED' | 'CANCELED';
-
-export type Orders = {
-  id: string;
-  status: OrderStatus;
-  date: string;
-  total: string;
-  items: number;
-};
+import type { Orders, OrderStatus } from './types/orders';
 
 type Props = {
   orders: Orders[];

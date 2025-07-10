@@ -1,4 +1,6 @@
 import React from "react";
+import Input from '@/components/ui/Input';
+import Button from '@/components/ui/Button';
 
 export default function EmailVerificationPage() {
   return (
@@ -14,28 +16,32 @@ export default function EmailVerificationPage() {
             <label htmlFor="verificationCode" className="block text-gray-900 font-medium">
               Verification Code
             </label>
-            <button
+            <Button
               type="button"
+              variant="link"
               className="text-blue-500 hover:underline text-sm font-medium focus:outline-none"
             >
               Resend Code
-            </button>
+            </Button>
           </div>
-          <input
+          <Input
             id="verificationCode"
             name="verificationCode"
             type="text"
             autoComplete="off"
-            className="w-full border text-black border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-400"
             placeholder="Enter your code"
+            label="Verification Code"
+            className="mb-0"
           />
-          <button
+          <Button
             type="submit"
-            className="w-full bg-orange-400 hover:bg-orange-500 text-white font-semibold py-3 rounded transition flex items-center justify-center gap-2"
+            fullWidth
+            variant="primary"
+            className="flex items-center justify-center gap-2"
           >
             VERIFY ME
             <span className="ml-2">→</span>
-          </button>
+          </Button>
         </form>
       </div>
     </div>

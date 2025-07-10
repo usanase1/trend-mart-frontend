@@ -1,5 +1,5 @@
 import React from "react";
-import { InputProps } from "@/types/components";
+import { InputProps } from "@/types/ui";
 
 const Input: React.FC<InputProps> = ({ label, error, className = "", wrapperClassName = "", ...props }) => (
   <div className={wrapperClassName}>

@@ -1,1 +1,1 @@
-import { BlogCardProps } from '@/types/blog'; 
+ 

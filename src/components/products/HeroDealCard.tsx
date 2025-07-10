@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { Heart, Eye } from "lucide-react";
 import Button from '@/components/ui/Button';
-import { Product } from '@/landing/Home';
+import { Product } from '@/types/products';
 
 interface HeroDealCardProps {
   product: Product;
@@ -27,13 +27,14 @@ const HeroDealCard: React.FC<HeroDealCardProps> = ({ product, onAddToCart, onVie
     </div>
     <p className="text-xs text-gray-600 mb-4 text-center line-clamp-2">{product.description}</p>
     <div className="flex items-center w-full gap-2 mt-auto">
-      <button
+      <Button
+        variant="outline"
+        size="sm"
         className="flex items-center justify-center w-10 h-10 rounded-full bg-white border border-gray-200 text-gray-500 hover:text-red-500 transition"
-        aria-label="Add to Wishlist"
         onClick={onWishlist ? () => onWishlist(product) : undefined}
       >
         <Heart size={18} />
-      </button>
+      </Button>
       <Button
         variant="primary"
         size="md"
@@ -42,13 +43,14 @@ const HeroDealCard: React.FC<HeroDealCardProps> = ({ product, onAddToCart, onVie
       >
         Add to Cart
       </Button>
-      <button
+      <Button
+        variant="outline"
+        size="sm"
         className="flex items-center justify-center w-10 h-10 rounded-full bg-white border border-gray-200 text-gray-500 hover:text-blue-600 transition"
-        aria-label="View Details"
         onClick={onView ? () => onView(product) : undefined}
       >
         <Eye size={18} />
-      </button>
+      </Button>
     </div>
   </div>
 );

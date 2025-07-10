@@ -1,5 +1,5 @@
 "use client";
-import { Product } from "@/landing/Home";
+import { Product } from '@/types/products';
 
 
 interface ExtendedProduct extends Product {

@@ -18,7 +18,7 @@ const sizeStyles = {
   lg: "px-8 py-3 text-lg",
 };
 
-export const Button: React.FC<ButtonProps> = ({
+const Button: React.FC<ButtonProps> = ({
   children,
   variant = "primary",
   size = "md",
@@ -42,12 +42,10 @@ export const Button: React.FC<ButtonProps> = ({
 
   if (as === "a" && href) {
     return (
-      <Link href={href} legacyBehavior>
-        <a className={classes} {...props}>
-          {iconLeft}
-          {children}
-          {iconRight}
-        </a>
+      <Link href={href} className={classes}>
+        {iconLeft}
+        {children}
+        {iconRight}
       </Link>
     );
   }

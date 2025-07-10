@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Navbar from "../NavBar";
+import Navbar from "@/components/layout/NavBar";
 import Footer from "../layout/Footer";
 import Breadcrumb from "../ui/Breadcrumb";
 import Input from '@/components/ui/Input';
@@ -48,7 +48,7 @@ export default function TrackOrderForm() {
             type="text"
             placeholder="ID..."
             value={orderId}
-            onChange={(e) => setOrderId(e.target.value)}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setOrderId(e.target.value)}
             className="mt-1 w-full px-3 py-2 border rounded-md border-gray-100 shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
           />
           <p className="text-xs text-gray-500 mt-1">
@@ -65,7 +65,7 @@ export default function TrackOrderForm() {
             type="email"
             placeholder="Email address"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
             className="mt-1 w-full px-3 py-2 border rounded-md border-gray-100 shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
           />
         </div>

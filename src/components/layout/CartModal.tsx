@@ -4,6 +4,7 @@ import { ShoppingCart, X } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 import Image from "next/image";
 import Link from "next/link";
+import Button from "@/components/ui/Button";
 
 export default function CartModal({
   isOpen,
@@ -29,12 +30,9 @@ export default function CartModal({
               {cartItems.reduce((acc, item) => acc + item.quantity, 0)})
             </h3>
           </div>
-          <button
-            onClick={onClose}
-            className="text-gray-500 hover:text-gray-700"
-          >
+          <Button onClick={onClose} variant="outline" size="sm">
             <X size={20} />
-          </button>
+          </Button>
         </div>
 
         <div className="max-h-[60vh] overflow-y-auto p-4">
@@ -58,34 +56,38 @@ export default function CartModal({
                     <h4 className="font-medium">{item.name}</h4>
                     <div className="flex items-center justify-between mt-2">
                       <div className="flex items-center gap-2">
-                        <button
+                        <Button
                           onClick={() =>
                             updateQuantity(item.id, item.quantity - 1)
                           }
-                          className="w-6 h-6 border rounded flex items-center justify-center"
+                          variant="outline"
+                          size="sm"
                         >
                           -
-                        </button>
+                        </Button>
                         <span>{item.quantity}</span>
-                        <button
+                        <Button
                           onClick={() =>
                             updateQuantity(item.id, item.quantity + 1)
                           }
-                          className="w-6 h-6 border rounded flex items-center justify-center"
+                          variant="outline"
+                          size="sm"
                         >
                           +
-                        </button>
+                        </Button>
                       </div>
                       <span className="font-bold">
                         ${(item.price * item.quantity).toFixed(2)}
                       </span>
                     </div>
-                    <button
+                    <Button
                       onClick={() => removeFromCart(item.id)}
-                      className="text-red-500 text-xs mt-1"
+                      variant="outline"
+                      size="sm"
+                      color="red"
                     >
                       Remove
-                    </button>
+                    </Button>
                   </div>
                 </li>
               ))}
@@ -99,20 +101,20 @@ export default function CartModal({
             <span>${cartTotal.toFixed(2)} USD</span>
           </div>
           <div className="flex flex-col gap-2">
-            <Link
-              href="/checkout"
+            <Button
               onClick={onClose}
+              href="/checkout"
               className="bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-medium text-center"
             >
               CHECKOUT NOW →
-            </Link>
-            <Link
-              href="/cart"
+            </Button>
+            <Button
               onClick={onClose}
+              href="/cart"
               className="border border-gray-300 hover:bg-gray-50 py-3 rounded-lg font-medium text-center"
             >
               VIEW CART
-            </Link>
+            </Button>
           </div>
         </div>
       </div>

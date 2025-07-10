@@ -38,7 +38,7 @@ export default function Footer() {
               type="email"
               placeholder="Email address"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
               className="flex-1 px-4 py-3 text-black outline-none"
               required
             />

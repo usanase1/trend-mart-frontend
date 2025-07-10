@@ -1,5 +1,6 @@
-import Image from "next/image";
 import React from "react";
+import ShopNowButton from '@/components/ui/ShopNowButton';
+import Image from 'next/image';
 import { ProductBannerProps } from '@/types/products';
 
 const ProductBanner: React.FC<ProductBannerProps> = ({
@@ -9,8 +10,6 @@ const ProductBanner: React.FC<ProductBannerProps> = ({
   description,
   shortDescription,
   discount,
-  ctaText = "SHOP NOW →",
-  ctaOnClick,
   backgroundColor = "#F5F7FA",
   textColor = "#191C1F",
   badgeText,
@@ -39,12 +38,7 @@ const ProductBanner: React.FC<ProductBannerProps> = ({
             {discount}% OFF
           </span>
         )}
-        <button
-          className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-4 py-2 rounded text-sm"
-          onClick={ctaOnClick}
-        >
-          {ctaText}
-        </button>
+        <ShopNowButton />
         {children}
       </div>
       <div className="w-full md:w-auto max-w-xs mt-6 md:mt-0">
