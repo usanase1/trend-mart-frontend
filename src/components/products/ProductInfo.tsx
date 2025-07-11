@@ -1,6 +1,6 @@
 "use client";
 
-import { ShoppingCart, Heart, RefreshCw, Share2, Minus, Plus } from "lucide-react";
+import { ShoppingCart, Heart, RefreshCw, Minus, Plus } from "lucide-react";
 import Button from "@/components/ui/Button";
 import { useState } from "react";
 
@@ -122,7 +122,7 @@ export default function ProductInfo({ product }: ProductInfoProps) {
       {/* Checkout guarantee */}
       <div className="mt-3">
         <p className="text-xs font-medium mb-1">100% Guarantee Safe Checkout</p>
-        <img src="/checkout-icons.png" alt="Payment Methods" className="h-4" />
+        {/* <Image src="/checkout-icons.png" alt="Payment Methods" className="h-4" /> */}
       </div>
     </div>
   );
