@@ -21,6 +21,7 @@ export const mockProducts: Product[] = [
     category: 'Electronics', // ✅ Added
     description: 'High quality wireless headphones with noise cancellation.',
     shortDescription: 'Wireless, noise-cancelling headphones.',
+    stock:45,
   },
   {
     id: '2',
@@ -39,6 +40,7 @@ export const mockProducts: Product[] = [
     category: 'Electronics', // ✅ Added
     description: 'Track your fitness and notifications on the go.',
     shortDescription: 'Fitness tracking smart watch.',
+    stock:33,
   },
   {
     id: '3',
@@ -57,6 +59,7 @@ export const mockProducts: Product[] = [
     category: 'Electronics', // ✅ Added
     description: 'Portable waterproof speaker for outdoor fun.',
     shortDescription: 'Portable waterproof speaker.',
+    stock:7,
   },
   {
     id: '4',
@@ -75,6 +78,7 @@ export const mockProducts: Product[] = [
     category: 'Electronics', // ✅ Added
     description: 'Track your daily activity and sleep patterns.',
     shortDescription: 'Activity and sleep tracker.',
+    stock:8,
   },
 ];
 
