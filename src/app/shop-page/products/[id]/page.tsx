@@ -5,6 +5,8 @@ import { useParams } from "next/navigation";
 import ProductDetails from "@/components/products/ProductDetailsPage";
 import Breadcrumb from "@/components/ui/Breadcrumb";
 import { Product } from '@/types/products';
+import Navbar from "@/components/layout/NavBar";
+import Footer from "@/components/layout/Footer";
 
 type ExtendedProduct = Product & {
   images?: string[];
@@ -35,9 +37,13 @@ export default function ProductDetailPage() {
   }
 
   return (
+    <>
+    <Navbar/>
     <div className="container mx-auto px-4 py-10">
       <Breadcrumb current={product.name} />
       <ProductDetails product={product} />
     </div>
+    <Footer/>
+    </>
   );
 }
