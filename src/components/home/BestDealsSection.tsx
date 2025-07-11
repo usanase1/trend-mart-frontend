@@ -47,6 +47,7 @@ export default function BestDealsSection() {
                     price: product.price,
                     quantity: 1,
                     image: product.image,
+                    stock:product.stock,
                   })
                 }
                 onView={() => router.push(`/shop-page/products/${product.id}`)}
@@ -72,6 +73,7 @@ export default function BestDealsSection() {
                       price: product.price,
                       quantity: 1,
                       image: product.image,
+                      stock:product.stock,
                     })
                   }
                 />
