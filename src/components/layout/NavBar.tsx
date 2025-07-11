@@ -94,15 +94,15 @@ export default function Navbar() {
           TrendMart
         </Link>
 
-        <div className="flex w-full md:max-w-md rounded overflow-hidden bg-white">
+        <div className="flex w-full md:max-w-md rounded overflow-hidden">
           <Input
             type="text"
             placeholder="Search for anything..."
-            className="px-4 py-2 w-full text-black outline-none"
+            className="px-4 py-2 flex-1 bg-white text-black outline-none rounded-none rounded-l"
           />
-          <Button variant="icon" className="bg-yellow-400 px-4">
+          <span className="bg-yellow-400 px-2 flex items-center justify-center rounded-none rounded-r">
             <Search className="text-black w-5 h-5" />
-          </Button>
+          </span>
         </div>
 
         <div className="flex items-center gap-6">
