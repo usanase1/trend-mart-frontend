@@ -11,18 +11,29 @@ export default function ProductImages({ images }: ProductImagesProps) {
   const [selectedImage, setSelectedImage] = useState(images[0]);
 
   return (
-    <div className="flex flex-col gap-4">
-      <Image src={selectedImage} alt="Product Image" width={600} height={400} className="rounded-xl" />
-      <div className="flex gap-2 overflow-x-auto">
+    <div className="flex flex-col gap-4 items-start">
+      <div className="border rounded-xl overflow-hidden w-[420px] h-[300px] relative">
+        <Image
+          src={selectedImage}
+          alt="Selected Product Image"
+          layout="fill"
+          objectFit="cover"
+          className="rounded-xl"
+        />
+      </div>
+
+      <div className="flex gap-3 overflow-x-auto">
         {images.map((img, idx) => (
           <Image
             key={idx}
             src={img}
             alt={`Thumbnail ${idx + 1}`}
-            width={100}
-            height={100}
-            className={`cursor-pointer border ${selectedImage === img ? 'border-orange-500' : 'border-gray-200'} rounded-xl`}
+            width={70}
+            height={70}
             onClick={() => setSelectedImage(img)}
+            className={`cursor-pointer border-2 ${
+              selectedImage === img ? "border-orange-500" : "border-gray-200"
+            } rounded-md`}
           />
         ))}
       </div>

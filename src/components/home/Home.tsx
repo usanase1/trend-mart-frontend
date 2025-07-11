@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { useEffect, useState } from "react";
 import Navbar from "@/components/layout/NavBar";
@@ -16,6 +16,7 @@ import AppleHomePodMiniSection from "./AppleHomePodMiniSection";
 import MacbookProSection from "./MacbookProSection";
 import { Product } from "./types";
 import Image from "next/image";
+import ShopNowButton from "../ui/ShopNowButton";
 
 export default function Home() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -53,9 +54,7 @@ export default function Home() {
                   <p className="text-gray-600 text-sm mb-6">
                     {currentProduct.shortDescription}
                   </p>
-                  <button className="bg-orange-500 hover:bg-orange-600 text-white font-semibold text-sm px-5 py-2 rounded transition">
-                    SHOP NOW →
-                  </button>
+                  <ShopNowButton/>
                 </div>
 
                 {/* Image + Price */}
@@ -103,7 +102,9 @@ export default function Home() {
                   <span className="text-yellow-300 text-xs uppercase font-semibold">
                     Summer Sales
                   </span>
-                  <h3 className="text-lg font-bold mt-1 mb-4">{product.name}</h3>
+                  <h3 className="text-lg font-bold mt-1 mb-4">
+                    {product.name}
+                  </h3>
                   <button className="bg-orange-500 hover:bg-orange-600 text-white text-sm font-semibold px-4 py-2 rounded">
                     SHOP NOW →
                   </button>

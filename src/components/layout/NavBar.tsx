@@ -17,13 +17,15 @@ import {
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import DropdownMenu from "./DropdownMenu";
-import LoginForm from '@/components/dashboard/LoginForm';
-import CartModal from "./CartModal";
+import LoginForm from "@/components/dashboard/LoginForm";
+import CartModal from "../cart/CartModal";
 import { useCart } from "@/context/CartContext";
 import { useModal } from "@/hooks/useModal";
-import Input from '@/components/ui/Input';
-import Select from '@/components/ui/Select';
-import Button from '@/components/ui/Button';
+import { useWishlist } from "@/context/WishlistContext";
+import Input from "@/components/ui/Input";
+import Select from "@/components/ui/Select";
+import Button from "@/components/ui/Button";
+import WishlistModal from "../wishlist/WishlistModal";
 
 type Category = {
   id: number;
@@ -33,9 +35,12 @@ type Category = {
 export default function Navbar() {
   const [categories, setCategories] = useState<Category[]>([]);
   const { itemCount } = useCart();
+  const { wishlistItems } = useWishlist();
+  const countItems = wishlistItems.length;
 
   const loginModal = useModal();
   const cartModal = useModal();
+  const wishlistModel = useModal();
 
   useEffect(() => {
     fetch("/product-mock.json")
@@ -45,8 +50,6 @@ export default function Navbar() {
 
   return (
     <>
-     
-
       <div className="bg-[#1B6392] text-white text-xs px-6 py-2">
         <div className="flex justify-between items-center">
           <span>Welcome to TrendMart online eCommerce store.</span>
@@ -64,8 +67,20 @@ export default function Navbar() {
             <Link href="/">
               <Youtube className="w-4 h-4" />
             </Link>
-            <Select className="bg-[#1B6392] text-white text-xs border-none outline-none" options={[{ value: "Eng", label: "Eng" }, { value: "Fr", label: "Fr" }]} />
-            <Select className="bg-[#1B6392] text-white text-xs border-none outline-none" options={[{ value: "USD", label: "USD" }, { value: "EUR", label: "EUR" }]} />
+            <Select
+              className="bg-[#1B6392] text-white text-xs border-none outline-none"
+              options={[
+                { value: "Eng", label: "Eng" },
+                { value: "Fr", label: "Fr" },
+              ]}
+            />
+            <Select
+              className="bg-[#1B6392] text-white text-xs border-none outline-none"
+              options={[
+                { value: "USD", label: "USD" },
+                { value: "EUR", label: "EUR" },
+              ]}
+            />
           </div>
         </div>
         <hr className="border-t border-white mt-2" />
@@ -91,7 +106,11 @@ export default function Navbar() {
         </div>
 
         <div className="flex items-center gap-6">
-          <Button onClick={cartModal.open} variant="icon" className="relative cursor-pointer">
+          <Button
+            onClick={cartModal.open}
+            variant="icon"
+            className="relative cursor-pointer"
+          >
             <ShoppingCart className="w-6 h-6 hover:text-yellow-400 text-white" />
             {itemCount > 0 && (
               <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
@@ -100,10 +119,18 @@ export default function Navbar() {
             )}
           </Button>
 
-          <Link href="/wishlist">
-            <Heart className="w-6 h-6 hover:text-yellow-400" />
-          </Link>
-
+           <Button
+            onClick={wishlistModel.open}
+            variant="icon"
+            className="relative cursor-pointer"
+          >
+            <Heart className="w-6 h-6 hover:text-yellow-400 text-white" />
+            {countItems > 0 && (
+              <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                {countItems}
+              </span>
+            )}
+          </Button>
           <Button onClick={loginModal.open} variant="icon">
             <User className="w-6 h-6 hover:text-yellow-400 cursor-pointer" />
           </Button>
@@ -114,22 +141,34 @@ export default function Navbar() {
         <div className="flex flex-wrap items-center gap-6 text-sm">
           <DropdownMenu />
           <Button
-           variant="link" 
-           className="flex items-center gap-1 hover:text-[#1B6392] hover:underline"
-            customColor="bg-white hover:text-gray-800">
-            
-            <MapPin className="w-4 h-4" /> Track Order
+            as="a"
+            href="/track-order"
+            variant="link"
+            className="flex items-center gap-1 hover:text-[#1B6392] hover:underline"
+            customColor="bg-white hover:text-gray-800"
+          >
+            <MapPin className="w-4 h-4" />
+            Track Order
           </Button>
-          <Button variant="link" className="flex items-center gap-1 hover:text-[#1B6392] hover:underline"
-          customColor="bg-white hover:text-gray-800">
+          <Button
+            variant="link"
+            className="flex items-center gap-1 hover:text-[#1B6392] hover:underline"
+            customColor="bg-white hover:text-gray-800"
+          >
             <RefreshCw className="w-4 h-4" /> Compare
           </Button>
-          <Button variant="link" className="flex items-center gap-1 hover:text-[#1B6392] hover:underline"
-          customColor="bg-white hover:text-gray-800">
+          <Button
+            variant="link"
+            className="flex items-center gap-1 hover:text-[#1B6392] hover:underline"
+            customColor="bg-white hover:text-gray-800"
+          >
             <Headset className="w-4 h-4" /> Customer Support
           </Button>
-          <Button variant="link" className="flex items-center gap-1 hover:text-[#1B6392] hover:underline"
-          customColor="bg-white hover:text-gray-800">
+          <Button
+            variant="link"
+            className="flex items-center gap-1 hover:text-[#1B6392] hover:underline"
+            customColor="bg-white hover:text-gray-800"
+          >
             <HelpCircle className="w-4 h-4" /> Need Help
           </Button>
         </div>
@@ -150,15 +189,20 @@ export default function Navbar() {
         </div>
       )}
 
-      {cartModal.isOpen && (
-        <CartModal isOpen={true} onClose={cartModal.close} />
-      )}
+     {cartModal.isOpen && (
+  <CartModal isOpen={true} onClose={cartModal.close} />
+)}
 
-      <div className="hidden">
+{wishlistModel.isOpen && (
+  <WishlistModal isOpen={true} onClose={wishlistModel.close} />
+)}
+
+<div className="hidden">
   {categories.map((category) => (
     <span key={category.id}>{category.name}</span>
   ))}
 </div>
+
     </>
   );
 }

@@ -48,4 +48,5 @@ export type Product = {
   category: string;
   description: string;
   shortDescription: string;
+  stock:number;
 }; 

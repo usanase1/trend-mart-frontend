@@ -1,10 +1,13 @@
-export type CartItem = {
+export interface CartItem {
   id: string;
   name: string;
   price: number;
-  quantity: number;
+  originalPrice?: number;
   image: string;
-};
+  stock: number;
+  quantity: number;
+}
+;
 
 export type CartContextType = {
   cartItems: CartItem[];

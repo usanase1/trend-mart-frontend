@@ -2,21 +2,22 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import CategoryFilter from '@/components/shops/CategoryFilter';
-import PriceFilter from '@/components/shops/PriceFilter';
-import BrandFilter from '@/components/shops/BrandFilter';
-import Navbar from '@/components/layout/NavBar';
-import Footer from '@/components/layout/Footer';
-import ProductToolbar from '@/components/shops/ProductToolbar';
-import Breadcrumb from '@/components/ui/Breadcrumb';
+import CategoryFilter from "@/components/shops/CategoryFilter";
+import PriceFilter from "@/components/shops/PriceFilter";
+import BrandFilter from "@/components/shops/BrandFilter";
+import Navbar from "@/components/layout/NavBar";
+import Footer from "@/components/layout/Footer";
+import ProductToolbar from "@/components/shops/ProductToolbar";
+import Breadcrumb from "@/components/ui/Breadcrumb";
 import { useCart } from "@/context/CartContext";
-import PopularTags from '@/components/shops/PopularTag';
-import PromoProductCard from '@/components/shops/PromoProductCard';
+import PopularTags from "@/components/shops/PopularTag";
+import PromoProductCard from "@/components/shops/PromoProductCard";
 import { Heart, ShoppingCart, Eye } from "lucide-react";
 import { useRouter } from "next/navigation";
-import Button from '@/components/ui/Button';
-import ProductActionButton from '@/components/ui/ProductActionButton';
-import type { Product } from '@/types/products';
+import Button from "@/components/ui/Button";
+import ProductActionButton from "@/components/ui/ProductActionButton";
+import type { Product } from "@/types/products";
+import { useWishlist } from "@/context/WishlistContext";
 
 const sampleProduct = {
   id: "apple-watch-7",
@@ -45,6 +46,8 @@ export default function ProductDisplay() {
 
   const categories = Array.from(new Set(products.map((p) => p.category)));
   const brands = Array.from(new Set(products.map((p) => p.brand)));
+
+  const { addToWishlist } = useWishlist();
 
   useEffect(() => {
     fetch("/product-mock.json")
@@ -94,7 +97,10 @@ export default function ProductDisplay() {
 
   const totalPages = Math.ceil(filtered.length / PRODUCTS_PER_PAGE);
   const startIndex = (currentPage - 1) * PRODUCTS_PER_PAGE;
-  const currentItems = filtered.slice(startIndex, startIndex + PRODUCTS_PER_PAGE);
+  const currentItems = filtered.slice(
+    startIndex,
+    startIndex + PRODUCTS_PER_PAGE
+  );
 
   return (
     <>
@@ -144,15 +150,28 @@ export default function ProductDisplay() {
                   />
 
                   <div className="absolute inset-0 bg-black/10 flex items-center justify-center gap-3 opacity-0 group-hover:opacity-100 transition duration-300">
-                    <ProductActionButton
-                      icon={<Heart size={16} />}
-                      ariaLabel="Add to Wishlist"
-                      colorClass="bg-white text-gray-600 hover:text-red-500"
-                    />
-                    <ProductActionButton
-                      icon={<ShoppingCart size={16} />}
-                      ariaLabel="Add to Cart"
-                      colorClass="bg-orange-500 text-white hover:bg-orange-600"
+                    <Button
+                      variant="icon"
+                      className="bg-white text-black hover:text-red-500 rounded-full"
+                      aria-label="Add to Wishlist"
+                      onClick={() =>
+                        addToWishlist({
+                          id: p.id,
+                          name: p.name,
+                          price: p.price,
+                          quantity: 1,
+                          image: p.image,
+                          stock: p.stock,
+                        })
+                      }
+                    >
+                      <Heart size={20} />
+                    </Button>
+
+                    <Button
+                      variant="icon"
+                      aria-label="Add to Cart"
+                      className="bg-white text-black hover:text-red-500"
                       onClick={() =>
                         addToCart({
                           id: p.id,
@@ -160,23 +179,33 @@ export default function ProductDisplay() {
                           price: p.price,
                           quantity: 1,
                           image: p.image,
+                          stock: p.stock,
                         })
                       }
-                    />
-                    <ProductActionButton
-                      icon={<Eye size={16} />}
-                      ariaLabel="View Details"
-                      colorClass="bg-white text-gray-600 hover:text-blue-600"
+                      >
+                      <ShoppingCart size={16}/>
+                      </Button>
+                    
+                    <Button
+                      variant="icon"
+                      aria-label="View Details"
+                      className="bg-[#FA8232] #FFFFFF hover:text-red-500"
                       onClick={() => router.push(`/shop-page/products/${p.id}`)}
-                    />
+                      >
+                      <Eye size={16}/>
+                    </Button>
                   </div>
                 </div>
 
                 <div className="text-xs text-yellow-500">
                   ★ {p.rating} ({p.reviews})
                 </div>
-                <h3 className="mt-2 text-sm font-semibold opacity-50">{p.name}</h3>
-                <div className="text-xs text-gray-500 line-through">${p.originalPrice}</div>
+                <h3 className="mt-2 text-sm font-semibold opacity-50">
+                  {p.name}
+                </h3>
+                <div className="text-xs text-gray-500 line-through">
+                  ${p.originalPrice}
+                </div>
                 <div className="text-blue-600 font-bold">${p.price}</div>
               </div>
             ))}
