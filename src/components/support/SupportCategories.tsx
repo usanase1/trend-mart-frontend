@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 const categories = [
   { icon: '/icons/Truck.png', label: 'Track Order' },
@@ -28,7 +29,7 @@ const SupportCategories: React.FC = () => (
           className={`flex flex-row items-center w-full max-w-[312px] h-[80px] rounded-[4px] gap-4 opacity-100 border-2 bg-white p-6 cursor-pointer transition-all duration-200
             ${idx === 0 ? `${selectedBorderColor} ${selectedShadow}` : `${borderColor} ${cardShadow}`} hover:border-[#FA8232] hover:shadow-[0px_8px_40px_0px_#FA82321F]`}
         >
-          <img src={cat.icon} alt={cat.label} className="w-6 h-6 mr-4" style={{ filter: 'invert(48%) sepia(97%) saturate(749%) hue-rotate(353deg) brightness(101%) contrast(101%)' }} />
+          <Image src={cat.icon} alt={cat.label} width={24} height={24} className="w-6 h-6 mr-4" style={{ filter: 'invert(48%) sepia(97%) saturate(749%) hue-rotate(353deg) brightness(101%) contrast(101%)' }} />
           <span className="text-base font-medium text-black">{cat.label}</span>
         </div>
       ))}

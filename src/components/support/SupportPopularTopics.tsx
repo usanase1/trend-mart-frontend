@@ -10,8 +10,8 @@ const SupportPopularTopics: React.FC = () => (
         <li className="transition-colors duration-150 hover:text-[#FA8232] hover:font-semibold cursor-pointer">How long is the refund process?</li>
       </ul>
       <ul className="list-disc list-inside space-y-2">
-        <li className="transition-colors duration-150 hover:text-[#FA8232] hover:font-semibold cursor-pointer">What are the 'Delivery Timelines'?</li>
-        <li className="transition-colors duration-150 hover:text-[#FA8232] hover:font-semibold cursor-pointer">What is 'Discover Your Daraz Campaign 2022'?</li>
+        <li className="transition-colors duration-150 hover:text-[#FA8232] hover:font-semibold cursor-pointer">What are the &apos;Delivery Timelines&apos;?</li>
+        <li className="transition-colors duration-150 hover:text-[#FA8232] hover:font-semibold cursor-pointer">What is &apos;Discover Your Daraz Campaign 2022&apos;?</li>
         <li className="transition-colors duration-150 hover:text-[#FA8232] hover:font-semibold cursor-pointer">What is the Voucher & Gift Offer in this Campaign?</li>
       </ul>
       <ul className="list-disc list-inside space-y-2">
