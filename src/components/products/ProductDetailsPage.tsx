@@ -22,6 +22,7 @@ type Props = {
 
 export default function ProductDetails({ product }: Props) {
   return (
+   
     <div>
     <div className="max-w-[1300px] mx-auto px-4 py-12">
   
@@ -37,5 +38,6 @@ export default function ProductDetails({ product }: Props) {
     </div>
     <DealCategoriesSection/>
     </div>
+    
   );
 }

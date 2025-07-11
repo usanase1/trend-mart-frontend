@@ -2,11 +2,17 @@
 import { useCart } from "@/context/CartContext";
 import ProductTable from "@/components/cart/ProductTable.tsx";
 import CartSummary from "@/components/cart/CartSummary";
+import Navbar from "@/components/layout/NavBar";
+import Breadcrumb from "@/components/ui/Breadcrumb";
+import Footer from "@/components/layout/Footer";
 
 export default function ShoppingCartPage() {
   const { cartItems } = useCart();
 
   return (
+    <>
+    <Navbar/>
+    <Breadcrumb/>
     <main className="min-h-screen p-6 bg-gray-50 ">
        <h1 className="text-xl font-bold mb-6">Shopping Cart</h1>
        <div className="flex flex-row">
@@ -21,5 +27,7 @@ export default function ShoppingCartPage() {
         
       
     </main>
+    <Footer/>
+    </>
   );
 }
