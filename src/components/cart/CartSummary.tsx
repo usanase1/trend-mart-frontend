@@ -40,7 +40,11 @@ export default function CartSummary() {
         <span>${total.toFixed(2)} USD</span>
       </div>
 
-      <Button className="w-full mt-6 bg-orange-500 hover:bg-orange-600 text-white py-3 rounded">
+      <Button
+        as="a"
+        href="/checkout"
+        className="w-full mt-6 bg-orange-500 hover:bg-orange-600 text-white py-3 rounded"
+      >
         PROCEED TO CHECKOUT →
       </Button>
 
