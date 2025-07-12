@@ -79,7 +79,7 @@ export default function SignUpPage() {
   const handleGoogleSignUp = () => {
     console.log("Sign up with Google")
     // Handle Google authentication
-  }
+  };
 
   const handleAppleSignUp = () => {
     console.log("Sign up with Apple")
