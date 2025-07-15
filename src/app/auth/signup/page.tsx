@@ -73,17 +73,17 @@ export default function SignUpPage() {
     }
     setErrors([])
     console.log("Sign up data:", formData)
-    // Handle sign up logic here
+    
   }
 
   const handleGoogleSignUp = () => {
     console.log("Sign up with Google")
-    // Handle Google authentication
+    
   }
 
   const handleAppleSignUp = () => {
     console.log("Sign up with Apple")
-    // Handle Apple authentication
+    
   }
 
   return (
