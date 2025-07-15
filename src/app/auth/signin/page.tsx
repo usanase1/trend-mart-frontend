@@ -4,7 +4,7 @@ import LoginForm from '@/components/dashboard/LoginForm';
 export default function SignInPage() {
   return (
     <main className="min-h-screen flex items-center justify-center bg-gray-50 p-4">
-      <div className="w-full max-w-md rounded-2xl shadow-lg p-8 border border-gray-200 bg-white">
+      <div className="w-full max-w-md rounded-2xl shadow-lg p-8 border border-gray-200 bg-white dark:bg-gray-900 dark:text-white">
         <LoginForm />
       </div>
     </main>

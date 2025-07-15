@@ -7,7 +7,7 @@ export default function LatestNewsSection() {
       <h2 className="text-2xl font-bold text-center mb-10">Latest News</h2>
       <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {/* Card 1 */}
-        <div className="bg-white rounded-lg shadow-sm p-4 hover:shadow-md transition">
+        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-4 hover:shadow-md transition">
           <div className="w-full h-48 relative mb-4 rounded overflow-hidden">
             <Image
               src="/images/blog-1.jpg"
@@ -40,7 +40,7 @@ export default function LatestNewsSection() {
           </Button>
         </div>
         {/* Card 2 */}
-        <div className="bg-white rounded-lg shadow-sm p-4 hover:shadow-md transition">
+        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-4 hover:shadow-md transition">
           <div className="w-full h-48 relative mb-4 rounded overflow-hidden">
             <Image
               src="/images/blog-2.jpg"
@@ -73,7 +73,7 @@ export default function LatestNewsSection() {
           </Button>
         </div>
         {/* Card 3 */}
-        <div className="bg-white rounded-lg shadow-sm p-4 hover:shadow-md transition">
+        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-4 hover:shadow-md transition">
           <div className="w-full h-48 relative mb-4 rounded overflow-hidden">
             <Image
               src="/images/blog-3.jpg"

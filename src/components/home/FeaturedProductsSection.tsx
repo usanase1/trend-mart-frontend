@@ -57,7 +57,7 @@ export default function FeaturedProductsSection() {
             const badge = renderBadge(product.discount);
 
             return (
-              <div key={product.id} className="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition relative group">
+              <div key={product.id} className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm hover:shadow-md transition relative group">
                 <div className={`absolute top-2 left-2 ${badge.bg} ${badge.textColor} text-xs font-bold px-2 py-0.5 rounded`}>
                   {badge.text}
                 </div>
