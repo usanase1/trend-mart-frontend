@@ -12,7 +12,7 @@ interface HeroDealCardProps {
 }
 
 const HeroDealCard: React.FC<HeroDealCardProps> = ({ product, onAddToCart, onView, onWishlist }) => (
-  <div className="bg-white rounded-lg shadow p-6 flex flex-col items-center max-w-xs w-full">
+  <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-6 flex flex-col items-center max-w-xs w-full">
     <div className="w-full flex justify-center mb-4">
       <Image src={product.image} alt={product.name} width={180} height={180} className="object-contain" />
     </div>
@@ -30,7 +30,7 @@ const HeroDealCard: React.FC<HeroDealCardProps> = ({ product, onAddToCart, onVie
       <Button
         variant="outline"
         size="sm"
-        className="flex items-center justify-center w-10 h-10 rounded-full bg-white border border-gray-200 text-gray-500 hover:text-red-500 transition"
+        className="flex items-center justify-center w-10 h-10 rounded-full bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-gray-500 dark:text-gray-200 hover:text-red-500 transition"
         onClick={onWishlist ? () => onWishlist(product) : undefined}
       >
         <Heart size={18} />
@@ -46,7 +46,7 @@ const HeroDealCard: React.FC<HeroDealCardProps> = ({ product, onAddToCart, onVie
       <Button
         variant="outline"
         size="sm"
-        className="flex items-center justify-center w-10 h-10 rounded-full bg-white border border-gray-200 text-gray-500 hover:text-blue-600 transition"
+        className="flex items-center justify-center w-10 h-10 rounded-full bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-gray-500 dark:text-gray-200 hover:text-blue-600 transition"
         onClick={onView ? () => onView(product) : undefined}
       >
         <Eye size={18} />

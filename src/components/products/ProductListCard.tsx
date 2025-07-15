@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 const ProductListCard: React.FC<ProductListCardProps> = ({ product, onClick }) => (
   <div
-    className="flex items-center gap-4 bg-white p-3 rounded shadow-sm hover:shadow-md transition cursor-pointer"
+    className="flex items-center gap-4 bg-white dark:bg-gray-800 p-3 rounded shadow-sm hover:shadow-md transition cursor-pointer"
     onClick={() => onClick && onClick(product)}
   >
     <div className="relative w-20 h-20 flex-shrink-0">

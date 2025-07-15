@@ -4,6 +4,7 @@ import "./globals.css";
 
 import { CartProvider } from "@/context/CartContext";
 import { WishlistProvider } from "@/context/WishlistContext";
+import { DarkModeProvider } from '@/context/DarkModeContext';
 
 import CartModalContainer from "@/components/cart/CartModalContainer";
 import WishlistModalContainer from "@/components/wishlist/WishlistModalContainer";
@@ -48,21 +49,23 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white text-gray-900`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white text-gray-900 dark:bg-black dark:text-white`}
       >
-        <CartProvider>
-          <WishlistProvider>
-            {/* Global Modals */}
-            <CartModalContainer />
-            <WishlistModalContainer />
+        <DarkModeProvider>
+          <CartProvider>
+            <WishlistProvider>
+              {/* Global Modals */}
+              <CartModalContainer />
+              <WishlistModalContainer />
 
-            {/* Optional: <Header /> */}
+              {/* Optional: <Header /> */}
 
-            {children}
+              {children}
 
-            {/* Optional: <Footer /> */}
-          </WishlistProvider>
-        </CartProvider>
+              {/* Optional: <Footer /> */}
+            </WishlistProvider>
+          </CartProvider>
+        </DarkModeProvider>
       </body>
     </html>
   );

@@ -4,7 +4,7 @@ import ProductHoverActions from './ProductHoverActions';
 import { BestDealCardProps } from '@/types/products';
 
 const BestDealCard: React.FC<BestDealCardProps> = ({ product, onAddToCart }) => (
-  <div className="relative rounded-lg p-4 bg-white shadow group transition hover:shadow-md">
+  <div className="relative rounded-lg p-4 bg-white dark:bg-gray-800 shadow group transition hover:shadow-md">
     {/* Discount/Badge */}
     {product.discount >= 20 && (
       <div className="absolute top-2 left-2 bg-yellow-400 text-black text-xs font-bold px-2 py-0.5 rounded z-10">
