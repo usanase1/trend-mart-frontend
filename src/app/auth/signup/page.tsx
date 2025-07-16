@@ -6,75 +6,81 @@ import Link from "next/link"
 import Input from '@/components/ui/Input';
 import Button from '@/components/ui/Button';
 import Checkbox from '@/components/ui/Checkbox';
+import Cookies from 'js-cookie';
+import { z } from 'zod';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
 
-function validateEmail(email: string) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
-}
+// Zod schema for registration
+const registrationSchema = z.object({
+  username: z.string().min(1, 'Username is required'),
+  fullName: z.string().min(1, 'Full name is required'),
+  phoneNumber: z.string().min(1, 'Phone number is required'),
+  email: z.string().email('Please enter a valid email address'),
+  password: z.string()
+    .min(8, 'Password must be at least 8 characters')
+    .regex(/[0-9]/, 'Password must include at least one number')
+    .regex(/[^A-Za-z0-9]/, 'Password must include at least one symbol'),
+  confirmPassword: z.string(),
+}).refine((data) => data.password === data.confirmPassword, {
+  message: 'Passwords do not match',
+  path: ['confirmPassword'],
+});
 
-function validateSignUp(formData: { name: string; email: string; password: string; confirmPassword: string }, agreedToTerms: boolean) {
-  const errors: string[] = []
-  if (!formData.name) {
-    errors.push("Name is required.")
-  }
-  if (!formData.email) {
-    errors.push("Email is required.")
-  } else if (!validateEmail(formData.email)) {
-    errors.push("Please enter a valid email address.")
-  }
-  if (!formData.password) {
-    errors.push("Password is required.")
-  } else {
-    if (formData.password.length < 8) {
-      errors.push("Password must be at least 8 characters.")
-    }
-    if (!/[0-9]/.test(formData.password)) {
-      errors.push("Password must include at least one number.")
-    }
-    if (!/[^A-Za-z0-9]/.test(formData.password)) {
-      errors.push("Password must include at least one symbol.")
-    }
-  }
-  if (!formData.confirmPassword) {
-    errors.push("Please confirm your password.")
-  } else if (formData.password !== formData.confirmPassword) {
-    errors.push("Passwords do not match.")
-  }
-  if (!agreedToTerms) {
-    errors.push("You must agree to the Terms and Privacy Policy.")
-  }
-  return errors
-}
+type RegistrationFormData = z.infer<typeof registrationSchema>;
 
 export default function SignUpPage() {
-  const [agreedToTerms, setAgreedToTerms] = useState(false)
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
-  })
-  const [errors, setErrors] = useState<string[]>([])
+  const [agreedToTerms, setAgreedToTerms] = useState(false);
+  const [success, setSuccess] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [apiErrors, setApiErrors] = useState<string[]>([]);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }))
-    setErrors([])
-  }
+  const { register, handleSubmit, formState: { errors }, reset } = useForm<RegistrationFormData>({
+    resolver: zodResolver(registrationSchema),
+    mode: 'onTouched',
+  });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    const validationErrors = validateSignUp(formData, agreedToTerms)
-    if (validationErrors.length > 0) {
-      setErrors(validationErrors)
-      return
+  const onSubmit = async (data: RegistrationFormData) => {
+    setApiErrors([]);
+    setSuccess(null);
+    setLoading(true);
+    if (!agreedToTerms) {
+      setApiErrors(["You must agree to the Terms and Privacy Policy."]);
+      setLoading(false);
+      return;
     }
-    setErrors([])
-    console.log("Sign up data:", formData)
-    
-  }
+    try {
+      const res = await fetch("https://trendmart-be.onrender.com/auth/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+      });
+      let result;
+      const contentType = res.headers.get("content-type");
+      if (contentType && contentType.includes("application/json")) {
+        result = await res.json();
+      } else {
+        result = { message: await res.text() };
+      }
+      if (res.ok) {
+        setSuccess(result.message || "Registration successful! Please verify your email.");
+        if (result.token) {
+          Cookies.set('token', result.token, { expires: 7 });
+        }
+        reset();
+        setTimeout(() => {
+          window.location.href = "/auth/email-verification";
+        }, 1500);
+      } else {
+        setApiErrors([result.message || "Registration failed."]);
+        console.error('Registration error:', result);
+      }
+    } catch {
+      setApiErrors(["An error occurred. Please try again."]);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const handleGoogleSignUp = () => {
     console.log("Sign up with Google")
@@ -106,55 +112,68 @@ export default function SignUpPage() {
             </button>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
             {/* Error Messages */}
-            {errors.length > 0 && (
+            {(Object.keys(errors).length > 0 || apiErrors.length > 0) && (
               <div className="bg-red-100 text-red-700 px-4 py-2 rounded mb-2 text-sm">
                 <ul className="list-disc pl-5">
-                  {errors.map((err, idx) => (
-                    <li key={idx}>{err}</li>
+                  {Object.values(errors).map((err, idx) => (
+                    <li key={idx}>{err.message}</li>
+                  ))}
+                  {apiErrors.map((err, idx) => (
+                    <li key={idx + 100}>{err}</li>
                   ))}
                 </ul>
               </div>
             )}
-
+            {success && (
+              <div className="bg-green-100 text-green-700 px-4 py-2 rounded mb-2 text-sm">{success}</div>
+            )}
             <Input
-              id="name"
-              name="name"
-              label="Name"
+              id="username"
+              {...register('username')}
+              label="Username"
               type="text"
-              value={formData.name}
-              onChange={handleInputChange}
-              placeholder="Enter your name"
+              placeholder="Enter your username"
+              required
+            />
+            <Input
+              id="fullName"
+              {...register('fullName')}
+              label="Full Name"
+              type="text"
+              placeholder="Enter your full name"
+              required
+            />
+            <Input
+              id="phoneNumber"
+              {...register('phoneNumber')}
+              label="Phone Number"
+              type="text"
+              placeholder="Enter your phone number"
               required
             />
             <Input
               id="email"
-              name="email"
+              {...register('email')}
               label="Email Address"
               type="email"
-              value={formData.email}
-              onChange={handleInputChange}
               placeholder="Enter your email"
               required
             />
             <Input
               id="password"
-              name="password"
+              {...register('password')}
               label="Password"
               type="password"
-              value={formData.password}
-              onChange={handleInputChange}
               placeholder="Enter your password"
               required
             />
             <Input
               id="confirmPassword"
-              name="confirmPassword"
+              {...register('confirmPassword')}
               label="Confirm Password"
               type="password"
-              value={formData.confirmPassword}
-              onChange={handleInputChange}
               placeholder="Confirm your password"
               required
             />
@@ -170,8 +189,8 @@ export default function SignUpPage() {
               </label>
             </div>
             {/* Submit Button */}
-            <Button type="submit" variant="primary" fullWidth>
-              Sign Up
+            <Button type="submit" variant="primary" fullWidth disabled={loading}>
+              {loading ? "Registering..." : "Sign Up"}
             </Button>
           </form>
 

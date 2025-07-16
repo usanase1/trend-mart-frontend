@@ -8,18 +8,21 @@ import Navbar from '@/components/layout/NavBar';
 import Footer from '@/components/layout/Footer';
 import Breadcrumb from '@/components/ui/Breadcrumb';
 
+
 export default function CustomerSupport() {
   return (
-    <>
-    <Navbar/>
-    <Breadcrumb/>
-    <div className="bg-white min-h-screen flex flex-col">
-      <SupportHeader />
-      <SupportCategories />
-      <SupportPopularTopics />
-      <SupportContact />
-    </div>
-    <Footer/>
-    </>
+   
+      <>
+      <Navbar/>
+      <Breadcrumb/>
+      <div className="bg-white min-h-screen flex flex-col">
+        <SupportHeader />
+        <SupportCategories />
+        <SupportPopularTopics />
+        <SupportContact />
+      </div>
+      <Footer/>
+      </>
+   
   );
 }

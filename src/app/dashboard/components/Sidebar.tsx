@@ -49,7 +49,10 @@ export default function Sidebar() {
         );
       })}
       <Button
-        onClick={() => {}}
+        onClick={() => {
+          localStorage.removeItem('token');
+          window.location.href = '/';
+        }}
         className="flex items-center gap-3 text-red-600 px-2 py-2 w-full hover:bg-red-50 transition"
       >
         <LogOut size={18} />
