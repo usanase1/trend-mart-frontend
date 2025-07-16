@@ -6,28 +6,28 @@ import Navbar from "@/components/layout/NavBar";
 import Breadcrumb from "@/components/ui/Breadcrumb";
 import Footer from "@/components/layout/Footer";
 
+
 export default function ShoppingCartPage() {
   const { cartItems } = useCart();
 
   return (
-    <>
-    <Navbar/>
-    <Breadcrumb/>
-    <main className="min-h-screen p-6 bg-gray-50 ">
-       <h1 className="text-xl font-bold mb-6">Shopping Cart</h1>
-       <div className="flex flex-row">
-      <div className="max-w-6xl mx-auto border border-blue-200 p-6 rounded">
-        <ProductTable items={cartItems} type="cart" />
+    
+      <>
+      <Navbar/>
+      <Breadcrumb/>
+      <main className="min-h-screen p-6 bg-gray-50 ">
+         <h1 className="text-xl font-bold mb-6">Shopping Cart</h1>
+         <div className="flex flex-row">
+        <div className="max-w-6xl mx-auto border border-blue-200 p-6 rounded">
+          <ProductTable items={cartItems} type="cart" />
+          </div>
+          <div>
+           <CartSummary/>
         </div>
-        <div>
-         <CartSummary/>
-      </div>
-      </div>
-
-        
-      
-    </main>
-    <Footer/>
-    </>
+        </div>
+      </main>
+      <Footer/>
+      </>
+   
   );
 }

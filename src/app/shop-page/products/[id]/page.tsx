@@ -8,6 +8,7 @@ import { Product } from '@/types/products';
 import Navbar from "@/components/layout/NavBar";
 import Footer from "@/components/layout/Footer";
 
+
 type ExtendedProduct = Product & {
   images?: string[];
   shipping: {
@@ -37,13 +38,15 @@ export default function ProductDetailPage() {
   }
 
   return (
-    <>
-    <Navbar/>
-    <div className="container mx-auto px-4 py-10">
-      <Breadcrumb current={product.name} />
-      <ProductDetails product={product} />
-    </div>
-    <Footer/>
-    </>
+  
+      <>
+      <Navbar/>
+      <div className="container mx-auto px-4 py-10">
+        <Breadcrumb current={product.name} />
+        <ProductDetails product={product} />
+      </div>
+      <Footer/>
+      </>
+   
   );
 }
